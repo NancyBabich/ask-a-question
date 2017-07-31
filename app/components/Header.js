@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
+import Centered from './../styled-components/Centered';
 import Colors from './../consts/Colors';
 import Container from './../styled-components/Container';
 import RadioButton from './RadioButton';
@@ -38,55 +39,62 @@ export default class Header extends Component {
   render() {
     return (
       <NavContainer>
-        <BackButton>
-          <BackArrow />
-        </BackButton>
-        <Container>
+        <BackButtonContainer>
+          <BackButton>
+            <BackArrow />
+          </BackButton>
+        </BackButtonContainer>
+        <DisplaySettingsContainer>
           <StyledContainer>
-            Questions
-            <AddButton>+</AddButton>
-            <div>
-              My shelf{' '}
-              <RadioButton
-                on={!this.state.displayAllQuestions}
-                onClick={() => this.toggleDisplaySettings('myShelf')}
-              />
-            </div>
-            <div>
-              All questions{' '}
-              <RadioButton
-                on={this.state.displayAllQuestions}
-                onClick={() => this.toggleDisplaySettings('allQuestions')}
-              />
-            </div>
-            <div>
-              Sort by:{' '}
-              <Sort
-                active={!this.state.sortByHot}
-                onClick={() => this.toggleDisplaySettings('recent')}
-              >
-                recent
-              </Sort>{' '}
-              or{' '}
-              <Sort
-                active={this.state.sortByHot}
-                onClick={() => this.toggleDisplaySettings('hot')}
-              >
-                hot
-              </Sort>
-            </div>
+            <StyledContainer>
+              Questions
+              <AddButton>+</AddButton>
+            </StyledContainer>
+            <StyledContainer>
+              <StyledContainer>
+                <RadioButton
+                  on={!this.state.displayAllQuestions}
+                  onClick={() => this.toggleDisplaySettings('myShelf')}
+                />
+                <span>My shelf</span>
+              </StyledContainer>
+              <StyledContainer>
+                <RadioButton
+                  on={this.state.displayAllQuestions}
+                  onClick={() => this.toggleDisplaySettings('allQuestions')}
+                />
+                <span>All questions</span>
+              </StyledContainer>
+              <StyledContainer>
+                Sort by:{' '}
+                <Sort
+                  active={!this.state.sortByHot}
+                  onClick={() => this.toggleDisplaySettings('recent')}
+                >
+                  recent
+                </Sort>{' '}
+                or{' '}
+                <Sort
+                  active={this.state.sortByHot}
+                  onClick={() => this.toggleDisplaySettings('hot')}
+                >
+                  hot
+                </Sort>
+              </StyledContainer>
+            </StyledContainer>
           </StyledContainer>
           {this.props.searchBar &&
             <StyledContainer>
-              <div>search bar</div>
+              <StyledInput placeholder="Search questions" />
             </StyledContainer>}
-        </Container>
+        </DisplaySettingsContainer>
       </NavContainer>
     );
   }
 }
 
 const AddButton = styled.div`
+  margin-left: 2rem;
   width: 1rem;
   height: 1rem;
   background-color: ${Colors.darkBlue};
@@ -94,6 +102,9 @@ const AddButton = styled.div`
   border-radius: 50%;
   text-align: center;
   line-height: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const BackArrow = styled.div`
@@ -119,11 +130,24 @@ const BackButton = styled.div`
   }
 `;
 
+const BackButtonContainer = Centered.extend`
+  display: flex;
+  justify-content: center;
+  width: 20%;
+`;
+
+const DisplaySettingsContainer = Container.extend`
+  width: 80%;
+  align-items: space-between;
+  padding-right: 10rem;
+`;
+
 const NavContainer = styled.div`
   position: fixed;
   top: 0;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 7rem;
@@ -133,8 +157,17 @@ const Sort = styled.div`
   color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
   font-weight: bold;
   text-decoration: ${ifProp('active', 'underline', 'none')};
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const StyledContainer = styled(Container)`
+const StyledContainer = Container.extend`
   flex-direction: row;
+  justify-content: space-between;
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  background-color: ${Colors.lightGray};
 `;

@@ -12,10 +12,14 @@ const RadioButtonSymbol = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 1rem;
   width: 1rem;
   height: 1rem;
   border: 1px solid ${Colors.darkGray};
   border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const RadioButtonFill = styled.div`
