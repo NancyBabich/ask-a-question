@@ -12,19 +12,19 @@ const RadioButtonSymbol = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 1rem;
-  width: 1rem;
-  height: 1rem;
+  width: .5rem;
+  height: .5rem;
   border: 1px solid ${Colors.darkGray};
   border-radius: 50%;
+  margin: 0 .5rem;
   &:hover {
     cursor: pointer;
   }
 `;
 
 const RadioButtonFill = styled.div`
-  width: .5rem;
-  height: .5rem;
+  width: .25rem;
+  height: .25rem;
   background-color: ${Colors.darkGray};
   border: 1px solid ${Colors.darkGray};
   border-radius: 50px;
