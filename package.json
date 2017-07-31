@@ -1,0 +1,24 @@
+{
+  "name": "ask-a-question",
+  "version": "1.0.0",
+  "description": "user interface for a q&a app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NancyBabich/ask-a-question.git"
+  },
+  "keywords": [
+    "q&a",
+    "react",
+    "ui"
+  ],
+  "author": "Maciek Maslowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NancyBabich/ask-a-question/issues"
+  },
+  "homepage": "https://github.com/NancyBabich/ask-a-question#readme"
+}
