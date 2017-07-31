@@ -4,7 +4,11 @@
   "description": "user interface for a q&a app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "production": "webpack -p",
+    "start": "webpack-dev-server --inline --hot",
+    "prettier": "prettier --single-quote --write './src/**/*.js'",
+    "flow": "flow"
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,23 @@
   ],
   "author": "Maciek Maslowski",
   "license": "ISC",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "styled-components": "^2.1.1",
+    "styled-tools": "^0.1.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "html-webpack-plugin": "^2.26.0",
+    "prettier": "^1.5.3",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2",
+    "flow-bin": "^0.47.0"
+  },
   "bugs": {
     "url": "https://github.com/NancyBabich/ask-a-question/issues"
   },
