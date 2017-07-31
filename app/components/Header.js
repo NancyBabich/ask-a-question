@@ -1,25 +1,64 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Colors from './../consts/Colors';
 import Container from './../styled-components/Container';
+import RadioButton from './RadioButton';
 
-const Header = ({ rightComponent, searchBar }) =>
-  <NavContainer>
-    <BackButton>
-      <BackArrow />
-    </BackButton>
-    <Container>
-      <StyledContainer>
-        Questions
-        <AddButton>+</AddButton>
-      </StyledContainer>
-      {searchBar &&
-        <StyledContainer>
-          <div>search bar</div>
-        </StyledContainer>}
-    </Container>
-  </NavContainer>;
+export default class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayAllQuestions: false
+    };
+  }
+
+  handleDisplayChange = buttonName => {
+    if (
+      (buttonName === 'allQuestions' && !this.state.displayAllQuestions) ||
+      (buttonName === 'myShelf' && this.state.displayAllQuestions === true)
+    ) {
+      this.setState({
+        displayAllQuestions: !this.state.displayAllQuestions
+      });
+    }
+  };
+
+  render() {
+    return (
+      <NavContainer>
+        <BackButton>
+          <BackArrow />
+        </BackButton>
+        <Container>
+          <StyledContainer>
+            Questions
+            <AddButton>+</AddButton>
+            <div>
+              My shelf{' '}
+              <RadioButton
+                on={!this.state.displayAllQuestions}
+                onClick={() => this.handleDisplayChange('myShelf')}
+              />
+            </div>
+            <div>
+              All questions{' '}
+              <RadioButton
+                on={this.state.displayAllQuestions}
+                onClick={() => this.handleDisplayChange('allQuestions')}
+              />
+            </div>
+            <div>Sort by recent or hot</div>
+          </StyledContainer>
+          {this.props.searchBar &&
+            <StyledContainer>
+              <div>search bar</div>
+            </StyledContainer>}
+        </Container>
+      </NavContainer>
+    );
+  }
+}
 
 const AddButton = styled.div`
   width: 1rem;
@@ -28,6 +67,7 @@ const AddButton = styled.div`
   border: 1px solid ${Colors.darkBlue};
   border-radius: 50%;
   text-align: center;
+  line-height: 1rem;
 `;
 
 const BackArrow = styled.div`
@@ -66,5 +106,3 @@ const NavContainer = styled.div`
 const StyledContainer = styled(Container)`
   flex-direction: row;
 `;
-
-export default Header;

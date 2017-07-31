@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Header from './components/Header';
 
 ReactDOM.render(
-  <Header searchBar rightComponent={<div>dupa</div>} />,
+  <div>
+    <Header searchBar rightComponent={<div>test</div>} />
+  </div>,
   document.getElementById('app')
 );
