@@ -27,7 +27,7 @@ const RadioButtonFill = styled.div`
   height: .25rem;
   background-color: ${Colors.darkGray};
   border: 1px solid ${Colors.darkGray};
-  border-radius: 50px;
+  border-radius: 50%;
 `;
 
 export default RadioButton;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
 import Centered from './../styled-components/Centered';
+import Container from './../styled-components/Container';
 import Colors from './../consts/Colors';
 
 const Header = ({ rightComponent }) =>
@@ -17,9 +18,9 @@ const Header = ({ rightComponent }) =>
 
 const BackArrow = styled.div`
   position: absolute;
-  left: 1.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  left: .75rem;
+  width: .75rem;
+  height: .75rem;
   border-bottom: solid 1px ${Colors.gray};
   border-left: solid 1px ${Colors.gray};
   transform: rotate(45deg);
@@ -29,8 +30,8 @@ const BackButton = styled.div`
   display: flex;
   position: relative;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
+  width: 2rem;
+  height: 2rem;
   border: solid 1px ${Colors.gray};
   border-radius: 50%;
   &:hover {
@@ -38,9 +39,10 @@ const BackButton = styled.div`
   }
 `;
 
-const BackButtonContainer = Centered.extend`
+const BackButtonContainer = Container.extend`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   width: 20%;
 `;
 
@@ -51,7 +53,7 @@ const NavContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 7rem;
+  height: 10rem;
 `;
 
 export default Header;

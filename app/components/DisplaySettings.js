@@ -80,9 +80,10 @@ export default class DisplaySettings extends Component {
           </Settings>
         </StyledContainer>
         {this.props.searchBar &&
-          <StyledContainer>
+          <InputContainer>
             <StyledInput placeholder="Search questions" />
-          </StyledContainer>}
+            <SubmitButtton>search</SubmitButtton>
+          </InputContainer>}
       </DisplaySettingsContainer>
     );
   }
@@ -90,13 +91,16 @@ export default class DisplaySettings extends Component {
 
 const AddButton = styled.div`
   margin-left: 2rem;
-  width: 2rem;
-  height: 2rem;
+  width: 1.25rem;
+  height: 1.25rem;
   background-color: ${Colors.darkBlue};
   border: 1px solid ${Colors.darkBlue};
   border-radius: 50%;
   text-align: center;
-  line-height: 2rem;
+  line-height: 1.25rem;
+  color: white;
+  font-weight: 400;
+  font-size: 1.5rem;
   &:hover {
     cursor: pointer;
   }
@@ -107,6 +111,8 @@ const AddQuestion = Centered.extend`
   justify-content: flex-start;
   width: 40%;
   text-transform: uppercase;
+  font-size: 1.75em;
+  font-weight: 700;
 `;
 
 const DisplaySettingsContainer = Container.extend`
@@ -120,6 +126,13 @@ const FilterRadioButton = Centered.extend`
 `;
 
 const FilterSettings = Centered.extend`width: 50%;`;
+
+const InputContainer = Container.extend`
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0;
+`;
 
 const Settings = Centered.extend`
   display: flex;
@@ -143,9 +156,24 @@ const SortSettings = Centered.extend`
 const StyledContainer = Container.extend`
   flex-direction: row;
   width: 100%;
+  padding: 1rem 0;
 `;
 
 const StyledInput = styled.input`
-  width: 87.5%;
+  width: 70%;
   background-color: ${Colors.lightGray};
+  padding: .5rem;
+`;
+
+const SubmitButtton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  text-transform: uppercase;
+  border: solid 1px ${Colors.darkGray};
+  color: ${Colors.darkGray};
+  &:hover {
+    cursor: pointer;
+  }
 `;

@@ -7,7 +7,7 @@ import Header from './components/Header';
 
 ReactDOM.render(
   <AppContainer>
-    <Header searchBar rightComponent={<DisplaySettings searchBar />} />
+    <Header rightComponent={<DisplaySettings searchBar />} />
   </AppContainer>,
   document.getElementById('app')
 );
