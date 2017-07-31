@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { ifProp } from 'styled-tools';
 
 import Colors from './../consts/Colors';
 import Container from './../styled-components/Container';
@@ -9,17 +10,27 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayAllQuestions: false
+      displayAllQuestions: false,
+      sortByHot: false
     };
   }
 
-  handleDisplayChange = buttonName => {
+  toggleDisplaySettings = buttonName => {
     if (
       (buttonName === 'allQuestions' && !this.state.displayAllQuestions) ||
       (buttonName === 'myShelf' && this.state.displayAllQuestions === true)
     ) {
       this.setState({
         displayAllQuestions: !this.state.displayAllQuestions
+      });
+    }
+
+    if (
+      (buttonName === 'recent' && this.state.sortByHot) ||
+      (buttonName === 'hot' && !this.state.sortByHot)
+    ) {
+      this.setState({
+        sortByHot: !this.state.sortByHot
       });
     }
   };
@@ -38,17 +49,32 @@ export default class Header extends Component {
               My shelf{' '}
               <RadioButton
                 on={!this.state.displayAllQuestions}
-                onClick={() => this.handleDisplayChange('myShelf')}
+                onClick={() => this.toggleDisplaySettings('myShelf')}
               />
             </div>
             <div>
               All questions{' '}
               <RadioButton
                 on={this.state.displayAllQuestions}
-                onClick={() => this.handleDisplayChange('allQuestions')}
+                onClick={() => this.toggleDisplaySettings('allQuestions')}
               />
             </div>
-            <div>Sort by recent or hot</div>
+            <div>
+              Sort by:{' '}
+              <Sort
+                active={!this.state.sortByHot}
+                onClick={() => this.toggleDisplaySettings('recent')}
+              >
+                recent
+              </Sort>{' '}
+              or{' '}
+              <Sort
+                active={this.state.sortByHot}
+                onClick={() => this.toggleDisplaySettings('hot')}
+              >
+                hot
+              </Sort>
+            </div>
           </StyledContainer>
           {this.props.searchBar &&
             <StyledContainer>
@@ -101,6 +127,12 @@ const NavContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 7rem;
+`;
+
+const Sort = styled.div`
+  color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
+  font-weight: bold;
+  text-decoration: ${ifProp('active', 'underline', 'none')};
 `;
 
 const StyledContainer = styled(Container)`
