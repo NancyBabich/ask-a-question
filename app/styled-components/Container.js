@@ -11,7 +11,6 @@ const Container = styled.div`
   width: auto;
   margin: 0;
   background: none;
-  background-color: red;
 `;
 
 export default Container;
