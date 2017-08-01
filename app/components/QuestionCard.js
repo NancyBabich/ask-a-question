@@ -5,13 +5,13 @@ import ActivityCard from './../components/ActivityCard';
 import Colors from './../consts/Colors';
 
 const QuestionCard = () => {
-  const keys = [1, 2, 3, 4];
+  const keys = [1, 2, 3, 4, 5, 6];
 
-  let cards = keys.map(key => {
+  let activityCards = keys.slice(0, 4).map((key, i) => {
     return (
       <ActivityCard
-        key={key}
-        activity="commented"
+        key={i}
+        activity={i + 1}
         imgSrc="https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg"
       />
     );
@@ -20,9 +20,14 @@ const QuestionCard = () => {
   return (
     <QuestionCardContainer>
       <MainCard>
-        <ActivityCardsContainer>
-          {cards}
-        </ActivityCardsContainer>
+        {keys.length <= 5
+          ? <ActivityCardsContainer>activityCards</ActivityCardsContainer>
+          : <ActivityCardsContainer>
+              <RemainingActivitiesCard>
+                {keys.length - 4} more activities
+              </RemainingActivitiesCard>
+              {activityCards}
+            </ActivityCardsContainer>}
       </MainCard>
     </QuestionCardContainer>
   );
@@ -60,4 +65,15 @@ const QuestionCardContainer = styled.div`
   height: 15rem;
   margin-top: 10rem;
   border: solid 1px black;
+`;
+
+const RemainingActivitiesCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 90%;
+  width: 20%;
+  margin: .25rem;
+  font-size: .5em;
 `;
