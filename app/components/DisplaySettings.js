@@ -111,7 +111,7 @@ const AddQuestion = Centered.extend`
   justify-content: flex-start;
   width: 40%;
   text-transform: uppercase;
-  font-size: 1.75em;
+  font-size: 2rem;
   font-weight: 700;
 `;
 
@@ -137,11 +137,11 @@ const InputContainer = Container.extend`
 const Settings = Centered.extend`
   display: flex;
   width: 60%;
+  font-size: .9rem;
 `;
 
 const Sort = styled.div`
   color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
-  font-weight: bold;
   text-decoration: ${ifProp('active', 'underline', 'none')};
   font-style: normal;
   &:hover {
@@ -153,7 +153,6 @@ const SortSettings = Centered.extend`
   width: 50%;
   justify-content: flex-end;
   font-style: italic;
-  font-weight: bold;
 `;
 
 const StyledContainer = Container.extend`

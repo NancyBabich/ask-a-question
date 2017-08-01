@@ -12,11 +12,11 @@ const RadioButtonSymbol = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: .5rem;
-  height: .5rem;
+  width: .75rem;
+  height: .75rem;
   border: 1px solid ${Colors.darkGray};
   border-radius: 50%;
-  margin: 0 .25rem;
+  margin: 0 .5rem 0 0;
   &:hover {
     cursor: pointer;
   }
