@@ -20,8 +20,8 @@ const QuestionCard = ({ mainImgSrc }) => {
 
   return (
     <QuestionCardContainer>
-      <MainCard>
-        <MainCardHeader>
+      <PrimaryCard>
+        <PrimaryCardHeader>
           <HeaderImageContainer>
             <ProfilePicture src={mainImgSrc} />
           </HeaderImageContainer>
@@ -31,14 +31,14 @@ const QuestionCard = ({ mainImgSrc }) => {
             </Title>
             <Question>Will insulin make my patient gain weight?</Question>
           </TitleContainer>
-        </MainCardHeader>
-        <MainCardBody>
+        </PrimaryCardHeader>
+        <PrimaryCardBody>
           <QuestionStatusContainer>
             <QuestionStatus>asked</QuestionStatus>
           </QuestionStatusContainer>
           {keys.length <= 5
-            ? <ActivityCardsContainer>activityCards</ActivityCardsContainer>
-            : <ActivityCardsContainer>
+            ? <SecondaryCard>activityCards</SecondaryCard>
+            : <SecondaryCard>
                 <RemainingActivitiesCard>
                   <NumberContainer>
                     {keys.length - 4}
@@ -46,9 +46,9 @@ const QuestionCard = ({ mainImgSrc }) => {
                   <div>more activities</div>
                 </RemainingActivitiesCard>
                 {activityCards}
-              </ActivityCardsContainer>}
-        </MainCardBody>
-      </MainCard>
+              </SecondaryCard>}
+        </PrimaryCardBody>
+      </PrimaryCard>
       <StatsContainer>
         <Stats>
           <div>1 related discussion</div>
@@ -62,7 +62,7 @@ const QuestionCard = ({ mainImgSrc }) => {
 
 export default QuestionCard;
 
-const ActivityCardsContainer = styled.div`
+const SecondaryCard = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -77,7 +77,7 @@ const HeaderImageContainer = styled.div`
   padding: 1rem 0 0 1rem;
 `;
 
-const MainCard = styled.div`
+const PrimaryCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -87,13 +87,13 @@ const MainCard = styled.div`
   background-color: ${Colors.lightBlue};
 `;
 
-const MainCardBody = styled.div`
+const PrimaryCardBody = styled.div`
   display: flex;
   height: 60%;
   width: 100%;
 `;
 
-const MainCardHeader = styled.div`
+const PrimaryCardHeader = styled.div`
   display: flex;
   height: 40%;
   width: 100%;
