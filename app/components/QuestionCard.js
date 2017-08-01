@@ -6,20 +6,30 @@ import Colors from './../consts/Colors';
 const QuestionCard = () =>
   <QuestionCardContainer>
     <MainCard>
-      <ActivityCardsContainer>hej</ActivityCardsContainer>
+      <ActivityCardsContainer>
+        <ActivityCard>hej</ActivityCard>
+      </ActivityCardsContainer>
     </MainCard>
   </QuestionCardContainer>;
 
 export default QuestionCard;
 
+const ActivityCard = styled.div`
+  display: flex;
+  height: 90%;
+  width: 20%;
+  background-color: ${Colors.lightGray};
+`;
+
 const ActivityCardsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   background-color: white;
   width: 80%;
-  height: 80%;
+  height: 70%;
+  padding: 1rem 0 0 1rem;
 `;
 
 const MainCard = styled.div`
