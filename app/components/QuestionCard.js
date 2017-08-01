@@ -1,25 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ActivityCard from './../components/ActivityCard';
 import Colors from './../consts/Colors';
 
 const QuestionCard = () =>
   <QuestionCardContainer>
     <MainCard>
       <ActivityCardsContainer>
-        <ActivityCard>hej</ActivityCard>
+        <ActivityCard imgSrc="https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg" />{' '}
       </ActivityCardsContainer>
     </MainCard>
   </QuestionCardContainer>;
 
 export default QuestionCard;
-
-const ActivityCard = styled.div`
-  display: flex;
-  height: 90%;
-  width: 20%;
-  background-color: ${Colors.lightGray};
-`;
 
 const ActivityCardsContainer = styled.div`
   display: flex;
