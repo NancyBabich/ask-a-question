@@ -57,6 +57,7 @@ const NavContainer = styled.div`
   width: 100%;
   height: 10rem;
   background-color: white;
+  font-weight: 700;
 `;
 
 export default Header;

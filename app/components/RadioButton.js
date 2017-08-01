@@ -16,7 +16,7 @@ const RadioButtonSymbol = styled.div`
   height: .5rem;
   border: 1px solid ${Colors.darkGray};
   border-radius: 50%;
-  margin: 0 .5rem;
+  margin: 0 .25rem;
   &:hover {
     cursor: pointer;
   }
