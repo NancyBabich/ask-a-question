@@ -44,6 +44,8 @@ const BackButtonContainer = Container.extend`
   justify-content: flex-start;
   align-items: center;
   width: 20%;
+  height: 50%;
+  padding-top: 1rem;
 `;
 
 const NavContainer = styled.div`

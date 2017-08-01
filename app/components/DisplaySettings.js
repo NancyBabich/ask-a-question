@@ -143,6 +143,7 @@ const Sort = styled.div`
   color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
   font-weight: bold;
   text-decoration: ${ifProp('active', 'underline', 'none')};
+  font-style: normal;
   &:hover {
     cursor: pointer;
   }
@@ -151,6 +152,8 @@ const Sort = styled.div`
 const SortSettings = Centered.extend`
   width: 50%;
   justify-content: flex-end;
+  font-style: italic;
+  font-weight: bold;
 `;
 
 const StyledContainer = Container.extend`
