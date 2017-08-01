@@ -24,7 +24,7 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 90%;
+  height: 70%;
   width: 20%;
   background-color: ${Colors.lightGray};
   margin: .25rem;

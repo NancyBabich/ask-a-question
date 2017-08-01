@@ -13,7 +13,7 @@ const QuestionCard = ({ mainImgSrc }) => {
       <ActivityCard
         key={i}
         activity={i + 1}
-        imgSrc="https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg"
+        imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
       />
     );
   });
@@ -26,12 +26,16 @@ const QuestionCard = ({ mainImgSrc }) => {
             <ProfilePicture src={mainImgSrc} />
           </HeaderImageContainer>
           <TitleContainer>
-            <div>Eva is asking</div>
-            <div>Will insulin make my patient gain weight?</div>
+            <Title>
+              <Name>Eva </Name>is asking
+            </Title>
+            <Question>Will insulin make my patient gain weight?</Question>
           </TitleContainer>
         </MainCardHeader>
         <MainCardBody>
-          <Wtf>hej</Wtf>
+          <QuestionStatusContainer>
+            <QuestionStatus>asked</QuestionStatus>
+          </QuestionStatusContainer>
           {keys.length <= 5
             ? <ActivityCardsContainer>activityCards</ActivityCardsContainer>
             : <ActivityCardsContainer>
@@ -45,6 +49,13 @@ const QuestionCard = ({ mainImgSrc }) => {
               </ActivityCardsContainer>}
         </MainCardBody>
       </MainCard>
+      <StatsContainer>
+        <Stats>
+          <div>1 related discussion</div>
+          <div>6 peers involved</div>
+          <div>3 conversations</div>
+        </Stats>
+      </StatsContainer>
     </QuestionCardContainer>
   );
 };
@@ -58,8 +69,6 @@ const ActivityCardsContainer = styled.div`
   align-items: flex-end;
   background-color: white;
   width: 80%;
-  height: 100%
-  padding: 3rem 0 0 1rem;
 `;
 
 const HeaderImageContainer = styled.div`
@@ -73,7 +82,7 @@ const MainCard = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  height: 80%;
+  height: 90%;
   width: 80%;
   background-color: ${Colors.lightBlue};
 `;
@@ -90,12 +99,22 @@ const MainCardHeader = styled.div`
   width: 100%;
 `;
 
+const Name = styled.span`
+  text-transform: none;
+  color: ${Colors.darkBlue};
+`;
+
 const NumberContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 2rem;
   height: 2rem;
+`;
+
+const Question = styled.div`
+  color: ${Colors.darkBlue};
+  font-style: italic;
 `;
 
 const QuestionCardContainer = styled.div`
@@ -114,11 +133,34 @@ const RemainingActivitiesCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 90%;
+  height: 70%;
   width: 20%;
   margin: .25rem;
   padding: .5rem 0;
   font-size: .5em;
+`;
+
+const Stats = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 48%;
+  font-size: .75rem;
+`;
+
+const StatsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+  height: 90%;
+`;
+
+const Title = styled.div`
+  color: ${Colors.darkGray};
+  text-transform: uppercase;
 `;
 
 const TitleContainer = styled.div`
@@ -128,10 +170,18 @@ const TitleContainer = styled.div`
   width: 80%;
 `;
 
-const Wtf = styled.div`
+const QuestionStatus = styled.div`
+  width: 80%;
+  border-top: solid 1px ${Colors.darkGray};
+  text-align: center;
+`;
+
+const QuestionStatusContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   width: 20%;
+  text-transform: uppercase;
+  color: ${Colors.darkGray};
 `;

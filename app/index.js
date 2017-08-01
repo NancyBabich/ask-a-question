@@ -11,10 +11,10 @@ ReactDOM.render(
   <AppContainer>
     <Header rightComponent={<DisplaySettings searchBar />} />
     <ContentContainer>
-      <QuestionCard mainImgSrc="https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg" />
+      <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
     </ContentContainer>
     <ContentContainer>
-      <QuestionCard mainImgSrc="https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg" />
+      <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
     </ContentContainer>
   </AppContainer>,
   document.getElementById('app')
