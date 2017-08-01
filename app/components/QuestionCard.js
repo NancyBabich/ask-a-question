@@ -124,7 +124,6 @@ const QuestionCardContainer = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 25rem;
-  margin-top: 10rem;
   border: solid 1px ${Colors.lightGray};
 `;
 
