@@ -34,4 +34,5 @@ const StyledDiv = styled.div`
   background-color: ${Colors.lightGray};
   margin: .25rem;
   font-size: .5em;
+  padding: .5rem 0;
 `;

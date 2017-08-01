@@ -24,7 +24,10 @@ const QuestionCard = () => {
           ? <ActivityCardsContainer>activityCards</ActivityCardsContainer>
           : <ActivityCardsContainer>
               <RemainingActivitiesCard>
-                {keys.length - 4} more activities
+                <NumberContainer>
+                  {keys.length - 4}
+                </NumberContainer>
+                <div>more activities</div>
               </RemainingActivitiesCard>
               {activityCards}
             </ActivityCardsContainer>}
@@ -56,6 +59,14 @@ const MainCard = styled.div`
   background-color: ${Colors.lightBlue};
 `;
 
+const NumberContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+`;
+
 const QuestionCardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -64,16 +75,17 @@ const QuestionCardContainer = styled.div`
   width: 100%;
   height: 15rem;
   margin-top: 10rem;
-  border: solid 1px black;
+  border: solid 1px ${Colors.lightGray};
 `;
 
 const RemainingActivitiesCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   height: 90%;
   width: 20%;
   margin: .25rem;
+  padding: .5rem 0;
   font-size: .5em;
 `;
