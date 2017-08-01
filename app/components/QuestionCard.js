@@ -12,7 +12,7 @@ const QuestionCard = ({ mainImgSrc }) => {
     return (
       <ActivityCard
         key={i}
-        activity={i + 1}
+        activity="commented"
         imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
       />
     );

@@ -62,19 +62,19 @@ export default class DisplaySettings extends Component {
               </FilterRadioButton>
             </FilterSettings>
             <SortSettings>
-              <span>Sort by: </span>
+              <div>Sort by: &nbsp;</div>
               <Sort
                 active={!this.state.sortByHot}
                 onClick={() => this.toggleDisplaySettings('recent')}
               >
                 recent
               </Sort>
-              <span>or</span>
+              <div>&nbsp; or &nbsp;</div>
               <Sort
                 active={this.state.sortByHot}
                 onClick={() => this.toggleDisplaySettings('hot')}
               >
-                <span>hot</span>
+                hot
               </Sort>
             </SortSettings>
           </Settings>
