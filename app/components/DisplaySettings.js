@@ -62,7 +62,7 @@ export default class DisplaySettings extends Component {
               </FilterRadioButton>
             </FilterSettings>
             <SortSettings>
-              <span>Sort by:</span>
+              <span>Sort by: </span>
               <Sort
                 active={!this.state.sortByHot}
                 onClick={() => this.toggleDisplaySettings('recent')}
@@ -160,7 +160,7 @@ const StyledContainer = Container.extend`
 `;
 
 const StyledInput = styled.input`
-  width: 70%;
+  width: 75%;
   background-color: ${Colors.lightGray};
   padding: .5rem;
 `;
@@ -169,7 +169,7 @@ const SubmitButtton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
+  width: 20%;
   text-transform: uppercase;
   border: solid 1px ${Colors.darkGray};
   color: ${Colors.darkGray};

@@ -102,6 +102,9 @@ const MainCardHeader = styled.div`
 const Name = styled.span`
   text-transform: none;
   color: ${Colors.darkBlue};
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const NumberContainer = styled.div`
