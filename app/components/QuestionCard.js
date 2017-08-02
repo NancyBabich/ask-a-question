@@ -100,6 +100,7 @@ const QuestionCardContainer = styled.div`
   width: 100%;
   height: 25rem;
   border: solid 1px ${Colors.lightGray};
+  background-color: white;
 `;
 
 const Stats = styled.div`
