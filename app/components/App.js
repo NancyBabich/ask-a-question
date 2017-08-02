@@ -4,6 +4,7 @@ import { history } from '../history';
 
 import AppContainer from './AppContainer';
 import IndividualQuestion from './IndividualQuestion';
+import Profile from './Profile';
 import Questions from './Questions';
 
 const App = () =>
@@ -11,6 +12,7 @@ const App = () =>
     <AppContainer>
       <Route exact path="/" component={Questions} />
       <Route path="/new" component={IndividualQuestion} />
+      <Route path="/profile" component={Profile} />
     </AppContainer>
   </Router>;
 

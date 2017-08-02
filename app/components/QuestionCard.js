@@ -14,7 +14,10 @@ const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
     <PrimaryCard individualQuestion={individualQuestion}>
       <PrimaryCardHeader>
         <HeaderImageContainer>
-          <ProfilePicture src={mainImgSrc} />
+          <ProfilePicture
+            src={mainImgSrc}
+            onClick={() => history.push('/profile')}
+          />
         </HeaderImageContainer>
         <TitleContainer>
           <Title>
