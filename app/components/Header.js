@@ -116,8 +116,7 @@ const NavContainer = styled.div`
   position: fixed;
   top: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   height: 8rem;
   background-color: white;
