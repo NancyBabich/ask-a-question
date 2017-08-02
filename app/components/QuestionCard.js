@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router';
 
 import Colors from './../consts/Colors';
 import ProfilePicture from './../styled-components/ProfilePicture';
 import SecondaryCard from './SecondaryCard';
 
-const QuestionCard = ({ mainImgSrc }) =>
+const QuestionCard = ({ mainImgSrc, history }) =>
   <QuestionCardContainer>
     <PrimaryCard>
       <PrimaryCardHeader>
@@ -16,7 +17,9 @@ const QuestionCard = ({ mainImgSrc }) =>
           <Title>
             <Name>Eva </Name>is asking
           </Title>
-          <Question>Will insulin make my patient gain weight?</Question>
+          <Question onClick={() => history.push('/new')}>
+            Will insulin make my patient gain weight?
+          </Question>
         </TitleContainer>
       </PrimaryCardHeader>
       <PrimaryCardBody>
@@ -35,7 +38,7 @@ const QuestionCard = ({ mainImgSrc }) =>
     </StatsContainer>
   </QuestionCardContainer>;
 
-export default QuestionCard;
+export default withRouter(QuestionCard);
 
 const HeaderImageContainer = styled.div`
   display: flex;
@@ -76,6 +79,9 @@ const Name = styled.span`
 const Question = styled.div`
   color: ${Colors.darkBlue};
   font-style: italic;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const QuestionCardContainer = styled.div`

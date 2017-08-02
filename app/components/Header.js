@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
+import { withRouter } from 'react-router';
 
 import Centered from './../styled-components/Centered';
 import Container from './../styled-components/Container';
@@ -9,14 +10,14 @@ import Colors from './../consts/Colors';
 const Header = ({ rightComponent, searchBar }) =>
   <NavContainer>
     <BackButtonContainer>
-      <BackButton>
+      <BackButton onClick={() => history.go(-1)}>
         <BackArrow />
       </BackButton>
     </BackButtonContainer>
     <DisplaySettingsContainer>
       <StyledContainer>
         <AddQuestion>
-          <div>Questions</div>
+          <div>Question</div>
           <AddButtonContainer>
             <AddButton>+</AddButton>
           </AddButtonContainer>
@@ -32,6 +33,8 @@ const Header = ({ rightComponent, searchBar }) =>
       </StyledContainer>
     </DisplaySettingsContainer>
   </NavContainer>;
+
+export default withRouter(Header);
 
 const AddButton = styled.div`
   margin-left: 2rem;
@@ -97,7 +100,10 @@ const BackButtonContainer = Container.extend`
   height: 50%;
 `;
 
-const DisplaySettingsContainer = Container.extend`width: 60%;`;
+const DisplaySettingsContainer = Container.extend`
+  width: 60%;
+  align-items: space-between;
+`;
 
 const InputContainer = Container.extend`
   flex-direction: row;
@@ -113,7 +119,7 @@ const NavContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 10rem;
+  height: 8rem;
   background-color: white;
   font-weight: 700;
   padding-top: 2rem;
@@ -144,5 +150,3 @@ const SubmitButtton = styled.div`
     cursor: pointer;
   }
 `;
-
-export default Header;
