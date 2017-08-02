@@ -11,13 +11,14 @@ export default class QuestionContent extends Component {
     this.state = {
       upvotes: 19,
       downvotes: 5,
-      haveVoted: false
+      haveVoted: false,
+      haveDownvoted: false
     };
   }
 
-  handleVote = (stateKey, value) => {
+  handleVote = stateKey => {
     this.setState({
-      [stateKey]: this.state[stateKey] + value,
+      [stateKey]: this.state[stateKey] + 1,
       haveVoted: true
     });
   };
@@ -35,7 +36,8 @@ export default class QuestionContent extends Component {
         </TextContainer>
         <VotesContainer>
           <StatsContainer>
-            {this.state.upvotes >= this.state.downvotes
+            {this.state.upvotes >= this.state.downvotes &&
+            this.state.haveDownvoted === false
               ? `${this.state.upvotes} upvotes`
               : `${this.state.downvotes} downvotes`}
           </StatsContainer>
@@ -43,15 +45,17 @@ export default class QuestionContent extends Component {
             <VotingArrowContainer>
               <Upvote
                 onClick={() =>
-                  this.state.haveVoted === false &&
-                  this.handleVote('upvotes', 1)}
+                  this.state.haveVoted === false && this.handleVote('upvotes')}
               />
             </VotingArrowContainer>
             <VotingArrowContainer>
               <Downvote
                 onClick={() =>
                   this.state.haveVoted === false &&
-                  this.handleVote('downvotes', -1)}
+                  (
+                    this.handleVote('downvotes'),
+                    this.setState({ haveDownvoted: true })
+                  )}
               />
             </VotingArrowContainer>
           </VotingButtons>
