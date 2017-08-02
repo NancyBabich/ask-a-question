@@ -7,7 +7,7 @@ import Colors from './../consts/Colors';
 import ProfilePicture from './../styled-components/ProfilePicture';
 import SecondaryCard from './SecondaryCard';
 
-const QuestionCard = ({ mainImgSrc, history, questionLinkActive }) =>
+const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
   <QuestionCardContainer>
     <PrimaryCard>
       <PrimaryCardHeader>
@@ -19,8 +19,8 @@ const QuestionCard = ({ mainImgSrc, history, questionLinkActive }) =>
             <Name>Eva </Name>is asking
           </Title>
           <Question
-            onClick={() => questionLinkActive && history.push('/new')}
-            questionLinkActive={questionLinkActive}
+            onClick={() => !individualQuestion && history.push('/new')}
+            individualQuestion={individualQuestion}
           >
             Will insulin make my patient gain weight?
           </Question>
@@ -30,7 +30,7 @@ const QuestionCard = ({ mainImgSrc, history, questionLinkActive }) =>
         <QuestionStatusContainer>
           <QuestionStatus>asked</QuestionStatus>
         </QuestionStatusContainer>
-        <SecondaryCard />
+        <SecondaryCard content="" />
       </PrimaryCardBody>
     </PrimaryCard>
     <StatsContainer>
@@ -84,7 +84,7 @@ const Question = styled.div`
   color: ${Colors.darkBlue};
   font-style: italic;
   &:hover {
-    cursor: ${ifProp('questionLinkActive', 'pointer', 'auto')};
+    cursor: ${ifProp('individualQuestion', 'auto', 'pointer')};
   }
 `;
 

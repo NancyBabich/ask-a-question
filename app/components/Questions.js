@@ -10,16 +10,10 @@ const Questions = () =>
   <div>
     <Header searchBar rightComponent={<FilterSortSearch />} />
     <ContentContainer>
-      <QuestionCard
-        questionLinkActive
-        mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-      />
+      <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
     </ContentContainer>
     <ContentContainer>
-      <QuestionCard
-        questionLinkActive
-        mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-      />
+      <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
     </ContentContainer>
   </div>;
 

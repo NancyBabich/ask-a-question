@@ -15,7 +15,7 @@ const IndividualQuestion = () =>
       }
     />
     <QuestionCard
-      questionLinkActive={false}
+      individualQuestion
       mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
     />
   </ContentContainer>;
