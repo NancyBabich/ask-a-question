@@ -17,7 +17,11 @@ const PrimaryContainer = styled.div`
   font-family: 'Open Sans';
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   background-color: ${Colors.orange};
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 `;
 
 const SecondaryContainer = styled.div`

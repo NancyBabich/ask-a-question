@@ -59,7 +59,7 @@ const PrimaryCard = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  height: 90%;
+  height: ${ifProp('individualQuestion', '100%', '90%')};
   width: ${ifProp('individualQuestion', '100%', '80%')};
   background-color: ${Colors.lightBlue};
 `;
