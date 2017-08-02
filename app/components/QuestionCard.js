@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
 
+import ActivityCards from './ActivityCards';
 import Colors from './../consts/Colors';
 import ProfilePicture from './../styled-components/ProfilePicture';
+//import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
 const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
   <QuestionCardContainer>
-    <PrimaryCard>
+    <PrimaryCard individualQuestion={individualQuestion}>
       <PrimaryCardHeader>
         <HeaderImageContainer>
           <ProfilePicture src={mainImgSrc} />
@@ -28,12 +30,12 @@ const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
       </PrimaryCardHeader>
       <PrimaryCardBody>
         <QuestionStatusContainer>
-          <QuestionStatus>asked</QuestionStatus>
+          {!individualQuestion && <QuestionStatus>asked</QuestionStatus>}
         </QuestionStatusContainer>
-        <SecondaryCard content="" />
+        <SecondaryCard content={!individualQuestion && <ActivityCards />} />
       </PrimaryCardBody>
     </PrimaryCard>
-    <StatsContainer>
+    <StatsContainer individualQuestion={individualQuestion}>
       <Stats>
         <div>1 related discussion</div>
         <div>6 peers involved</div>
@@ -56,7 +58,7 @@ const PrimaryCard = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   height: 90%;
-  width: 80%;
+  width: ${ifProp('individualQuestion', '100%', '80%')};
   background-color: ${Colors.lightBlue};
 `;
 
@@ -108,7 +110,7 @@ const Stats = styled.div`
 `;
 
 const StatsContainer = styled.div`
-  display: flex;
+  display: ${ifProp('individualQuestion', 'none', 'flex')};
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
