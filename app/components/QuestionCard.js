@@ -25,6 +25,9 @@ const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
             individualQuestion={individualQuestion}
           >
             Will insulin make my patient gain weight?
+            <Unfollow individualQuestion={individualQuestion}>
+              unfollow
+            </Unfollow>
           </Question>
         </TitleContainer>
       </PrimaryCardHeader>
@@ -85,6 +88,9 @@ const Name = styled.span`
 `;
 
 const Question = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   color: ${Colors.darkBlue};
   font-style: italic;
   &:hover {
@@ -101,6 +107,22 @@ const QuestionCardContainer = styled.div`
   height: 25rem;
   border: solid 1px ${Colors.lightGray};
   background-color: white;
+`;
+
+const QuestionStatus = styled.div`
+  width: 80%;
+  border-top: solid 1px ${Colors.darkGray};
+  text-align: center;
+`;
+
+const QuestionStatusContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+  text-transform: uppercase;
+  color: ${Colors.darkGray};
 `;
 
 const Stats = styled.div`
@@ -133,18 +155,11 @@ const TitleContainer = styled.div`
   width: 80%;
 `;
 
-const QuestionStatus = styled.div`
-  width: 80%;
-  border-top: solid 1px ${Colors.darkGray};
-  text-align: center;
-`;
-
-const QuestionStatusContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  width: 20%;
-  text-transform: uppercase;
-  color: ${Colors.darkGray};
+const Unfollow = styled.div`
+  display: ${ifProp('individualQuestion', 'flex', 'none')};
+  padding: 0 4rem;
+  font-style: normal;
+  &:hover {
+    cursor: pointer;
+  }
 `;
