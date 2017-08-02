@@ -9,6 +9,11 @@ module.exports = {
   entry: [
     './app/index.js'
   ],
+
+  devServer: {
+      historyApiFallback: true
+  },
+    
   output: {
     path: __dirname + '/dist',
     filename: "index_bundle.js"
