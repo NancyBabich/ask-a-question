@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 import ActivityCards from './ActivityCards';
 import Colors from './../consts/Colors';
 import ProfilePicture from './../styled-components/ProfilePicture';
-//import QuestionContent from './QuestionContent';
+import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
 const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
@@ -32,7 +32,9 @@ const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
         <QuestionStatusContainer>
           {!individualQuestion && <QuestionStatus>asked</QuestionStatus>}
         </QuestionStatusContainer>
-        <SecondaryCard content={!individualQuestion && <ActivityCards />} />
+        <SecondaryCard
+          content={individualQuestion ? <QuestionContent /> : <ActivityCards />}
+        />
       </PrimaryCardBody>
     </PrimaryCard>
     <StatsContainer individualQuestion={individualQuestion}>
