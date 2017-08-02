@@ -1,75 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ActivityCard from './../components/ActivityCard';
 import Colors from './../consts/Colors';
 import ProfilePicture from './../styled-components/ProfilePicture';
+import SecondaryCard from './SecondaryCard';
 
-const QuestionCard = ({ mainImgSrc }) => {
-  const keys = [1, 2, 3, 4, 5, 6];
-
-  let activityCards = keys.slice(0, 4).map((key, i) => {
-    return (
-      <ActivityCard
-        key={i}
-        activity="commented"
-        imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-      />
-    );
-  });
-
-  return (
-    <QuestionCardContainer>
-      <PrimaryCard>
-        <PrimaryCardHeader>
-          <HeaderImageContainer>
-            <ProfilePicture src={mainImgSrc} />
-          </HeaderImageContainer>
-          <TitleContainer>
-            <Title>
-              <Name>Eva </Name>is asking
-            </Title>
-            <Question>Will insulin make my patient gain weight?</Question>
-          </TitleContainer>
-        </PrimaryCardHeader>
-        <PrimaryCardBody>
-          <QuestionStatusContainer>
-            <QuestionStatus>asked</QuestionStatus>
-          </QuestionStatusContainer>
-          {keys.length <= 5
-            ? <SecondaryCard>activityCards</SecondaryCard>
-            : <SecondaryCard>
-                <RemainingActivitiesCard>
-                  <NumberContainer>
-                    {keys.length - 4}
-                  </NumberContainer>
-                  <div>more activities</div>
-                </RemainingActivitiesCard>
-                {activityCards}
-              </SecondaryCard>}
-        </PrimaryCardBody>
-      </PrimaryCard>
-      <StatsContainer>
-        <Stats>
-          <div>1 related discussion</div>
-          <div>6 peers involved</div>
-          <div>3 conversations</div>
-        </Stats>
-      </StatsContainer>
-    </QuestionCardContainer>
-  );
-};
+const QuestionCard = ({ mainImgSrc }) =>
+  <QuestionCardContainer>
+    <PrimaryCard>
+      <PrimaryCardHeader>
+        <HeaderImageContainer>
+          <ProfilePicture src={mainImgSrc} />
+        </HeaderImageContainer>
+        <TitleContainer>
+          <Title>
+            <Name>Eva </Name>is asking
+          </Title>
+          <Question>Will insulin make my patient gain weight?</Question>
+        </TitleContainer>
+      </PrimaryCardHeader>
+      <PrimaryCardBody>
+        <QuestionStatusContainer>
+          <QuestionStatus>asked</QuestionStatus>
+        </QuestionStatusContainer>
+        <SecondaryCard />
+      </PrimaryCardBody>
+    </PrimaryCard>
+    <StatsContainer>
+      <Stats>
+        <div>1 related discussion</div>
+        <div>6 peers involved</div>
+        <div>3 conversations</div>
+      </Stats>
+    </StatsContainer>
+  </QuestionCardContainer>;
 
 export default QuestionCard;
-
-const SecondaryCard = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
-  background-color: white;
-  width: 80%;
-`;
 
 const HeaderImageContainer = styled.div`
   display: flex;
@@ -107,14 +73,6 @@ const Name = styled.span`
   }
 `;
 
-const NumberContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2rem;
-  height: 2rem;
-`;
-
 const Question = styled.div`
   color: ${Colors.darkBlue};
   font-style: italic;
@@ -128,18 +86,6 @@ const QuestionCardContainer = styled.div`
   width: 100%;
   height: 25rem;
   border: solid 1px ${Colors.lightGray};
-`;
-
-const RemainingActivitiesCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 70%;
-  width: 20%;
-  margin: .25rem;
-  padding: .5rem 0;
-  font-size: .5em;
 `;
 
 const Stats = styled.div`
