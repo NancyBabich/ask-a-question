@@ -14,7 +14,10 @@ const IndividualQuestion = () =>
         </QuestionStatusContainer>
       }
     />
-    <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
+    <QuestionCard
+      questionLinkActive={false}
+      mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+    />
   </ContentContainer>;
 
 export default IndividualQuestion;

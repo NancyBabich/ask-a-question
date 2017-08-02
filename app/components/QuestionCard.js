@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
 
 import Colors from './../consts/Colors';
 import ProfilePicture from './../styled-components/ProfilePicture';
 import SecondaryCard from './SecondaryCard';
 
-const QuestionCard = ({ mainImgSrc, history }) =>
+const QuestionCard = ({ mainImgSrc, history, questionLinkActive }) =>
   <QuestionCardContainer>
     <PrimaryCard>
       <PrimaryCardHeader>
@@ -17,7 +18,10 @@ const QuestionCard = ({ mainImgSrc, history }) =>
           <Title>
             <Name>Eva </Name>is asking
           </Title>
-          <Question onClick={() => history.push('/new')}>
+          <Question
+            onClick={() => questionLinkActive && history.push('/new')}
+            questionLinkActive={questionLinkActive}
+          >
             Will insulin make my patient gain weight?
           </Question>
         </TitleContainer>
@@ -80,7 +84,7 @@ const Question = styled.div`
   color: ${Colors.darkBlue};
   font-style: italic;
   &:hover {
-    cursor: pointer;
+    cursor: ${ifProp('questionLinkActive', 'pointer', 'auto')};
   }
 `;
 
