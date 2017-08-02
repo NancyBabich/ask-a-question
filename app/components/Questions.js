@@ -39,8 +39,7 @@ const Questions = () => {
       <Header searchBar rightComponent={<FilterSortSearch />} />
       <ContentContainer>
         <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
-      </ContentContainer>
-      <ContentContainer>
+
         <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
       </ContentContainer>
     </AppContainer>

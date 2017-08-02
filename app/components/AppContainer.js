@@ -27,6 +27,7 @@ const SecondaryContainer = styled.div`
   height: 90%;
   background-color: ${Colors.lightGray};
   align-items: center;
+  justify-content: ;
 `;
 
 export default AppContainer;
