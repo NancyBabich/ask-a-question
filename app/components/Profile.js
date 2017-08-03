@@ -19,11 +19,23 @@ const Profile = () =>
         src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
       />
       <Name>Dr. Halima</Name>
-      <Centered />
+      <UserSummary>
+        <div>
+          <Activity>member</Activity> for 5 months
+        </div>
+        <div>
+          <Activity>last seen</Activity> Saturday afternoon
+        </div>
+        <div>
+          <Activity>activity level</Activity>
+        </div>
+      </UserSummary>
     </ProfileContainer>
   </Modal>;
 
 export default Profile;
+
+const Activity = styled.span`text-transform: uppercase;`;
 
 const CloseButton = styled.div`
   position: absolute;
@@ -76,3 +88,5 @@ const ProfileContainer = Container.extend`
   align-items: center;
   padding: 3% 5%;
 `;
+
+const UserSummary = Centered.extend`flex-direction: row;`;
