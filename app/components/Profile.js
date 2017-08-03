@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Colors from '../consts/Colors';
 import Centered from '../styled-components/Container';
 import Container from '../styled-components/Container';
+import NavButton from '../styled-components/NavButton';
 import ProfilePicture from '../styled-components/ProfilePicture';
 
 const Profile = ({ history }) =>
@@ -30,6 +31,14 @@ const Profile = ({ history }) =>
           <Activity>activity level</Activity>
         </div>
       </UserSummary>
+      <HowItAllStarted>
+        <NavButton fill left />
+        How it all started
+        <NavButton fill />
+      </HowItAllStarted>
+      <UserHistory>
+        That's where we have been these past 5 months ago
+      </UserHistory>
     </ProfileContainer>
   </Modal>;
 
@@ -63,6 +72,17 @@ const CloseButtonBar = styled.div`
   }
 `;
 
+const HowItAllStarted = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Crimson Text';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2em;
+`;
+
 const Modal = styled.div`
   display: flex;
   position: absolute;
@@ -91,6 +111,11 @@ const ProfileContainer = Container.extend`
   padding: 3% 15%;
 `;
 
+const UserHistory = styled.div`
+  text-transform: uppercase;
+  color: ${Colors.gray};
+`;
+
 const UserSummary = styled.div`
   display: flex;
   width: 100%;
@@ -98,4 +123,5 @@ const UserSummary = styled.div`
   font-size: .75em;
   padding: 2rem 0;
   border-bottom: solid 1px ${Colors.gray};
+  margin-bottom: 2rem;
 `;
