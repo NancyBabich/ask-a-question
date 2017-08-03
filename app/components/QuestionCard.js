@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import ActivityCards from './ActivityCards';
 import Colors from './../consts/Colors';
@@ -18,6 +19,9 @@ const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
             src={mainImgSrc}
             onClick={() => history.push('/profile')}
           />
+          <Link to={{ pathname: '/profile', state: { modal: true } }}>
+            {' '}link{' '}
+          </Link>
         </HeaderImageContainer>
         <TitleContainer>
           <Title>
