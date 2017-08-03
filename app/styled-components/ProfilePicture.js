@@ -1,13 +1,14 @@
 /* @flow */
 
 import styled from 'styled-components';
+import { ifProp } from 'styled-tools';
 
 const ProfilePicture = styled.img`
-  width: 3.5rem;
-  height: 3.5rem;
+  width: ${ifProp('big', '5rem', '3.5rem')};
+  height: ${ifProp('big', '5rem', '3.5rem')};
   border-radius: 50%;
   &:hover {
-    cursor: pointer;
+    ${ifProp('big', 'normal', 'pointer')};
   }
 `;
 
