@@ -14,6 +14,7 @@ const IndividualQuestion = () =>
           Last time discussed 1 day ago
         </QuestionStatusContainer>
       }
+      singleQuestion
     />
     <ContentContainer>
       <QuestionCard

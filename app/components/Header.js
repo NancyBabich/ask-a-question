@@ -8,7 +8,7 @@ import Container from './../styled-components/Container';
 import Colors from './../consts/Colors';
 import NavButton from '../styled-components/NavButton';
 
-const Header = ({ history, rightComponent, searchBar }) =>
+const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
   <NavContainer>
     <BackButtonContainer>
       <NavButton big left onClick={() => history.go(-1)} />
@@ -16,7 +16,9 @@ const Header = ({ history, rightComponent, searchBar }) =>
     <DisplaySettingsContainer>
       <StyledContainer>
         <AddQuestion>
-          <div>Question</div>
+          <div>
+            {singleQuestion ? 'Question' : 'Questions'}
+          </div>
           <AddButtonContainer>
             <AddButton>+</AddButton>
           </AddButtonContainer>
