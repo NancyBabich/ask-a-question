@@ -50,7 +50,7 @@ const CloseButton = styled.div`
 
 const CloseButtonBar = styled.div`
   position: absolute;
-  background-color: ${Colors.darkGray};
+  background-color: ${Colors.gray};
   width: 15px;
   height: 2px;
   left: 2px;
@@ -73,6 +73,8 @@ const Modal = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.2);
   padding-top: 5%;
+  height: 100%;
+  width: 100%;
 `;
 
 const Name = styled.div`
@@ -81,15 +83,19 @@ const Name = styled.div`
 `;
 
 const ProfileContainer = Container.extend`
-  width: 70%;
+  width: 40%;
   height: 80%;
   background-color: white;
   justify-content: center;
   align-items: center;
-  padding: 3% 5%;
+  padding: 3% 15%;
 `;
 
-const UserSummary = Centered.extend`
-  flex-direction: row;
-  font-size: .5em;
+const UserSummary = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: .75em;
+  padding: 2rem 0;
+  border-bottom: solid 1px ${Colors.gray};
 `;
