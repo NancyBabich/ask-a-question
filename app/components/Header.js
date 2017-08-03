@@ -6,13 +6,12 @@ import { withRouter } from 'react-router';
 import Centered from './../styled-components/Centered';
 import Container from './../styled-components/Container';
 import Colors from './../consts/Colors';
+import NavButton from '../styled-components/NavButton';
 
-const Header = ({ rightComponent, searchBar }) =>
+const Header = ({ history, rightComponent, searchBar }) =>
   <NavContainer>
     <BackButtonContainer>
-      <BackButton onClick={() => history.go(-1)}>
-        <BackArrow />
-      </BackButton>
+      <NavButton big left onClick={() => history.go(-1)} />
     </BackButtonContainer>
     <DisplaySettingsContainer>
       <StyledContainer>
@@ -67,29 +66,6 @@ const AddQuestion = Centered.extend`
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 700;
-`;
-
-const BackArrow = styled.div`
-  position: absolute;
-  left: .75rem;
-  width: .75rem;
-  height: .75rem;
-  border-bottom: solid 1px ${Colors.gray};
-  border-left: solid 1px ${Colors.gray};
-  transform: rotate(45deg);
-`;
-
-const BackButton = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
-  width: 2rem;
-  height: 2rem;
-  border: solid 1px ${Colors.gray};
-  border-radius: 50%;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const BackButtonContainer = Container.extend`
