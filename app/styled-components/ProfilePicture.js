@@ -8,7 +8,7 @@ const ProfilePicture = styled.img`
   height: ${ifProp('big', '5rem', '3.5rem')};
   border-radius: 50%;
   &:hover {
-    ${ifProp('big', 'normal', 'pointer')};
+    cursor: ${ifProp('big', 'normal', 'pointer')};
   }
 `;
 

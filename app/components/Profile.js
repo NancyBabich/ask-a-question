@@ -7,10 +7,10 @@ import Centered from '../styled-components/Container';
 import Container from '../styled-components/Container';
 import ProfilePicture from '../styled-components/ProfilePicture';
 
-const Profile = () =>
+const Profile = ({ history }) =>
   <Modal>
     <ProfileContainer>
-      <CloseButton>
+      <CloseButton onClick={() => history.go(-1)}>
         <CloseButtonBar />
         <CloseButtonBar />
       </CloseButton>
@@ -33,7 +33,7 @@ const Profile = () =>
     </ProfileContainer>
   </Modal>;
 
-export default Profile;
+export default withRouter(Profile);
 
 const Activity = styled.span`text-transform: uppercase;`;
 
@@ -89,4 +89,7 @@ const ProfileContainer = Container.extend`
   padding: 3% 5%;
 `;
 
-const UserSummary = Centered.extend`flex-direction: row;`;
+const UserSummary = Centered.extend`
+  flex-direction: row;
+  font-size: .5em;
+`;
