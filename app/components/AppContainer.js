@@ -14,7 +14,7 @@ const PrimaryContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Open Sans';
+  font-family: 'Roboto Condensed';
   width: 100%;
   height: 100%;
   min-height: 100vh;

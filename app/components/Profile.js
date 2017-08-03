@@ -80,7 +80,7 @@ const HowItAllStarted = styled.div`
   font-family: 'Crimson Text';
   font-weight: bold;
   font-style: italic;
-  font-size: 2em;
+  font-size: 3em;
 `;
 
 const Modal = styled.div`
@@ -100,6 +100,7 @@ const Modal = styled.div`
 const Name = styled.div`
   color: ${Colors.darkBlue};
   font-weight: 700;
+  font-size: 1.5rem;
 `;
 
 const ProfileContainer = Container.extend`
