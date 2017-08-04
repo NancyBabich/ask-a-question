@@ -35,7 +35,7 @@ const Modal = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.2);
   padding-top: 5%;
-  height: 100%;
+  max-height: 100%;
   width: 100%;
 `;
 
