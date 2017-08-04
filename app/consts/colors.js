@@ -7,5 +7,5 @@ export default {
   lightBlue: '#DFF3FD',
   lightGray: '#EEEEEE',
   orange: '#FFEBAD',
-  pink: '#DC5EA6'
+  pink: '#FAA199'
 };

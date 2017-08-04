@@ -20,7 +20,10 @@ const UserHistoryStats = () =>
 
 export default UserHistoryStats;
 
-const ProfileSectionContainer = styled.div`width: 100%;`;
+const ProfileSectionContainer = styled.div`
+  width: 100%;
+  text-align: center;
+`;
 
 const UserHistoryStatsContainer = styled.div`
   display: flex;

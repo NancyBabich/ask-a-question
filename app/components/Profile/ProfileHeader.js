@@ -15,22 +15,22 @@ const ProfileHeader = ({ history }) =>
     />
     <Name>Dr. Halima</Name>
     <UserSummary>
-      <div>
+      <ActivityContainer>
         <Activity>member for</Activity>
         <ActivityTime>5 months</ActivityTime>
-      </div>
-      <div>
+      </ActivityContainer>
+      <ActivityContainer>
         <Activity>last seen</Activity>
         <ActivityTime>Saturday afternoon</ActivityTime>
-      </div>
-      <div>
+      </ActivityContainer>
+      <ActivityContainer>
         <Activity>activity level</Activity>
-        <ActivityContainer>
+        <ActivitySymbolsContainer>
           <ActivitySymbol />
           <ActivitySymbol />
           <ActivitySymbol />
-        </ActivityContainer>
-      </div>
+        </ActivitySymbolsContainer>
+      </ActivityContainer>
     </UserSummary>
   </ProfileHeaderContainer>;
 
@@ -43,11 +43,17 @@ const Activity = styled.span`
 
 const ActivityContainer = styled.div`display: flex;`;
 
+const ActivitySymbolsContainer = styled.div`
+  display: flex;
+  margin-left: .5rem;
+`;
+
 const ActivitySymbol = styled.div`
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background-color: red;
+  background-color: ${Colors.pink};
+  margin: 0 .1rem;
 `;
 
 const ActivityTime = styled.span`
