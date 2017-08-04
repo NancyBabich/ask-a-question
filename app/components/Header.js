@@ -63,7 +63,7 @@ const AddButtonContainer = styled.div`
 const AddQuestion = Centered.extend`
   display: flex;
   justify-content: flex-start;
-  width: 40%;
+  width: 50%;
   height: 100%;
   text-transform: uppercase;
   font-size: 2rem;
@@ -105,7 +105,7 @@ const NavContainer = styled.div`
 const StyledContainer = Container.extend`
   flex-direction: row;
   width: 100%;
-  height: 100%;
+  height: 50%;
   padding: 0;
 `;
 
@@ -113,6 +113,7 @@ const StyledInput = styled.input`
   width: 75%;
   background-color: ${Colors.lightGray};
   padding: .5rem;
+  border: 1px solid ${Colors.gray};
 `;
 
 const SubmitButtton = styled.div`
