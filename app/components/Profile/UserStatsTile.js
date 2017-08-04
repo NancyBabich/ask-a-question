@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ifProp, prop } from 'styled-tools';
 
-import Colors from '../consts/Colors';
+import Colors from '../../consts/Colors';
 
 const UserStatsTile = ({ number, fact, rotation }) =>
   <Tile style={{ transform: `rotate(${rotation}deg)` }}>

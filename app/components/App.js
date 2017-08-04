@@ -4,7 +4,7 @@ import { history } from '../history';
 
 import AppContainer from './AppContainer';
 import IndividualQuestion from './IndividualQuestion';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 import Questions from './Questions';
 
 export default class App extends Component {

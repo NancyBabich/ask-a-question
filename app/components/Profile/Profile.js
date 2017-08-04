@@ -2,49 +2,21 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Colors from '../consts/Colors';
-import Centered from '../styled-components/Centered';
-import Container from '../styled-components/Container';
-import NavButton from '../styled-components/NavButton';
-import ProfilePicture from '../styled-components/ProfilePicture';
+import Colors from '../../consts/Colors';
+import Centered from '../../styled-components/Centered';
+import Container from '../../styled-components/Container';
+import HowItAllStarted from './HowItAllStarted';
+import NavButton from '../../styled-components/NavButton';
+import ProfileHeader from './ProfileHeader';
+import ProfilePicture from '../../styled-components/ProfilePicture';
 import UserStatsTile from './UserStatsTile';
 
 const Profile = ({ history }) =>
   <Modal>
     <ProfileContainer>
       <UserHistory>
-        <CloseButton onClick={() => history.go(-1)}>
-          <CloseButtonBar />
-          <CloseButtonBar />
-        </CloseButton>
-        <ProfilePicture
-          big
-          src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-        />
-        <Name>Dr. Halima</Name>
-        <UserSummary>
-          <div>
-            <Activity>member for</Activity>
-            <ActivityTime>5 months</ActivityTime>
-          </div>
-          <div>
-            <Activity>last seen</Activity>
-            <ActivityTime>Saturday afternoon</ActivityTime>
-          </div>
-          <div>
-            <Activity>activity level</Activity>
-            <ActivityContainer>
-              <ActivitySymbol />
-              <ActivitySymbol />
-              <ActivitySymbol />
-            </ActivityContainer>
-          </div>
-        </UserSummary>
-        <HowItAllStarted>
-          <NavButton fill left />
-          How it all started
-          <NavButton fill />
-        </HowItAllStarted>
+        <ProfileHeader history={history} />
+        <HowItAllStarted />
 
         <SectionTitle>
           That's where we have been these past 5 months ago
@@ -109,53 +81,6 @@ const Profile = ({ history }) =>
 
 export default withRouter(Profile);
 
-const Activity = styled.span`
-  text-transform: uppercase;
-  font-weight: 700;
-`;
-
-const ActivityContainer = styled.div`display: flex;`;
-
-const ActivitySymbol = styled.div`
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background-color: red;
-`;
-
-const ActivityTime = styled.span`
-  font-weight: 700;
-  color: ${Colors.darkGray};
-  padding-left: .5rem;
-`;
-
-const CloseButton = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  padding: .75rem;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const CloseButtonBar = styled.div`
-  position: absolute;
-  background-color: ${Colors.gray};
-  width: 15px;
-  height: 2px;
-  left: 2px;
-  bottom: 9px;
-  &:first-child {
-    transform: rotate(45deg);
-  }
-  &:last-child {
-    transform: rotate(-45deg);
-  }
-`;
-
 const Discussion = styled.div`
   display: flex;
   width: 100%;
@@ -208,18 +133,6 @@ const DiscussionTopic = styled.div`
   font-weight: 700;
 `;
 
-const HowItAllStarted = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Crimson Text';
-  font-weight: bold;
-  font-style: italic;
-  font-size: 3em;
-  color: black;
-`;
-
 const Modal = styled.div`
   display: flex;
   position: absolute;
@@ -232,13 +145,6 @@ const Modal = styled.div`
   padding-top: 5%;
   height: 100%;
   width: 100%;
-`;
-
-const Name = styled.div`
-  color: ${Colors.darkBlue};
-  font-weight: 700;
-  font-size: 1.5rem;
-  margin-top: 1rem;
 `;
 
 const OtherUsers = styled.div`
@@ -324,14 +230,4 @@ const AbsolutePofilePictureContainer = styled.div`
 const UserStats = styled.div`
   position: relative;
   width: 50%;
-`;
-
-const UserSummary = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  font-size: .75em;
-  padding: 1rem 0 2rem 0;
-  border-bottom: solid 1px ${Colors.gray};
-  margin-bottom: 2rem;
 `;
