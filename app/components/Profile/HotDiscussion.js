@@ -111,7 +111,7 @@ const DiscussionTopic = styled.div`
   font-style: italic;
   font-weight: 700;
   font-size: 1.25rem;
-  padding: .25rem;
+  margin-top: 1rem;
 `;
 
 const Username = styled.div`

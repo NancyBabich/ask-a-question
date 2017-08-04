@@ -11,10 +11,23 @@ const UserHistoryStats = () =>
     </ProfileSectionTitle>
     <UserHistoryStatsContainer>
       <UserStats>
-        <UserStatsTile rotation="0" number="46" fact="peers" />
-        <UserStatsTile rotation="0" number="29" fact="discussions" />
+        <UserStatsTile rotation="50" number="46" fact="peers" />
+        <UserStatsTile
+          rotation="65"
+          number="29"
+          fact="discussions"
+          translateX="20"
+        />
       </UserStats>
-      <UserStats />
+      <UserStats>
+        <UserStatsTile rotation="50" number="19" fact="findings" />
+        <UserStatsTile
+          rotation="65"
+          number="10"
+          fact="questions"
+          translateX="20"
+        />
+      </UserStats>
     </UserHistoryStatsContainer>
   </ProfileSectionContainer>;
 
@@ -28,9 +41,18 @@ const ProfileSectionContainer = styled.div`
 const UserHistoryStatsContainer = styled.div`
   display: flex;
   width: 100%;
+  margin-top: 2rem;
+  justify-content: center;
 `;
 
 const UserStats = styled.div`
-  position: relative;
   width: 50%;
+  display: flex;
+  &:first-child {
+    justify-content: flex-end;
+  }
+  &:last-child {
+    justify-content: flex-start;
+  }
+  padding: 1.25rem;
 `;

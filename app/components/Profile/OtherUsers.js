@@ -37,7 +37,7 @@ export default OtherUsers;
 const OtherUsersContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 1rem;
   width: 100%;
   align-items: center;
 `;

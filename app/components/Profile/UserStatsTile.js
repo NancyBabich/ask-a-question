@@ -4,8 +4,10 @@ import { ifProp, prop } from 'styled-tools';
 
 import Colors from '../../consts/Colors';
 
-const UserStatsTile = ({ number, fact, rotation }) =>
-  <Tile style={{ transform: `rotate(${rotation}deg)` }}>
+const UserStatsTile = ({ number, fact, rotation, translateX }) =>
+  <Tile
+    style={{ transform: `rotate(${rotation}deg)`, left: `${translateX}px` }}
+  >
     <TileData style={{ transform: `rotate(-${rotation}deg` }}>
       <Number>
         {number}
@@ -26,12 +28,10 @@ const Fact = styled.div`
 const Number = styled.div`font-weight: 700;`;
 
 const Tile = styled.div`
-  position: absolute;
-  width: 4rem;
-  height: 4rem;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
   background-color: ${Colors.lightBlue};
-  &:last-child {
-  }
 `;
 
 const TileData = styled.div`
