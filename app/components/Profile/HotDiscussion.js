@@ -43,7 +43,7 @@ const AbsolutePofilePictureContainer = styled.div`
   position: absolute;
   width: 3.5rem;
   height: 3.5rem;
-  top: -1.75rem;
+  top: -1.5rem;
   left: 50%;
   transform: translateX(-50%);
 `;
