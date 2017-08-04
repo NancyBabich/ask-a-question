@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Colors from '../consts/Colors';
-import Centered from '../styled-components/Container';
+import Centered from '../styled-components/Centered';
 import Container from '../styled-components/Container';
 import NavButton from '../styled-components/NavButton';
 import ProfilePicture from '../styled-components/ProfilePicture';
@@ -24,13 +24,20 @@ const Profile = ({ history }) =>
         <Name>Dr. Halima</Name>
         <UserSummary>
           <div>
-            <Activity>member</Activity> for 5 months
+            <Activity>member for</Activity>
+            <ActivityTime>5 months</ActivityTime>
           </div>
           <div>
-            <Activity>last seen</Activity> Saturday afternoon
+            <Activity>last seen</Activity>
+            <ActivityTime>Saturday afternoon</ActivityTime>
           </div>
           <div>
             <Activity>activity level</Activity>
+            <ActivityContainer>
+              <ActivitySymbol />
+              <ActivitySymbol />
+              <ActivitySymbol />
+            </ActivityContainer>
           </div>
         </UserSummary>
         <HowItAllStarted>
@@ -102,7 +109,25 @@ const Profile = ({ history }) =>
 
 export default withRouter(Profile);
 
-const Activity = styled.span`text-transform: uppercase;`;
+const Activity = styled.span`
+  text-transform: uppercase;
+  font-weight: 700;
+`;
+
+const ActivityContainer = styled.div`display: flex;`;
+
+const ActivitySymbol = styled.div`
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: red;
+`;
+
+const ActivityTime = styled.span`
+  font-weight: 700;
+  color: ${Colors.darkGray};
+  padding-left: .5rem;
+`;
 
 const CloseButton = styled.div`
   position: absolute;
@@ -110,6 +135,7 @@ const CloseButton = styled.div`
   right: 0;
   width: 20px;
   height: 20px;
+  padding: .75rem;
   &:hover {
     cursor: pointer;
   }
@@ -191,6 +217,7 @@ const HowItAllStarted = styled.div`
   font-weight: bold;
   font-style: italic;
   font-size: 3em;
+  color: black;
 `;
 
 const Modal = styled.div`
@@ -211,6 +238,7 @@ const Name = styled.div`
   color: ${Colors.darkBlue};
   font-weight: 700;
   font-size: 1.5rem;
+  margin-top: 1rem;
 `;
 
 const OtherUsers = styled.div`
@@ -246,12 +274,12 @@ const OtherUserName = styled.div`
 
 const ProfileContainer = Container.extend`
   width: 50%;
-  height: auto;
-  min-height: 100%;
+  height: 100%;
   background-color: white;
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
+  color: ${Colors.gray};
 `;
 
 const UserCards = styled.div`
@@ -281,6 +309,7 @@ const UserName = styled.div`
 const SectionTitle = styled.div`
   text-transform: uppercase;
   color: ${Colors.gray};
+  margin-top: 3rem;
 `;
 
 const AbsolutePofilePictureContainer = styled.div`
@@ -302,7 +331,7 @@ const UserSummary = styled.div`
   width: 100%;
   justify-content: space-between;
   font-size: .75em;
-  padding: 2rem 0;
+  padding: 1rem 0 2rem 0;
   border-bottom: solid 1px ${Colors.gray};
   margin-bottom: 2rem;
 `;
