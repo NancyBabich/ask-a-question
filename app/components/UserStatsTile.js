@@ -7,22 +7,31 @@ import Colors from '../consts/Colors';
 const UserStatsTile = ({ number, fact, rotation }) =>
   <Tile style={{ transform: `rotate(${rotation}deg)` }}>
     <TileData style={{ transform: `rotate(-${rotation}deg` }}>
-      <div>
+      <Number>
         {number}
-      </div>
-      <div>
+      </Number>
+      <Fact>
         {fact}
-      </div>
+      </Fact>
     </TileData>
   </Tile>;
 
 export default UserStatsTile;
 
+const Fact = styled.div`
+  font-family: 'Crimson Text';
+  font-style: italic;
+`;
+
+const Number = styled.div`font-weight: 700;`;
+
 const Tile = styled.div`
   position: absolute;
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
   background-color: ${Colors.lightBlue};
+  &:last-child {
+  }
 `;
 
 const TileData = styled.div`

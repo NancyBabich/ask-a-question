@@ -12,42 +12,90 @@ import UserStatsTile from './UserStatsTile';
 const Profile = ({ history }) =>
   <Modal>
     <ProfileContainer>
-      <CloseButton onClick={() => history.go(-1)}>
-        <CloseButtonBar />
-        <CloseButtonBar />
-      </CloseButton>
-      <ProfilePicture
-        big
-        src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-      />
-      <Name>Dr. Halima</Name>
-      <UserSummary>
-        <div>
-          <Activity>member</Activity> for 5 months
-        </div>
-        <div>
-          <Activity>last seen</Activity> Saturday afternoon
-        </div>
-        <div>
-          <Activity>activity level</Activity>
-        </div>
-      </UserSummary>
-      <HowItAllStarted>
-        <NavButton fill left />
-        How it all started
-        <NavButton fill />
-      </HowItAllStarted>
       <UserHistory>
-        <UserHistoryTitle>
+        <CloseButton onClick={() => history.go(-1)}>
+          <CloseButtonBar />
+          <CloseButtonBar />
+        </CloseButton>
+        <ProfilePicture
+          big
+          src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+        />
+        <Name>Dr. Halima</Name>
+        <UserSummary>
+          <div>
+            <Activity>member</Activity> for 5 months
+          </div>
+          <div>
+            <Activity>last seen</Activity> Saturday afternoon
+          </div>
+          <div>
+            <Activity>activity level</Activity>
+          </div>
+        </UserSummary>
+        <HowItAllStarted>
+          <NavButton fill left />
+          How it all started
+          <NavButton fill />
+        </HowItAllStarted>
+
+        <SectionTitle>
           That's where we have been these past 5 months ago
-        </UserHistoryTitle>
+        </SectionTitle>
         <UserHistoryStats>
           <UserStats>
-            <UserStatsTile rotation="45" number="46" fact="peers" />
+            <UserStatsTile rotation="0" number="46" fact="peers" />
+            <UserStatsTile rotation="0" number="29" fact="discussions" />
           </UserStats>
           <UserStats />
         </UserHistoryStats>
+        <OtherUsers>
+          <SectionTitle>Who joined the platform that same period</SectionTitle>
+          <UserCards>
+            <OtherUserCardContainer>
+              <OtherUserCard>
+                <ProfilePicture src="https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/05/mens-brown-short-pompadour-hairstyle.jpg" />
+              </OtherUserCard>
+              <OtherUserName>S.E.N. Waweru</OtherUserName>
+            </OtherUserCardContainer>
+            <OtherUserCardContainer>
+              <OtherUserCard>
+                <ProfilePicture src="https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/05/mens-brown-short-pompadour-hairstyle.jpg" />
+              </OtherUserCard>
+              <OtherUserName>Patricia</OtherUserName>
+            </OtherUserCardContainer>
+            <OtherUserCardContainer>
+              <OtherUserCard>
+                <ProfilePicture src="https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/05/mens-brown-short-pompadour-hairstyle.jpg" />
+              </OtherUserCard>
+              <OtherUserName>Joseph Aluoch</OtherUserName>
+            </OtherUserCardContainer>
+          </UserCards>
+        </OtherUsers>
       </UserHistory>
+      <Discussion>
+        <SectionTitle>The hottest discussions these days</SectionTitle>
+        <DiscussionDetails>
+          <AbsolutePofilePictureContainer>
+            <ProfilePicture src="http://www.menshairstyletrends.com/wp-content/uploads/2014/08/Hairstyles-for-Square-Faces-Men-Ryan-Seacrest-Hair.jpg" />
+          </AbsolutePofilePictureContainer>
+          <DiscussionDescription>
+            <UserName>Andrew</UserName>found the Guardian article
+          </DiscussionDescription>
+          <DiscussionTopic>
+            Vegan diet to stop diabetes progress
+          </DiscussionTopic>
+          <DiscussionStats>
+            <DiscussionStatsUnit>
+              <DiscussionFact />
+              <DiscussionFact />
+            </DiscussionStatsUnit>
+            <DiscussionStatsUnit>
+              <DiscussionFact />
+            </DiscussionStatsUnit>
+          </DiscussionStats>
+        </DiscussionDetails>
+      </Discussion>
     </ProfileContainer>
   </Modal>;
 
@@ -81,6 +129,42 @@ const CloseButtonBar = styled.div`
   }
 `;
 
+const Discussion = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const DiscussionDescription = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-transform: uppercase;
+  color: ${Colors.gray};
+  margin-top: 3.5rem;
+`;
+
+const DiscussionDetails = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: ${Colors.lightGray};
+  margin-top: 3rem;
+`;
+
+const DiscussionTopic = styled.div`
+  width: 100%;
+  text-align: center;
+  color: ${Colors.darkBlue};
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 700;
+`;
+
 const HowItAllStarted = styled.div`
   display: flex;
   width: 100%;
@@ -112,19 +196,58 @@ const Name = styled.div`
   font-size: 1.5rem;
 `;
 
+const OtherUsers = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  width: 100%;
+
+  align-items: center;
+`;
+
+const OtherUserCard = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${Colors.lightGray};
+  height: 5rem;
+  width: 5rem;
+`;
+
+const OtherUserCardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const OtherUserName = styled.div`
+  width: 100%;
+  text-align: center;
+  color: ${Colors.darkBlue};
+  font-weight: 700;
+`;
+
 const ProfileContainer = Container.extend`
-  width: 40%;
-  height: 80%;
+  width: 50%;
+  height: auto;
+  min-height: 100%;
   background-color: white;
   justify-content: center;
   align-items: center;
-  padding: 3% 15%;
+  padding: 3rem 0;
+`;
+
+const UserCards = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;
 
 const UserHistory = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 75%;
+  height: auto;
   align-items: center;
 `;
 
@@ -133,9 +256,23 @@ const UserHistoryStats = styled.div`
   width: 100%;
 `;
 
-const UserHistoryTitle = styled.div`
+const UserName = styled.div`
+  color: ${Colors.darkBlue};
+  text-transform: none;
+`;
+
+const SectionTitle = styled.div`
   text-transform: uppercase;
   color: ${Colors.gray};
+`;
+
+const AbsolutePofilePictureContainer = styled.div`
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  top: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const UserStats = styled.div`
