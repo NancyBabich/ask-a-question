@@ -87,11 +87,12 @@ const Profile = ({ history }) =>
           </DiscussionTopic>
           <DiscussionStats>
             <DiscussionStatsUnit>
-              <DiscussionFact />
-              <DiscussionFact />
+              <DiscussionFact>6 peers involved</DiscussionFact>
+              <DiscussionFact>3 related discussions</DiscussionFact>
             </DiscussionStatsUnit>
             <DiscussionStatsUnit>
-              <DiscussionFact />
+              <DiscussionFact>6 peers involved</DiscussionFact>
+              <DiscussionFact>3 related discussions</DiscussionFact>
             </DiscussionStatsUnit>
           </DiscussionStats>
         </DiscussionDetails>
@@ -154,6 +155,22 @@ const DiscussionDetails = styled.div`
   width: 100%;
   background-color: ${Colors.lightGray};
   margin-top: 3rem;
+`;
+
+const DiscussionFact = styled.div`
+  width: 50%;
+  text-align: center;
+`;
+
+const DiscussionStats = styled.div`
+  display: flex;
+  width: 75%;
+  height: 5rem;
+`;
+
+const DiscussionStatsUnit = styled.div`
+  display: flex;
+  width: 50%;
 `;
 
 const DiscussionTopic = styled.div`
