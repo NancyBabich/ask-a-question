@@ -7,25 +7,31 @@ import ProfileSectionTitle from './ProfileSectionTitle';
 
 const HotDiscussion = () =>
   <Discussion>
-    <ProfileSectionTitle>
-      The hottest discussions these days
-    </ProfileSectionTitle>
+    <ProfileSectionTitle>The hottest discussion these days</ProfileSectionTitle>
     <DiscussionDetails>
       <AbsolutePofilePictureContainer>
         <ProfilePicture src="http://www.menshairstyletrends.com/wp-content/uploads/2014/08/Hairstyles-for-Square-Faces-Men-Ryan-Seacrest-Hair.jpg" />
       </AbsolutePofilePictureContainer>
       <DiscussionDescription>
-        <UserName>Andrew</UserName>found the Guardian article
+        <Username>Andrew</Username>found the Guardian article
       </DiscussionDescription>
       <DiscussionTopic>Vegan diet to stop diabetes progress</DiscussionTopic>
       <DiscussionStats>
         <DiscussionStatsUnit>
-          <DiscussionFact>6 peers involved</DiscussionFact>
-          <DiscussionFact>3 related discussions</DiscussionFact>
+          <DiscussionFact>
+            <DiscussionFactNumber>6</DiscussionFactNumber> peers involved
+          </DiscussionFact>
+          <DiscussionFact>
+            <DiscussionFactNumber>3</DiscussionFactNumber> related discussions
+          </DiscussionFact>
         </DiscussionStatsUnit>
         <DiscussionStatsUnit>
-          <DiscussionFact>6 peers involved</DiscussionFact>
-          <DiscussionFact>3 related discussions</DiscussionFact>
+          <DiscussionFact>
+            <DiscussionFactNumber>6</DiscussionFactNumber> peers involved
+          </DiscussionFact>
+          <DiscussionFact>
+            <DiscussionFactNumber>3</DiscussionFactNumber> related discussions
+          </DiscussionFact>
         </DiscussionStatsUnit>
       </DiscussionStats>
     </DiscussionDetails>
@@ -47,6 +53,7 @@ const Discussion = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 `;
 
 const DiscussionDescription = styled.div`
@@ -56,6 +63,7 @@ const DiscussionDescription = styled.div`
   text-transform: uppercase;
   color: ${Colors.gray};
   margin-top: 3.5rem;
+  font-size: .75rem;
 `;
 
 const DiscussionDetails = styled.div`
@@ -74,10 +82,20 @@ const DiscussionFact = styled.div`
   text-align: center;
 `;
 
+const DiscussionFactNumber = styled.span`
+  font-family: 'Roboto Condensed';
+  padding-right: .25rem;
+`;
+
 const DiscussionStats = styled.div`
   display: flex;
   width: 75%;
-  height: 5rem;
+  padding: 2rem 0;
+  font-family: 'Crimson Text';
+  font-size: .7rem;
+  color: ${Colors.darkGray};
+  font-weight: 700;
+  font-style: italic;
 `;
 
 const DiscussionStatsUnit = styled.div`
@@ -92,9 +110,13 @@ const DiscussionTopic = styled.div`
   font-family: 'Crimson Text';
   font-style: italic;
   font-weight: 700;
+  font-size: 1.25rem;
+  padding: .25rem;
 `;
 
-const UserName = styled.div`
+const Username = styled.div`
   color: ${Colors.darkBlue};
   text-transform: none;
+  padding-right: 1rem;
+  font-weight: 700;
 `;

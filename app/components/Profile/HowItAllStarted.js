@@ -23,5 +23,4 @@ const HowItStartedContainer = styled.div`
   font-style: italic;
   font-size: 3em;
   color: black;
-  margin-top: 7rem;
 `;

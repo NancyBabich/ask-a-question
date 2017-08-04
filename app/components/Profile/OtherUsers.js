@@ -13,19 +13,19 @@ const OtherUsers = () =>
     <UserCards>
       <OtherUserCardContainer>
         <OtherUserCard>
-          <ProfilePicture src="https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/05/mens-brown-short-pompadour-hairstyle.jpg" />
+          <ProfilePicture src="https://s-media-cache-ak0.pinimg.com/736x/7e/92/e3/7e92e3bc2f433cf2c87d1bf870f506c4--square-face-hairstyles-wavy-bob-hairstyles.jpg" />
         </OtherUserCard>
         <OtherUserName>S.E.N. Waweru</OtherUserName>
       </OtherUserCardContainer>
       <OtherUserCardContainer>
         <OtherUserCard>
-          <ProfilePicture src="https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/05/mens-brown-short-pompadour-hairstyle.jpg" />
+          <ProfilePicture src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/7/005/087/3bb/1f6a219.jpg" />
         </OtherUserCard>
         <OtherUserName>Patricia</OtherUserName>
       </OtherUserCardContainer>
       <OtherUserCardContainer>
         <OtherUserCard>
-          <ProfilePicture src="https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/05/mens-brown-short-pompadour-hairstyle.jpg" />
+          <ProfilePicture src="https://media1.popsugar-assets.com/files/thumbor/jTRjxXgxI-nNBHKof7ju_46Paho/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/09/02/092/n/1922153/e43c9ee6cc77c5e6_razorsquare.jpg" />
         </OtherUserCard>
         <OtherUserName>Joseph Aluoch</OtherUserName>
       </OtherUserCardContainer>
@@ -62,10 +62,12 @@ const OtherUserName = styled.div`
   text-align: center;
   color: ${Colors.darkBlue};
   font-weight: 700;
+  margin-top: .5rem;
 `;
 
 const UserCards = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 1rem;
 `;
