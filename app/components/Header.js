@@ -100,6 +100,7 @@ const NavContainer = styled.div`
   background-color: white;
   font-weight: 700;
   padding-top: 2rem;
+  z-index: 2;
 `;
 
 const StyledContainer = Container.extend`

@@ -25,7 +25,7 @@ const ActivityCards = () => {
           <NumberContainer>
             {keys.length - 4}
           </NumberContainer>
-          <div>more activities</div>
+          <TextContainer>more activities</TextContainer>
         </RemainingActivitiesCard>
         {activityCards}
       </StyledDiv>;
@@ -37,8 +37,9 @@ const NumberContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1rem;
 `;
 
 const RemainingActivitiesCard = styled.div`
@@ -58,4 +59,12 @@ const StyledDiv = styled.div`
   height: 100%;
   width: 100%;
   align-items: flex-end;
+`;
+
+const TextContainer = styled.div`
+  font-family: 'Crimson Text';
+  font-size: 1rem;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
 `;

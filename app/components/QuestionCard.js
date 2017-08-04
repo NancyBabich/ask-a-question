@@ -88,13 +88,18 @@ const Name = styled.span`
   &:hover {
     cursor: pointer;
   }
+  font-size: 1rem;
 `;
 
 const Question = styled.div`
   display: flex;
   width: 100%;
+  margin-top: .5rem;
   justify-content: space-between;
   color: ${Colors.darkBlue};
+  font-family: 'Crimson Text';
+  font-size: 1.5rem;
+  font-weight: 700;
   font-style: italic;
   &:hover {
     cursor: ${ifProp('individualQuestion', 'auto', 'pointer')};
@@ -107,15 +112,17 @@ const QuestionCardContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 25rem;
-  border: solid 1px ${Colors.lightGray};
+  height: 20rem;
+  border-bottom: solid 1px ${Colors.lightGray};
   background-color: white;
 `;
 
 const QuestionStatus = styled.div`
-  width: 80%;
-  border-top: solid 1px ${Colors.darkGray};
+  width: 75%;
+  border-top: solid 2px ${Colors.darkGray};
+  padding: .5rem 0;
   text-align: center;
+  font-size: .75rem;
 `;
 
 const QuestionStatusContainer = styled.div`
@@ -134,7 +141,10 @@ const Stats = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 48%;
-  font-size: .75rem;
+  font-family: 'Crimson Text';
+  font-size: .9rem;
+  font-style: italic;
+  font-weight: 700;
 `;
 
 const StatsContainer = styled.div`
@@ -149,6 +159,7 @@ const StatsContainer = styled.div`
 const Title = styled.div`
   color: ${Colors.darkGray};
   text-transform: uppercase;
+  font-size: .75rem;
 `;
 
 const TitleContainer = styled.div`

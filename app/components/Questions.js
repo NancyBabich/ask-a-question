@@ -2,7 +2,7 @@ import React from 'react';
 
 import AppContainer from './AppContainer';
 import ContentContainer from '../styled-components/ContentContainer';
-import FilterSortSearch from './FilterSortSearch';
+import FilterSort from './FilterSort';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
 
@@ -36,7 +36,7 @@ const Questions = () => {
 
   return (
     <AppContainer>
-      <Header searchBar rightComponent={<FilterSortSearch />} />
+      <Header searchBar rightComponent={<FilterSort />} />
       <ContentContainer>
         <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
         <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />

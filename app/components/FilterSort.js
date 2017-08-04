@@ -7,7 +7,7 @@ import Colors from './../consts/Colors';
 import Container from './../styled-components/Container';
 import RadioButton from './RadioButton';
 
-export default class FilterSortSearch extends Component {
+export default class FilterSort extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,68 +38,69 @@ export default class FilterSortSearch extends Component {
 
   render() {
     return (
-      <FilterSortSearchContainer>
+      <FilterSortContainer>
         <FilterSettings>
-          <FilterRadioButton>
+          <FilterOption>
             <RadioButton
               on={!this.state.displayAllQuestions}
               onClick={() => this.toggleDisplaySettings('myShelf')}
             />
             <span>My shelf</span>
-          </FilterRadioButton>
-          <FilterRadioButton>
+          </FilterOption>
+          <FilterOption>
             <RadioButton
               on={this.state.displayAllQuestions}
               onClick={() => this.toggleDisplaySettings('allQuestions')}
             />
             <span>All questions</span>
-          </FilterRadioButton>
+          </FilterOption>
         </FilterSettings>
         <SortSettings>
           <div>Sort by: &nbsp;</div>
-          <Sort
+          <SortOption
             active={!this.state.sortByHot}
             onClick={() => this.toggleDisplaySettings('recent')}
           >
             recent
-          </Sort>
+          </SortOption>
           <div>&nbsp; or &nbsp;</div>
-          <Sort
+          <SortOption
             active={this.state.sortByHot}
             onClick={() => this.toggleDisplaySettings('hot')}
           >
             hot
-          </Sort>
+          </SortOption>
         </SortSettings>
-      </FilterSortSearchContainer>
+      </FilterSortContainer>
     );
   }
 }
 
-const FilterSortSearchContainer = Centered.extend`
-  width: 100%;
-  padding: 0 2rem;
+const FilterSortContainer = styled.div`
+  display: flex;
+  width: 50%;
   height: 100%;
+  padding: 1rem 0;
   font-size: .9rem;
-  align-items: flex-end;
 `;
 
-const FilterRadioButton = Centered.extend`
+const FilterOption = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   width: 50%;
-  height: 100%;
   align-items: flex-end;
 `;
 
-const FilterSettings = Centered.extend`
-  width: 50%;
+const FilterSettings = styled.div`
+  width: 55%;
   height: 100%;
   display: flex;
-  align-items: flex-end;
 `;
 
-const Sort = styled.div`
+const SortOption = styled.div`
+  display: flex;
+
+  align-items: flex-end;
   color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
   text-decoration: ${ifProp('active', 'underline', 'none')};
   font-style: normal;
@@ -109,10 +110,12 @@ const Sort = styled.div`
 `;
 
 const SortSettings = Centered.extend`
-  width: 50%;
+  width: 45%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
   font-style: italic;
   align-items: flex-end;
+  font-family: 'Crimson Text';
+  font-size: 1rem;
 `;
