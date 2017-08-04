@@ -7,6 +7,7 @@ import Centered from '../styled-components/Container';
 import Container from '../styled-components/Container';
 import NavButton from '../styled-components/NavButton';
 import ProfilePicture from '../styled-components/ProfilePicture';
+import UserStatsTile from './UserStatsTile';
 
 const Profile = ({ history }) =>
   <Modal>
@@ -37,7 +38,15 @@ const Profile = ({ history }) =>
         <NavButton fill />
       </HowItAllStarted>
       <UserHistory>
-        That's where we have been these past 5 months ago
+        <UserHistoryTitle>
+          That's where we have been these past 5 months ago
+        </UserHistoryTitle>
+        <UserHistoryStats>
+          <UserStats>
+            <UserStatsTile rotation="45" number="46" fact="peers" />
+          </UserStats>
+          <UserStats />
+        </UserHistoryStats>
       </UserHistory>
     </ProfileContainer>
   </Modal>;
@@ -113,8 +122,25 @@ const ProfileContainer = Container.extend`
 `;
 
 const UserHistory = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+`;
+
+const UserHistoryStats = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const UserHistoryTitle = styled.div`
   text-transform: uppercase;
   color: ${Colors.gray};
+`;
+
+const UserStats = styled.div`
+  position: relative;
+  width: 50%;
 `;
 
 const UserSummary = styled.div`
