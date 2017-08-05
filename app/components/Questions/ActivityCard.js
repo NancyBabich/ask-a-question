@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Colors from './../consts/Colors';
-import ProfilePicture from './../styled-components/ProfilePicture';
+import Colors from './../../consts/Colors';
+import ProfilePicture from './../../styled-components/ProfilePicture';
 
 const ActivityCard = ({ activity, imgSrc }) =>
   <StyledDiv>

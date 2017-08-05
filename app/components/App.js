@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { history } from '../history';
 
 import AppContainer from './AppContainer';
-import IndividualQuestion from './IndividualQuestion';
+import IndividualQuestion from './Questions/IndividualQuestion';
 import Profile from './Profile/Profile';
-import Questions from './Questions';
+import Questions from './Questions/Questions';
 
 export default class App extends Component {
   // previousLocation = this.props;

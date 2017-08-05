@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AppContainer from './AppContainer';
-import ContentContainer from '../styled-components/ContentContainer';
+import AppContainer from './../AppContainer';
+import ContentContainer from '../../styled-components/ContentContainer';
 import FilterSort from './FilterSort';
 import Header from './Header';
 import QuestionCard from './QuestionCard';

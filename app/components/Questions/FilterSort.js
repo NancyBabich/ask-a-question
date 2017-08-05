@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
-import Centered from './../styled-components/Centered';
-import Colors from './../consts/Colors';
-import Container from './../styled-components/Container';
+import Centered from './../../styled-components/Centered';
+import Colors from './../../consts/Colors';
+import Container from './../../styled-components/Container';
 import RadioButton from './RadioButton';
 
 export default class FilterSort extends Component {

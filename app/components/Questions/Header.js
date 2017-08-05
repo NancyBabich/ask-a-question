@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
 
-import Centered from './../styled-components/Centered';
-import Container from './../styled-components/Container';
-import Colors from './../consts/Colors';
-import NavButton from '../styled-components/NavButton';
+import Centered from './../../styled-components/Centered';
+import Container from './../../styled-components/Container';
+import Colors from './../../consts/Colors';
+import NavButton from '../../styled-components/NavButton';
 
 const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
   <NavContainer>

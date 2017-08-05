@@ -4,8 +4,8 @@ import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
 
 import ActivityCards from './ActivityCards';
-import Colors from './../consts/Colors';
-import ProfilePicture from './../styled-components/ProfilePicture';
+import Colors from './../../consts/Colors';
+import ProfilePicture from './../../styled-components/ProfilePicture';
 import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
@@ -98,7 +98,7 @@ const Question = styled.div`
   justify-content: space-between;
   color: ${Colors.darkBlue};
   font-family: 'Crimson Text';
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   font-style: italic;
   &:hover {
@@ -176,4 +176,6 @@ const Unfollow = styled.div`
   &:hover {
     cursor: pointer;
   }
+  font-family: 'Roboto Condensed';
+  font-size: 1rem;
 `;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Centered from '../styled-components/Centered';
-import Colors from '../consts/Colors';
-import Container from '../styled-components/Container';
+import Centered from '../../styled-components/Centered';
+import Colors from '../../consts/Colors';
+import Container from '../../styled-components/Container';
 
 export default class QuestionContent extends Component {
   constructor(props) {

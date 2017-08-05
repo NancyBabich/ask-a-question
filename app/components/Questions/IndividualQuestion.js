@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import AppContainer from './AppContainer';
-import ContentContainer from '../styled-components/ContentContainer';
+import AppContainer from './../AppContainer';
+import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
 
