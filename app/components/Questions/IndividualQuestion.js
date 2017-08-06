@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import AnswerCard from './AnswerCard';
 import AppContainer from './../AppContainer';
 import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
@@ -21,6 +22,7 @@ const IndividualQuestion = () =>
         individualQuestion
         mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
       />
+      <AnswerCard />
     </ContentContainer>
   </AppContainer>;
 

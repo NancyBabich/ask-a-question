@@ -35,7 +35,7 @@ export default class QuestionContent extends Component {
           frequently.
         </TextContainer>
         <VotesContainer>
-          <StatsContainer>
+          <div>
             {this.state.upvotes >= this.state.downvotes &&
             this.state.haveDownvoted === false
               ? <Votes>
@@ -44,8 +44,8 @@ export default class QuestionContent extends Component {
               : <Votes>
                   <Number>{this.state.downvotes}</Number> downvotes
                 </Votes>}
-          </StatsContainer>
-          <VotingButtons>
+          </div>
+          <div>
             <VotingArrowContainer>
               <Upvote
                 onClick={() =>
@@ -62,7 +62,7 @@ export default class QuestionContent extends Component {
                   )}
               />
             </VotingArrowContainer>
-          </VotingButtons>
+          </div>
         </VotesContainer>
         <StyledButton>
           <Activity>give </Activity>new answer
@@ -97,8 +97,6 @@ const Number = styled.span`
   font-family: 'Roboto Condensed';
   font-style: normal;
 `;
-
-const StatsContainer = styled.div``;
 
 const StyledButton = styled.div`
   position: absolute;
@@ -157,5 +155,3 @@ const VotesContainer = styled.div`
 `;
 
 const VotingArrowContainer = styled.div`padding: .5rem;`;
-
-const VotingButtons = Container.extend``;
