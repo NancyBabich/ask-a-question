@@ -38,8 +38,12 @@ export default class QuestionContent extends Component {
           <StatsContainer>
             {this.state.upvotes >= this.state.downvotes &&
             this.state.haveDownvoted === false
-              ? `${this.state.upvotes} upvotes`
-              : `${this.state.downvotes} downvotes`}
+              ? <Votes>
+                  <Number>{this.state.upvotes}</Number> upvotes
+                </Votes>
+              : <Votes>
+                  <Number>{this.state.downvotes}</Number> downvotes
+                </Votes>}
           </StatsContainer>
           <VotingButtons>
             <VotingArrowContainer>
@@ -60,10 +64,15 @@ export default class QuestionContent extends Component {
             </VotingArrowContainer>
           </VotingButtons>
         </VotesContainer>
+        <StyledButton>
+          <Activity>give </Activity>new answer
+        </StyledButton>
       </InnerContainer>
     );
   }
 }
+
+const Activity = styled.span`text-transform: uppercase;`;
 
 const Downvote = styled.div`
   width: 0;
@@ -77,12 +86,38 @@ const Downvote = styled.div`
 `;
 
 const InnerContainer = Centered.extend`
+  position: relative;
   width: 100%;
   height: 100%;
   font-size: .8em;
+  align-items: flex-start;
 `;
 
-const StatsContainer = Centered.extend`padding-top: 3rem;`;
+const Number = styled.span`
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+`;
+
+const StatsContainer = styled.div``;
+
+const StyledButton = styled.div`
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  border: solid 1px ${Colors.gray};
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: white;
+  vertical-align: middle;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const TextContainer = Container.extend`
   width: 70%;
@@ -90,7 +125,7 @@ const TextContainer = Container.extend`
   align-items: flex-start;
   justify-content: flex-start;
   line-height: 1.5;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
   padding-left: 1rem;
   padding-right: 3rem;
 `;
@@ -106,13 +141,21 @@ const Upvote = styled.div`
   }
 `;
 
-const VotesContainer = Centered.extend`
+const Votes = styled.span`
+  font-family: 'Crimson Text';
+  font-weight: 700;
+  font-style: italic;
+  vertical-align: middle;
+`;
+
+const VotesContainer = styled.div`
+  display: flex;
   width: 30%;
-  height: 100%;
-  align-items: flex-start;
-  padding-top: 3rem;
+  padding-top: 1.5rem;
+  align-items: center;
+  justify-content: center;
 `;
 
 const VotingArrowContainer = styled.div`padding: .5rem;`;
 
-const VotingButtons = Container.extend`padding-top: 3rem;`;
+const VotingButtons = Container.extend``;
