@@ -25,7 +25,7 @@ const QuestionCard = ({
             src={mainImgSrc}
             onClick={() => history.push('/profile')}
           />*/}
-          <Link to={{pathname: '/new', state: {modal: true}}}>
+          <Link to={{pathname: '/profile', state: {modal: true}}}>
               fuckyou
           </Link> 
         </HeaderImageContainer>

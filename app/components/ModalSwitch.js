@@ -35,7 +35,7 @@ export default class ModalSwitch extends Component {
           <Route exact path="/" component={Questions} />
           <Route path="/new" component={IndividualQuestion} />
         </Switch>
-        {isModal ? <Route path="/profile" component={UserModal} /> : null}
+        {isModal ? <Route path="/profile" component={Profile} /> : null}
       </AppContainer>
     );
   }
