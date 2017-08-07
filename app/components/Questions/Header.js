@@ -69,6 +69,19 @@ const AddQuestion = Centered.extend`
   text-transform: uppercase;
   font-size: 2rem;
   font-weight: 700;
+
+  @media screen and (max-width: 1300px) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: 1130px) {
+    width: 30%;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const BackButtonContainer = Container.extend`
@@ -77,6 +90,10 @@ const BackButtonContainer = Container.extend`
   align-items: center;
   width: 20%;
   height: 50%;
+
+  @media screen and (max-width: 650px) {
+    visibility: hidden;
+  }
 `;
 
 const DisplaySettingsContainer = Container.extend`
@@ -89,6 +106,10 @@ const InputContainer = Container.extend`
   justify-content: space-between;
   width: 100%;
   padding: 1rem 0;
+
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+  }
 `;
 
 const NavContainer = styled.div`
@@ -106,6 +127,18 @@ const NavContainer = styled.div`
   @media screen and (max-width: ${Breakpoints.tablet}) {
     height: 10rem;
   }
+
+  @media screen and (max-width: 650px) {
+    height: 13rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    height: 15rem;
+  }
+
+  @media screen and (max-width: 415px) {
+    height: 17rem;
+  }
 `;
 
 const SearchContainer = Container.extend`
@@ -113,6 +146,7 @@ const SearchContainer = Container.extend`
   width: 100%;
   height: 50%;
   padding: 0;
+  justify-content: center;
 `;
 
 const StyledContainer = Container.extend`
@@ -132,6 +166,10 @@ const StyledInput = styled.input`
   background-color: ${Colors.lightGray};
   padding: .5rem;
   border: 1px solid ${Colors.gray};
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+  }
 `;
 
 const SubmitButtton = styled.div`
@@ -144,5 +182,11 @@ const SubmitButtton = styled.div`
   color: ${Colors.darkGray};
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: 1.75rem;
+    margin-top: 1rem;
   }
 `;

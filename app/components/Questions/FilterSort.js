@@ -85,9 +85,22 @@ const FilterSortContainer = styled.div`
   padding: 1rem 0;
   font-size: .9rem;
 
+  @media screen and (max-width: 1300px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 1130px) {
+    width: 70%;
+  }
+
   @media screen and (max-width: ${Breakpoints.tablet}) {
     justify-content: space-between;
     width: 100%;
+  }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -113,6 +126,17 @@ const FilterSettings = styled.div`
   @media screen and (max-width: ${Breakpoints.tablet}) {
     width: 50%;
   }
+
+  @media screen and (max-width: 650px) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 415px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const SortOption = styled.div`
@@ -136,5 +160,15 @@ const SortSettings = Centered.extend`
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     width: 50%;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  @media screen and (max-width: 415px) {
+    justify-content: flex-start;
   }
 `;
