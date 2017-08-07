@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
 
+import Breakpoints from '../../consts/Breakpoints';
 import Centered from './../../styled-components/Centered';
 import Container from './../../styled-components/Container';
 import Colors from './../../consts/Colors';
@@ -25,13 +26,13 @@ const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
         </AddQuestion>
         {rightComponent}
       </StyledContainer>
-      <StyledContainer>
+      <SearchContainer>
         {searchBar &&
           <InputContainer>
             <StyledInput placeholder="Search questions" />
             <SubmitButtton>search</SubmitButtton>
           </InputContainer>}
-      </StyledContainer>
+      </SearchContainer>
     </DisplaySettingsContainer>
   </NavContainer>;
 
@@ -101,6 +102,17 @@ const NavContainer = styled.div`
   font-weight: 700;
   padding-top: 2rem;
   z-index: 2;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    height: 10rem;
+  }
+`;
+
+const SearchContainer = Container.extend`
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+  padding: 0;
 `;
 
 const StyledContainer = Container.extend`
@@ -108,6 +120,11 @@ const StyledContainer = Container.extend`
   width: 100%;
   height: 50%;
   padding: 0;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const StyledInput = styled.input`

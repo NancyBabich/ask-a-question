@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
+import Breakpoints from '../../consts/Breakpoints';
 import Centered from './../../styled-components/Centered';
 import Colors from './../../consts/Colors';
 import Container from './../../styled-components/Container';
@@ -82,6 +83,11 @@ const FilterSortContainer = styled.div`
   height: 100%;
   padding: 1rem 0;
   font-size: .9rem;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 const FilterOption = styled.div`
@@ -89,17 +95,24 @@ const FilterOption = styled.div`
   justify-content: flex-end;
   width: 50%;
   align-items: flex-end;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    justify-content: flex-start;
+  }
 `;
 
 const FilterSettings = styled.div`
   width: 55%;
   height: 100%;
   display: flex;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 50%;
+  }
 `;
 
 const SortOption = styled.div`
   display: flex;
-
   align-items: flex-end;
   color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
   text-decoration: ${ifProp('active', 'underline', 'none')};
@@ -118,4 +131,8 @@ const SortSettings = Centered.extend`
   align-items: flex-end;
   font-family: 'Crimson Text';
   font-size: 1rem;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 50%;
+  }
 `;

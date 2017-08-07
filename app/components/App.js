@@ -34,9 +34,7 @@ export default class App extends Component {
       <Router>
         <AppContainer>
           <Route exact path="/" component={Questions} />
-
           <Route path="/new" component={IndividualQuestion} />
-
           <Route component={Profile} path="/profile" />
         </AppContainer>
       </Router>
