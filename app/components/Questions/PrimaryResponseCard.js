@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import Breakpoints from '../../consts/Breakpoints';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import VotingComponent from './VotingComponent';
@@ -78,8 +79,6 @@ const ResponseCardContainer = styled.div`
   display: flex;
   align-self: flex-end;
   width: 100%;
-  jlkjflkjlheight: 6rem;
-  lfkdvjlkdjflborder: solid 1px ${Colors.gray};
   background-color: white;
   margin-top: 2.5rem;
 `;
@@ -129,9 +128,3 @@ const VotingContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-// display: flex;
-//   width: 30%;
-//   padding-top: 1.5rem;
-//   align-items: center;
-//   justify-content: center;

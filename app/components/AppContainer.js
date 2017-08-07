@@ -33,7 +33,7 @@ const SecondaryContainer = styled.div`
   align-items: center;
   justify-content: ;
 
-  @media screen and (max-width: ${Breakpoints.mobile}) {
+  @media screen and (max-width: ${Breakpoints.tablet}) {
     width: 100%;
   }
 `;

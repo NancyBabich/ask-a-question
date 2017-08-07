@@ -11,7 +11,7 @@ const ContentContainer = styled.div`
   margin: 9.4rem auto 0 auto;
   background: none;
 
-  @media screen and (max-width: ${Breakpoints.mobile}) {
+  @media screen and (max-width: ${Breakpoints.tablet}) {
     width: 100%;
   }
 `;

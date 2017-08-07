@@ -89,13 +89,14 @@ const ResponseContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: 100%;
   position: relative;
 `;
 
 const ResponseSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
   padding-bottom: 2rem;
 `;
