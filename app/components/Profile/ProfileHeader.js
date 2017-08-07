@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Breakpoints from '../../consts/Breakpoints';
 import CloseButton from './CloseButton';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
@@ -102,4 +103,9 @@ const UserSummary = styled.div`
   padding: 1rem 0 2rem 0;
   border-bottom: solid 1px ${Colors.gray};
   margin-bottom: 2rem;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;

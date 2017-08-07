@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Breakpoints from '../../consts/Breakpoints';
 import ProfileSectionTitle from './ProfileSectionTitle';
 import UserStatsTile from './UserStatsTile';
 
@@ -43,6 +44,11 @@ const UserHistoryStatsContainer = styled.div`
   width: 100%;
   margin-top: 2rem;
   justify-content: center;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const UserStats = styled.div`
@@ -55,4 +61,12 @@ const UserStats = styled.div`
     justify-content: flex-start;
   }
   padding: 1.25rem;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    &:first-child,
+    &:last-child {
+      justify-content: center;
+    }
+    padding: 0;
+  }
 `;
