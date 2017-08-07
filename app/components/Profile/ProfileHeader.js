@@ -6,33 +6,51 @@ import CloseButton from './CloseButton';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 
-const ProfileHeader = ({ history }) =>
-  <ProfileHeaderContainer>
-    <CloseButton history={history} />
-    <ProfilePicture
-      big
-      src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-    />
-    <Name>Dr. Halima</Name>
-    <UserSummary>
-      <ActivityContainer>
-        <Activity>member for</Activity>
-        <ActivityTime>5 months</ActivityTime>
-      </ActivityContainer>
-      <ActivityContainer>
-        <Activity>last seen</Activity>
-        <ActivityTime>Saturday afternoon</ActivityTime>
-      </ActivityContainer>
-      <ActivityContainer>
-        <Activity>activity level</Activity>
-        <ActivitySymbolsContainer>
-          <ActivitySymbol />
-          <ActivitySymbol />
-          <ActivitySymbol />
-        </ActivitySymbolsContainer>
-      </ActivityContainer>
-    </UserSummary>
-  </ProfileHeaderContainer>;
+const ProfileHeader = ({ history }) => {
+  const activityLevel = 2;
+  let activitySymbols = [];
+
+  for (let i = 1; i <= 3; i++) {
+    activitySymbols.push(
+      i <= activityLevel
+        ? <ActivitySymbol
+            key={i}
+            style={{ backgroundColor: `${Colors.pink}` }}
+          />
+        : <ActivitySymbol
+            key={i}
+            style={{ backgroundColor: `${Colors.gray}` }}
+          />
+    );
+  }
+
+  return (
+    <ProfileHeaderContainer>
+      <CloseButton history={history} />
+      <ProfilePicture
+        big
+        src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+      />
+      <Name>Dr. Halima</Name>
+      <UserSummary>
+        <ActivityContainer>
+          <Activity>member for</Activity>
+          <ActivityTime>5 months</ActivityTime>
+        </ActivityContainer>
+        <ActivityContainer>
+          <Activity>last seen</Activity>
+          <ActivityTime>Saturday afternoon</ActivityTime>
+        </ActivityContainer>
+        <ActivityContainer>
+          <Activity>activity level</Activity>
+          <ActivitySymbolsContainer>
+            {activitySymbols}
+          </ActivitySymbolsContainer>
+        </ActivityContainer>
+      </UserSummary>
+    </ProfileHeaderContainer>
+  );
+};
 
 export default ProfileHeader;
 
