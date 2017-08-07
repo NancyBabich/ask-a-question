@@ -9,7 +9,13 @@ import ProfilePicture from './../../styled-components/ProfilePicture';
 import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
-const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
+const QuestionCard = ({
+  handleVote,
+  history,
+  individualQuestion,
+  mainImgSrc,
+  votingData
+}) =>
   <QuestionCardContainer>
     <PrimaryCard individualQuestion={individualQuestion}>
       <PrimaryCardHeader>
@@ -39,7 +45,14 @@ const QuestionCard = ({ mainImgSrc, history, individualQuestion }) =>
           {!individualQuestion && <QuestionStatus>asked</QuestionStatus>}
         </QuestionStatusContainer>
         <SecondaryCard
-          content={individualQuestion ? <QuestionContent /> : <ActivityCards />}
+          content={
+            individualQuestion
+              ? <QuestionContent
+                  handleVote={handleVote}
+                  votingData={votingData}
+                />
+              : <ActivityCards />
+          }
         />
       </PrimaryCardBody>
     </PrimaryCard>
@@ -57,7 +70,8 @@ export default withRouter(QuestionCard);
 const HeaderImageContainer = styled.div`
   display: flex;
   width: 20%;
-  padding: 1rem 0 0 1rem;
+  padding-top: 1rem;
+  justify-content: center;
 `;
 
 const PrimaryCard = styled.div`
