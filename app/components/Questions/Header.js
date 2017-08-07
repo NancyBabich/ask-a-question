@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { ifProp } from 'styled-tools';
+import { ifProp, prop } from 'styled-tools';
 import { withRouter } from 'react-router';
 
 import Breakpoints from '../../consts/Breakpoints';
@@ -15,7 +15,7 @@ const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
       <NavButton big left onClick={() => history.go(-1)} />
     </BackButtonContainer>
     <DisplaySettingsContainer>
-      <StyledContainer>
+      <StyledContainer singleQuestion={singleQuestion}>
         <AddQuestion>
           <div>
             {singleQuestion ? 'Question' : 'Questions'}
@@ -125,11 +125,11 @@ const NavContainer = styled.div`
   z-index: 2;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    height: 10rem;
+    height: ${ifProp('singleQuestion', '5rem', '10rem')};
   }
 
   @media screen and (max-width: 650px) {
-    height: 13rem;
+    height: ${ifProp('singleQuestion', '5rem', '13rem')};
   }
 
   @media screen and (max-width: 550px) {
@@ -156,9 +156,14 @@ const StyledContainer = Container.extend`
   padding: 0;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: ${ifProp('singleQuestion', 'row', 'column')};
   }
+
+   @media screen and (max-width: 700px) {
+    f;dh;flh;lflex-direction: ${prop('singleQuestion', 'column')};
+  }
+
+
 `;
 
 const StyledInput = styled.input`
