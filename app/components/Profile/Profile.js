@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Breakpoints from '../../consts/Breakpoints';
 import Colors from '../../consts/Colors';
 import Container from '../../styled-components/Container';
 import HowItAllStarted from './HowItAllStarted';
@@ -37,6 +38,10 @@ const Modal = styled.div`
   padding-top: 5%;
   height: 150vh;
   width: 100%;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    padding-top: 0;
+  }
 `;
 
 const ProfileContainer = Container.extend`
@@ -47,6 +52,10 @@ const ProfileContainer = Container.extend`
   align-items: center;
   padding: 3rem 0;
   color: ${Colors.gray};
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 100%;
+  }
 `;
 
 const UserHistory = styled.div`
