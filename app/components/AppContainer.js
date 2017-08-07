@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Breakpoints from '../consts/Breakpoints';
 import Colors from '../consts/Colors';
 
 const AppContainer = ({ children }) =>
@@ -31,6 +32,10 @@ const SecondaryContainer = styled.div`
   background-color: ${Colors.lightGray};
   align-items: center;
   justify-content: ;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 export default AppContainer;
