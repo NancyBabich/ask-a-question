@@ -11,9 +11,9 @@ const VotingComponent = ({ handleVote, votingData }) => {
   return (
     <div>
       <div>
-        {votingData.upvotes >= votingData.downvotes &&
-        votingData.haveDownvoted === false
-          ? <Votes>
+        {votingData.upvotes >= votingData.downvotes //&&
+          ? //votingData.haveDownvoted === false
+            <Votes>
               <Number>{votingData.upvotes}</Number> upvotes
             </Votes>
           : <Votes>
