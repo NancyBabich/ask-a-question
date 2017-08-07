@@ -67,6 +67,7 @@ const ActivityContainer = styled.div`
 
   @media screen and (max-width: ${Breakpoints.mobile}) {
     flex-direction: column;
+    margin-top: 1rem;
   }
 `;
 
@@ -81,7 +82,6 @@ const ActivitySymbol = styled.div`
   height: 1rem;
   border-radius: 50%;
   background-color: ${Colors.pink};
-  margin: 0 .1rem;
 `;
 
 const ActivityTime = styled.div`
