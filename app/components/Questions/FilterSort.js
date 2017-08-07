@@ -57,14 +57,14 @@ export default class FilterSort extends Component {
           </FilterOption>
         </FilterSettings>
         <SortSettings>
-          <div>Sort by: &nbsp;</div>
+          <span>Sort by: &nbsp;</span>
           <SortOption
             active={!this.state.sortByHot}
             onClick={() => this.toggleDisplaySettings('recent')}
           >
             recent
           </SortOption>
-          <div>&nbsp; or &nbsp;</div>
+          <span>&nbsp; or &nbsp;</span>
           <SortOption
             active={this.state.sortByHot}
             onClick={() => this.toggleDisplaySettings('hot')}
@@ -79,6 +79,7 @@ export default class FilterSort extends Component {
 
 const FilterSortContainer = styled.div`
   display: flex;
+  align-items: flex-end;
   width: 50%;
   height: 100%;
   padding: 1rem 0;
@@ -94,16 +95,19 @@ const FilterOption = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 50%;
-  align-items: flex-end;
+  align-items: center;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     justify-content: flex-start;
+    width: auto;
+    &:first-child {
+      margin-right: 1rem;
+    }
   }
 `;
 
 const FilterSettings = styled.div`
   width: 55%;
-  height: 100%;
   display: flex;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
@@ -124,11 +128,9 @@ const SortOption = styled.div`
 
 const SortSettings = Centered.extend`
   width: 45%;
-  height: 100%;
   display: flex;
   justify-content: flex-end;
   font-style: italic;
-  align-items: flex-end;
   font-family: 'Crimson Text';
   font-size: 1rem;
 
