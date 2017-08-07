@@ -34,7 +34,7 @@ export default class SecondaryResponseCard extends Component {
           <ResponseContentContainer>
             <ResponseHeader>
               <Name>Patricia </Name>
-              <Activity>commented it </Activity>
+              commented it
               <Divider /> <Time> yesterday</Time>
             </ResponseHeader>
             <ResponseContent>
@@ -78,14 +78,14 @@ const ResponseCardContainer = styled.div`
   display: flex;
   align-self: flex-end;
   width: 80%;
-  height: 5rem;
-  jfkjflkjflborder: solid 1px ${Colors.gray};
   background-color: white;
+  margin-top: .1rem;
 `;
 
 const ResponseContainer = styled.div`
   display: flex;
   width: 85%;
+  padding-left: 1rem;
 `;
 
 const ResponseContentContainer = styled.div`
@@ -97,12 +97,14 @@ const ResponseContentContainer = styled.div`
 const ResponseHeader = styled.div`
   width: 100%;
   height: 50%;
+  padding: 1rem 0 .5rem 0;
 `;
 
 const ResponseContent = styled.div`
   width: 100%;
   height: 50%;
   font-size: 0.75rem;
+  padding: .5rem 0 2rem 0;
 `;
 
 const ProfilePictureContainer = styled.div`
@@ -110,7 +112,7 @@ const ProfilePictureContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 15%;
-  border-right: solid 1px ${Colors.gray};
+  border-right: solid 1px ${Colors.lightGray};
 `;
 
 const Time = styled.span`
@@ -125,9 +127,3 @@ const VotingContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-// display: flex;
-//   width: 30%;
-//   padding-top: 1.5rem;
-//   align-items: center;
-//   justify-content: center;

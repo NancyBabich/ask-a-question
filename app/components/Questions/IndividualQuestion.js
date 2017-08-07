@@ -53,23 +53,24 @@ export default class IndividualQuestion extends Component {
             <ResponseContainer>
               <PrimaryResponseCard />
               <SecondaryResponseCard />
-              <StyledButton>continue discussion</StyledButton>
+              <StyledButton>
+                <Activity>continue </Activity> discussion
+              </StyledButton>
             </ResponseContainer>
             <ResponseContainer>
               <PrimaryResponseCard />
-              <StyledButton>continue discussion</StyledButton>
+              <StyledButton>
+                <Activity>comment</Activity>
+              </StyledButton>
             </ResponseContainer>
-            <div>test</div>
-            <div>test</div>
-            <div>test</div>
-            <div>test</div>
-            <div>test</div>
           </ResponseSection>
         </ContentContainer>
       </AppContainer>
     );
   }
 }
+
+const Activity = styled.span`text-transform: uppercase;`;
 
 const Number = styled.span`
   font-family: 'Roboto Condensed';
@@ -80,6 +81,7 @@ const QuestionStatusContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  align-self: center;
   font-style: italic;
 `;
 
@@ -95,6 +97,7 @@ const ResponseSection = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding-bottom: 2rem;
 `;
 
 const ResponseSectionHeader = styled.div`

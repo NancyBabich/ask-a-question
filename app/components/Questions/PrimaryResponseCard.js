@@ -78,15 +78,16 @@ const ResponseCardContainer = styled.div`
   display: flex;
   align-self: flex-end;
   width: 100%;
-  height: 5rem;
+  jlkjflkjlheight: 6rem;
   lfkdvjlkdjflborder: solid 1px ${Colors.gray};
   background-color: white;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 `;
 
 const ResponseContainer = styled.div`
   display: flex;
   width: 80%;
+  padding-left: 1rem;
 `;
 
 const ResponseContentContainer = styled.div`
@@ -98,12 +99,14 @@ const ResponseContentContainer = styled.div`
 const ResponseHeader = styled.div`
   width: 100%;
   height: 50%;
+  padding: 1rem 0 .5rem 0;
 `;
 
 const ResponseContent = styled.div`
   width: 100%;
   height: 50%;
   font-size: 0.75rem;
+  padding: .5rem 0 2rem 0;
 `;
 
 const ProfilePictureContainer = styled.div`
@@ -111,7 +114,7 @@ const ProfilePictureContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 20%;
-  border-right: solid 1px ${Colors.gray};
+  border-right: solid 0.1rem ${Colors.lightGray};
 `;
 
 const Time = styled.span`
