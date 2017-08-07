@@ -15,17 +15,12 @@ const QuestionContent = ({ handleVote, votingData }) =>
       Patients with know eye disease, symptoms of blurred vision in one eye, or
       blind spots need to see their ophthalmologist more frequently.
     </TextContainer>
-    <VotingSection>
+    <VotingContainer>
       <VotingComponent votingData={votingData} handleVote={handleVote} />
-    </VotingSection>
-    <StyledButton>
-      <Activity>give </Activity>new answer
-    </StyledButton>
+    </VotingContainer>
   </InnerContainer>;
 
 export default QuestionContent;
-
-const Activity = styled.span`text-transform: uppercase;`;
 
 const InnerContainer = Centered.extend`
   position: relative;
@@ -33,25 +28,6 @@ const InnerContainer = Centered.extend`
   height: 100%;
   font-size: .8em;
   align-items: flex-start;
-`;
-
-const StyledButton = styled.div`
-  position: absolute;
-  width: 150px;
-  height: 30px;
-  border: solid 1px ${Colors.gray};
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  background-color: white;
-  vertical-align: middle;
-  font-size: .8rem;
-  font-weight: 700;
-  line-height: 30px;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const TextContainer = Container.extend`
@@ -65,7 +41,7 @@ const TextContainer = Container.extend`
   padding-right: 3rem;
 `;
 
-const VotingSection = styled.div`
+const VotingContainer = styled.div`
   display: flex;
   width: 30%;
   padding-top: 1.5rem;

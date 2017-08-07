@@ -9,7 +9,7 @@ const VotingComponent = ({ handleVote, votingData }) => {
   };
 
   return (
-    <div>
+    <VotingComponentContainer>
       <div>
         {votingData.upvotes >= votingData.downvotes //&&
           ? //votingData.haveDownvoted === false
@@ -34,7 +34,7 @@ const VotingComponent = ({ handleVote, votingData }) => {
           />
         </VotingArrowContainer>
       </div>
-    </div>
+    </VotingComponentContainer>
   );
 };
 
@@ -72,6 +72,12 @@ const Votes = styled.span`
   font-weight: 700;
   font-style: italic;
   vertical-align: middle;
+  font-size: .75rem;
 `;
 
 const VotingArrowContainer = styled.div`padding: .5rem;`;
+
+const VotingComponentContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;

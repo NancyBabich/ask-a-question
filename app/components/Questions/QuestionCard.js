@@ -63,9 +63,15 @@ const QuestionCard = ({
         <div>3 conversations</div>
       </Stats>
     </StatsContainer>
+    {individualQuestion &&
+      <StyledButton>
+        <Activity>give </Activity>new answer
+      </StyledButton>}
   </QuestionCardContainer>;
 
 export default withRouter(QuestionCard);
+
+const Activity = styled.span`text-transform: uppercase;`;
 
 const HeaderImageContainer = styled.div`
   display: flex;
@@ -121,6 +127,7 @@ const Question = styled.div`
 `;
 
 const QuestionCardContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -168,6 +175,25 @@ const StatsContainer = styled.div`
   justify-content: flex-end;
   width: 20%;
   height: 90%;
+`;
+
+const StyledButton = styled.div`
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  border: solid 1px ${Colors.gray};
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: white;
+  vertical-align: middle;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 30px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Title = styled.div`
