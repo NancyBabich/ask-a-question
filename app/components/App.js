@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { history } from '../history';
+import { BrowserRouter as Router, Route/*, Switch*/ } from 'react-router-dom';
+//import { history } from '../history';
 
 import AppContainer from './AppContainer';
-import IndividualQuestion from './Questions/IndividualQuestion';
-import Profile from './Profile/Profile';
-import Questions from './Questions/Questions';
+//import IndividualQuestion from './Questions/IndividualQuestion';
+//import Profile from './Profile/Profile';
+//import Questions from './Questions/Questions';
+import ModalSwitch from './ModalSwitch';
 
 export default class App extends Component {
   // previousLocation = this.props;
@@ -32,11 +33,11 @@ export default class App extends Component {
 
     return (
       <Router>
-        <AppContainer>
-          <Route exact path="/" component={Questions} />
-          <Route path="/new" component={IndividualQuestion} />
-          <Route component={Profile} path="/profile" />
-        </AppContainer>
+        {/*<AppContainer>*/}
+          <Route component={ModalSwitch} />
+          {/*<Route path="/new" component={IndividualQuestion} />
+          <Route component={Profile} path="/profile" />*/}
+        {/*</AppContainer>*/}
       </Router>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
+import {Link} from 'react-router-dom';
 
 import ActivityCards from './ActivityCards';
 import Colors from './../../consts/Colors';
@@ -20,10 +21,13 @@ const QuestionCard = ({
     <PrimaryCard individualQuestion={individualQuestion}>
       <PrimaryCardHeader>
         <HeaderImageContainer>
-          <ProfilePicture
+          {/*<ProfilePicture
             src={mainImgSrc}
             onClick={() => history.push('/profile')}
-          />
+          />*/}
+          <Link to={{pathname: '/new', state: {modal: true}}}>
+              fuckyou
+          </Link> 
         </HeaderImageContainer>
         <TitleContainer>
           <Title>
