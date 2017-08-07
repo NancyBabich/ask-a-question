@@ -10,7 +10,7 @@ import Colors from './../../consts/Colors';
 import NavButton from '../../styled-components/NavButton';
 
 const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
-  <NavContainer>
+  <NavContainer singleQuestion={singleQuestion}>
     <BackButtonContainer>
       <NavButton big left onClick={() => history.go(-1)} />
     </BackButtonContainer>
@@ -97,7 +97,7 @@ const NavContainer = styled.div`
   display: flex;
   align-items: flex-start;
   width: 100%;
-  height: 8rem;
+  height: ${ifProp('singleQuestion', '5rem', '8rem')};
   background-color: white;
   font-weight: 700;
   padding-top: 2rem;
