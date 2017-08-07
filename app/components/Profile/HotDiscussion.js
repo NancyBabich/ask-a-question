@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Breakpoints from '../../consts/Breakpoints';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';
@@ -18,20 +19,20 @@ const HotDiscussion = () =>
       <DiscussionTopic>Vegan diet to stop diabetes progress</DiscussionTopic>
       <DiscussionStats>
         <DiscussionStatsUnit>
-          <DiscussionFact>
+          <DiscussionFactOne>
             <DiscussionFactNumber>6</DiscussionFactNumber> peers involved
-          </DiscussionFact>
-          <DiscussionFact>
+          </DiscussionFactOne>
+          <DiscussionFactTwo>
             <DiscussionFactNumber>3</DiscussionFactNumber> related discussions
-          </DiscussionFact>
+          </DiscussionFactTwo>
         </DiscussionStatsUnit>
         <DiscussionStatsUnit>
-          <DiscussionFact>
-            <DiscussionFactNumber>6</DiscussionFactNumber> peers involved
-          </DiscussionFact>
-          <DiscussionFact>
-            <DiscussionFactNumber>3</DiscussionFactNumber> related discussions
-          </DiscussionFact>
+          <DiscussionFactThree>
+            <DiscussionFactNumber>3</DiscussionFactNumber> conversations
+          </DiscussionFactThree>
+          <DiscussionFactFour>
+            <DiscussionFactNumber>19</DiscussionFactNumber> upvotes
+          </DiscussionFactFour>
         </DiscussionStatsUnit>
       </DiscussionStats>
     </DiscussionDetails>
@@ -77,9 +78,48 @@ const DiscussionDetails = styled.div`
   margin-top: 3rem;
 `;
 
-const DiscussionFact = styled.div`
+const DiscussionFactOne = styled.div`
+  display: flex;
   width: 50%;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    order: 3;
+  }
+`;
+
+const DiscussionFactTwo = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    order: 1;
+  }
+`;
+
+const DiscussionFactThree = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    order: 2;
+  }
+`;
+
+const DiscussionFactFour = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    order: 4;
+  }
 `;
 
 const DiscussionFactNumber = styled.span`
@@ -96,11 +136,20 @@ const DiscussionStats = styled.div`
   color: ${Colors.darkGray};
   font-weight: 700;
   font-style: italic;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const DiscussionStatsUnit = styled.div`
   display: flex;
   width: 50%;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 const DiscussionTopic = styled.div`

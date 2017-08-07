@@ -55,16 +55,25 @@ const ProfileHeader = ({ history }) => {
 
 export default ProfileHeader;
 
-const Activity = styled.span`
+const Activity = styled.div`
   text-transform: uppercase;
+  text-align: center;
   font-weight: 700;
+  padding: 0 .5rem;
 `;
 
-const ActivityContainer = styled.div`display: flex;`;
+const ActivityContainer = styled.div`
+  display: flex;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    flex-direction: column;
+  }
+`;
 
 const ActivitySymbolsContainer = styled.div`
   display: flex;
-  margin-left: .5rem;
+  padding: 0 .5rem;
+  justify-content: center;
 `;
 
 const ActivitySymbol = styled.div`
@@ -75,10 +84,11 @@ const ActivitySymbol = styled.div`
   margin: 0 .1rem;
 `;
 
-const ActivityTime = styled.span`
+const ActivityTime = styled.div`
   font-weight: 700;
   color: ${Colors.darkGray};
-  padding-left: .5rem;
+  padding: 0 .5rem;
+  text-align: center;
 `;
 
 const Name = styled.div`

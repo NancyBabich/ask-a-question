@@ -46,7 +46,7 @@ const Modal = styled.div`
 
 const ProfileContainer = Container.extend`
   width: 50%;
-  height: 100%;
+  height: 150%;
   background-color: white;
   justify-content: center;
   align-items: center;
