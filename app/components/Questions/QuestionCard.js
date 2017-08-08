@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import ActivityCards from './ActivityCards';
 import Colors from './../../consts/Colors';
@@ -16,62 +16,66 @@ const QuestionCard = ({
   individualQuestion,
   mainImgSrc,
   votingData
-}) =>
-  <QuestionCardContainer>
-    <PrimaryCard individualQuestion={individualQuestion}>
-      <PrimaryCardHeader>
-        <HeaderImageContainer>
-          {/*<ProfilePicture
-            src={mainImgSrc}
-            onClick={() => history.push('/profile')}
-          />*/}
-          <Link to={{pathname: '/profile', state: {modal: true}}}>
-              fuckyou
-          </Link> 
-        </HeaderImageContainer>
-        <TitleContainer>
-          <Title>
-            <Name>Eva </Name>is asking
-          </Title>
-          <Question
-            onClick={() => !individualQuestion && history.push('/new')}
-            individualQuestion={individualQuestion}
-          >
-            Will insulin make my patient gain weight?
-            <Unfollow individualQuestion={individualQuestion}>
-              unfollow
-            </Unfollow>
-          </Question>
-        </TitleContainer>
-      </PrimaryCardHeader>
-      <PrimaryCardBody>
-        <QuestionStatusContainer>
-          {!individualQuestion && <QuestionStatus>asked</QuestionStatus>}
-        </QuestionStatusContainer>
-        <SecondaryCard
-          content={
-            individualQuestion
-              ? <QuestionContent
-                  handleVote={handleVote}
-                  votingData={votingData}
-                />
-              : <ActivityCards />
-          }
-        />
-      </PrimaryCardBody>
-    </PrimaryCard>
-    <StatsContainer individualQuestion={individualQuestion}>
-      <Stats>
-        <div>1 related discussion</div>
-        <div>6 peers involved</div>
-        <div>3 conversations</div>
-      </Stats>
-    </StatsContainer>
-    {individualQuestion &&
-      <StyledButton>
-        <Activity>give </Activity>new answer
-      </StyledButton>}
-  </QuestionCardContainer>;
+}) => {
+  const link = {
+    pathname: `/profile`,
+    state: { modal: true }
+  };
+
+  return (
+    <QuestionCardContainer>
+      <PrimaryCard individualQuestion={individualQuestion}>
+        <PrimaryCardHeader>
+          <HeaderImageContainer>
+            <Link to={link}>
+              <ProfilePicture src={mainImgSrc} />
+            </Link>
+          </HeaderImageContainer>
+          <TitleContainer>
+            <Title>
+              <Name>Eva </Name>is asking
+            </Title>
+            <Question
+              onClick={() => !individualQuestion && history.push('/new')}
+              individualQuestion={individualQuestion}
+            >
+              Will insulin make my patient gain weight?
+              <Unfollow individualQuestion={individualQuestion}>
+                unfollow
+              </Unfollow>
+            </Question>
+          </TitleContainer>
+        </PrimaryCardHeader>
+        <PrimaryCardBody>
+          <QuestionStatusContainer>
+            {!individualQuestion && <QuestionStatus>asked</QuestionStatus>}
+          </QuestionStatusContainer>
+          <SecondaryCard
+            content={
+              individualQuestion
+                ? <QuestionContent
+                    handleVote={handleVote}
+                    votingData={votingData}
+                  />
+                : <ActivityCards />
+            }
+          />
+        </PrimaryCardBody>
+      </PrimaryCard>
+      <StatsContainer individualQuestion={individualQuestion}>
+        <Stats>
+          <div>1 related discussion</div>
+          <div>6 peers involved</div>
+          <div>3 conversations</div>
+        </Stats>
+      </StatsContainer>
+      {individualQuestion &&
+        <StyledButton>
+          <Activity>give </Activity>new answer
+        </StyledButton>}
+    </QuestionCardContainer>
+  );
+};
 
 export default withRouter(QuestionCard);
 

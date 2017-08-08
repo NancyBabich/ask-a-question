@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AppContainer from './AppContainer';
 import IndividualQuestion from './Questions/IndividualQuestion';
+import Profile from './Profile/Profile';
 import Questions from './Questions/Questions';
 
 export default class ModalSwitch extends Component {
@@ -14,7 +15,6 @@ export default class ModalSwitch extends Component {
 
   componentWillUpdate(nextProps) {
     const { location } = this.props;
-    // set previousLocation if props.location is not modal
     if (
       nextProps.history.action !== 'POP' &&
       (!location.state || !location.state.modal)
@@ -28,7 +28,7 @@ export default class ModalSwitch extends Component {
       location.state &&
       location.state.modal &&
       this.previousLocation !== location
-    ); // not initial render
+    );
     return (
       <AppContainer>
         <Switch location={isModal ? this.previousLocation : location}>

@@ -34,10 +34,11 @@ const Modal = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.7);
   padding-top: 5%;
   height: 150vh;
   width: 100%;
+  z-index: 3;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     padding-top: 0;
