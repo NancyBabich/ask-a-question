@@ -15,6 +15,8 @@ const QuestionCard = ({
   history,
   individualQuestion,
   mainImgSrc,
+  name,
+  question,
   votingData
 }) => {
   const link = {
@@ -33,13 +35,13 @@ const QuestionCard = ({
           </HeaderImageContainer>
           <TitleContainer>
             <Title>
-              <Name>Eva </Name>is asking
+              <Name>{name} </Name>is asking
             </Title>
             <Question
               onClick={() => !individualQuestion && history.push('/new')}
               individualQuestion={individualQuestion}
             >
-              Will insulin make my patient gain weight?
+              {question}
               <Unfollow individualQuestion={individualQuestion}>
                 unfollow
               </Unfollow>

@@ -2,44 +2,48 @@ import React from 'react';
 
 import AppContainer from './../AppContainer';
 import ContentContainer from '../../styled-components/ContentContainer';
+import { loggedUser, questions, users } from '../../data/data';
 import FilterSort from './FilterSort';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
 
 const Questions = () => {
-  const questions = [
-    {
-      questionId: 1,
-      keywords: ['diabetes', 'insulin'],
-      authorFirstName: 'Eva',
-      authorLastName: 'Kosofsky',
-      relatedDiscussions: 3,
-      peersInvolved: 6,
-      conversations: 3,
-      question: 'Will insulin make my patient gain weight?',
-      comments: [],
-      answers: [],
-      status: 'asked',
-      dateAsked: '2017-08-02'
-    },
-    {},
-    {},
-    {}
-  ];
+  const findAuthorFirstName = question => {
+    let authorFirstName = users.find(user => user.userId === question.authorId)
+      .firstName;
 
-  const user = {
-    firstName: 'Eva',
-    lastName: 'Smith',
-    dateJoined: '2015-10-03',
-    questionIds: [1, 2, 3]
+    return (
+      <QuestionCard
+        key={question.questionId}
+        name={authorFirstName}
+        question={question.question}
+        mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+      />
+    );
   };
+
+  {
+    /*let questionCards = questions.map((question) =>
+    
+
+    <QuestionCard
+      key={question.questionId}
+      name={name}
+      question={question.question}
+      mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+    />)
+  ;*/
+  }
+
+  let questionCards = questions.map(findAuthorFirstName);
 
   return (
     <AppContainer>
       <Header searchBar rightComponent={<FilterSort />} />
       <ContentContainer>
-        <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
-        <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />
+        {/*<QuestionCard mainImgSrc={users[1].imgUrl} />
+        <QuestionCard mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg" />*/}
+        {questionCards}
       </ContentContainer>
     </AppContainer>
   );
