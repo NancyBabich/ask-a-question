@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PrimaryResponseCard from './PrimaryResponseCard';
 import SecondaryResponseCard from './SecondaryResponseCard';
 import AppContainer from './../AppContainer';
+import Breakpoints from '../../consts/Breakpoints';
 import Colors from '../../consts/Colors';
 import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
@@ -83,6 +84,10 @@ const QuestionStatusContainer = styled.div`
   justify-content: flex-end;
   align-self: center;
   font-style: italic;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 const ResponseContainer = styled.div`

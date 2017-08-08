@@ -4,8 +4,13 @@ import { ifProp, prop } from 'styled-tools';
 
 import Colors from '../consts/Colors';
 
-const NavButton = ({ big, fill, left, onClick }) =>
-  <Button big={big} fill={fill} onClick={onClick}>
+const NavButton = ({ big, fill, left, onClick, singleQuestion }) =>
+  <Button
+    big={big}
+    fill={fill}
+    onClick={onClick}
+    singleQuestion={singleQuestion}
+  >
     <NavArrow big={big} fill={fill} left={left} />
   </Button>;
 

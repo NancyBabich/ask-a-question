@@ -11,17 +11,22 @@ import NavButton from '../../styled-components/NavButton';
 
 const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
   <NavContainer singleQuestion={singleQuestion}>
-    <BackButtonContainer>
-      <NavButton big left onClick={() => history.go(-1)} />
+    <BackButtonContainer singleQuestion={singleQuestion}>
+      <NavButton
+        big
+        left
+        onClick={() => history.go(-1)}
+        singleQuestion={singleQuestion}
+      />
     </BackButtonContainer>
-    <DisplaySettingsContainer>
+    <DisplaySettingsContainer singleQuestion={singleQuestion}>
       <StyledContainer singleQuestion={singleQuestion}>
-        <AddQuestion>
+        <AddQuestion singleQuestion={singleQuestion}>
           <div>
             {singleQuestion ? 'Question' : 'Questions'}
           </div>
-          <AddButtonContainer>
-            <AddButton>+</AddButton>
+          <AddButtonContainer singleQuestion={singleQuestion}>
+            <AddButton singleQuestion={singleQuestion}>+</AddButton>
           </AddButtonContainer>
         </AddQuestion>
         {rightComponent}
@@ -53,12 +58,28 @@ const AddButton = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 415px) {
+    margin-left: ${ifProp('singleQuestion', '1rem', '0')};
+  }
+
+  @media screen and (max-width: 275px) {
+    margin-left: ${ifProp('singleQuestion', '.5rem', '0')};
+  }
+
+  @media screen and (max-width: 245px) {
+    margin-left: ${ifProp('singleQuestion', '.1rem', '0')};
+  }
 `;
 
 const AddButtonContainer = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+
+  @media screen and (max-width: 415px) {
+    margin: ${ifProp('singleQuestion', '0', '1rem 0')};
+  }
 `;
 
 const AddQuestion = Centered.extend`
@@ -78,9 +99,17 @@ const AddQuestion = Centered.extend`
     width: 30%;
   }
 
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 100%;
+  }
+
   @media screen and (max-width: 650px) {
     width: 100%;
-    justify-content: center;
+    justify-content: ${ifProp('singleQuestion', 'space-between', 'center')};
+  }
+
+  @media screen and (max-width: 415px) {
+    flex-direction: ${ifProp('singleQuestion', 'row', 'column')};
   }
 `;
 
@@ -92,13 +121,27 @@ const BackButtonContainer = Container.extend`
   height: 50%;
 
   @media screen and (max-width: 650px) {
-    visibility: hidden;
+    display: ${ifProp('singleQuestion', 'flex', 'none')};
   }
 `;
 
 const DisplaySettingsContainer = Container.extend`
   width: 60%;
   align-items: space-between;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 80%;
+    padding-right: 1rem;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: ${ifProp('singleQuestion', '80%', '100%')};
+    padding-right: ${ifProp('singleQuestion', '1rem', '0')};
+  }
+
+  @media screen and (max-width: 285px) {
+    align-items: ${ifProp('singleQuestion', 'flex-end', 'space-between')};
+  }
 `;
 
 const InputContainer = Container.extend`
@@ -109,6 +152,7 @@ const InputContainer = Container.extend`
 
   @media screen and (max-width: 550px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -125,19 +169,19 @@ const NavContainer = styled.div`
   z-index: 2;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    height: ${ifProp('singleQuestion', '5rem', '10rem')};
+    height: ${ifProp('singleQuestion', '4rem', '10rem')};
   }
 
   @media screen and (max-width: 650px) {
-    height: ${ifProp('singleQuestion', '5rem', '13rem')};
+    height: ${ifProp('singleQuestion', '4rem', '13rem')};
   }
 
   @media screen and (max-width: 550px) {
-    height: 15rem;
+    height: ${ifProp('singleQuestion', '4rem', '15rem')};
   }
 
   @media screen and (max-width: 415px) {
-    height: 17rem;
+    height: ${ifProp('singleQuestion', '4rem', '20rem')};
   }
 `;
 
@@ -158,12 +202,6 @@ const StyledContainer = Container.extend`
   @media screen and (max-width: ${Breakpoints.tablet}) {
     flex-direction: ${ifProp('singleQuestion', 'row', 'column')};
   }
-
-   @media screen and (max-width: 700px) {
-    f;dh;flh;lflex-direction: ${prop('singleQuestion', 'column')};
-  }
-
-
 `;
 
 const StyledInput = styled.input`
@@ -173,7 +211,7 @@ const StyledInput = styled.input`
   border: 1px solid ${Colors.gray};
 
   @media screen and (max-width: 550px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -190,7 +228,7 @@ const SubmitButtton = styled.div`
   }
 
   @media screen and (max-width: 550px) {
-    width: 100%;
+    width: 50%;
     height: 1.75rem;
     margin-top: 1rem;
   }

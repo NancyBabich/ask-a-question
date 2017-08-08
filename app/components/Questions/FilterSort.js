@@ -94,7 +94,6 @@ const FilterSortContainer = styled.div`
   }
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    justify-content: space-between;
     width: 100%;
   }
 
@@ -124,6 +123,10 @@ const FilterSettings = styled.div`
   display: flex;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: auto;
+  }
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
     width: 50%;
   }
 
@@ -133,9 +136,12 @@ const FilterSettings = styled.div`
   }
 
   @media screen and (max-width: 415px) {
-    width: 100%;
+    width: 50%;
     flex-direction: column;
-    align-items: flex-start;
+  }
+
+  @media screen and (max-width: 220px) {
+    width: 60%;
   }
 `;
 
@@ -159,6 +165,11 @@ const SortSettings = Centered.extend`
   font-size: 1rem;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: auto;
+    margin-left: 2rem;
+  }
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
     width: 50%;
   }
 
@@ -169,6 +180,13 @@ const SortSettings = Centered.extend`
   }
 
   @media screen and (max-width: 415px) {
+    width: 50%;
     justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: 310px) {
+    width: 100%;
+    justify-content: center;
   }
 `;
