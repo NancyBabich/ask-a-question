@@ -17,6 +17,7 @@ const QuestionCard = ({
   mainImgSrc,
   name,
   question,
+  status,
   votingData
 }) => {
   const link = {
@@ -50,7 +51,10 @@ const QuestionCard = ({
         </PrimaryCardHeader>
         <PrimaryCardBody>
           <QuestionStatusContainer>
-            {!individualQuestion && <QuestionStatus>asked</QuestionStatus>}
+            {!individualQuestion &&
+              <QuestionStatus>
+                {status}
+              </QuestionStatus>}
           </QuestionStatusContainer>
           <SecondaryCard
             content={

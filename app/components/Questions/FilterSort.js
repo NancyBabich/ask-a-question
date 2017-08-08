@@ -8,74 +8,40 @@ import Colors from './../../consts/Colors';
 import Container from './../../styled-components/Container';
 import RadioButton from './RadioButton';
 
-export default class FilterSort extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      displayAllQuestions: false,
-      sortByHot: false
-    };
-  }
+const FilterSort = ({ displayAllQuestions, handleDisplayChange, showHot }) =>
+  <FilterSortContainer>
+    <FilterSettings>
+      <FilterOption>
+        <RadioButton
+          on={!displayAllQuestions}
+          onClick={() => handleDisplayChange('myShelf')}
+        />
+        <span>My shelf</span>
+      </FilterOption>
+      <FilterOption>
+        <RadioButton
+          on={displayAllQuestions}
+          onClick={() => handleDisplayChange('allQuestions')}
+        />
+        <span>All questions</span>
+      </FilterOption>
+    </FilterSettings>
+    <SortSettings>
+      <span>Sort by: &nbsp;</span>
+      <SortOption
+        active={!showHot}
+        onClick={() => handleDisplayChange('recent')}
+      >
+        recent
+      </SortOption>
+      <span>&nbsp; or &nbsp;</span>
+      <SortOption active={showHot} onClick={() => handleDisplayChange('hot')}>
+        hot
+      </SortOption>
+    </SortSettings>
+  </FilterSortContainer>;
 
-  toggleDisplaySettings = buttonName => {
-    if (
-      (buttonName === 'allQuestions' && !this.state.displayAllQuestions) ||
-      (buttonName === 'myShelf' && this.state.displayAllQuestions === true)
-    ) {
-      this.setState({
-        displayAllQuestions: !this.state.displayAllQuestions
-      });
-    }
-
-    if (
-      (buttonName === 'recent' && this.state.sortByHot) ||
-      (buttonName === 'hot' && !this.state.sortByHot)
-    ) {
-      this.setState({
-        sortByHot: !this.state.sortByHot
-      });
-    }
-  };
-
-  render() {
-    return (
-      <FilterSortContainer>
-        <FilterSettings>
-          <FilterOption>
-            <RadioButton
-              on={!this.state.displayAllQuestions}
-              onClick={() => this.toggleDisplaySettings('myShelf')}
-            />
-            <span>My shelf</span>
-          </FilterOption>
-          <FilterOption>
-            <RadioButton
-              on={this.state.displayAllQuestions}
-              onClick={() => this.toggleDisplaySettings('allQuestions')}
-            />
-            <span>All questions</span>
-          </FilterOption>
-        </FilterSettings>
-        <SortSettings>
-          <span>Sort by: &nbsp;</span>
-          <SortOption
-            active={!this.state.sortByHot}
-            onClick={() => this.toggleDisplaySettings('recent')}
-          >
-            recent
-          </SortOption>
-          <span>&nbsp; or &nbsp;</span>
-          <SortOption
-            active={this.state.sortByHot}
-            onClick={() => this.toggleDisplaySettings('hot')}
-          >
-            hot
-          </SortOption>
-        </SortSettings>
-      </FilterSortContainer>
-    );
-  }
-}
+export default FilterSort;
 
 const FilterSortContainer = styled.div`
   display: flex;

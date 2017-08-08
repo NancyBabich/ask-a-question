@@ -233,5 +233,6 @@ export const users = [
 
 /*-----------------LOGGED USER-----------------*/
 export const loggedUser = {
-  questionsFollowed: [1, 2, 3, 4]
+  userId: 666,
+  questionsFollowed: [1, 2, 3]
 };
