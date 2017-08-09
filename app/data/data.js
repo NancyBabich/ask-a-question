@@ -12,9 +12,9 @@ export const questions = [
     usersInvolved: [2, 3, 4, 5, 6, 7],
     discussions: [],
     conversations: [],
-    question: 'HOT QUESTION Will insulin make my patient gain weight?',
+    question: 'first HOT MOST RECENT Will insulin make my patient gain weight?',
     isHot: true,
-    dateAdded: 'new'
+    dateAdded: 'Aug 09 2017 1:00:00 PM'
   },
   {
     questionId: 2,
@@ -27,9 +27,9 @@ export const questions = [
     usersInvolved: [4, 6, 8, 9, 10, 11, 12, 13, 14],
     discussions: [],
     conversations: [],
-    question: 'Vegan diet in diabetes treatment?',
+    question: 'SLIGHTLY LESS RECENT Vegan diet in diabetes treatment?',
     isHot: false,
-    dateAdded: 'new'
+    dateAdded: 'Aug 09 2017 11:00:00 AM'
   },
   {
     questionId: 3,
@@ -44,7 +44,7 @@ export const questions = [
     conversations: [],
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'new'
+    dateAdded: 'Mar 12 2012 10:00:00 AM'
   },
   {
     questionId: 4,
@@ -59,7 +59,7 @@ export const questions = [
     conversations: [],
     question: 'Another hot question',
     isHot: true,
-    dateAdded: 'new'
+    dateAdded: 'Mar 12 2012 10:00:00 AM'
   },
   {
     questionId: 5,
@@ -74,7 +74,7 @@ export const questions = [
     conversations: [],
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'new'
+    dateAdded: 'Mar 12 2012 10:00:00 AM'
   },
   {
     questionId: 6,
@@ -87,9 +87,9 @@ export const questions = [
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
-    question: 'Vegan diet to stop diabetes progress',
+    question: 'OLDEST Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'new'
+    dateAdded: 'Mar 12 2001 10:00:00 AM'
   },
   {
     questionId: 8,
@@ -104,7 +104,7 @@ export const questions = [
     conversations: [],
     question: 'LAST HOT QUESTION Vegan diet to stop diabetes progress',
     isHot: true,
-    dateAdded: 'new'
+    dateAdded: 'May 12 2014 10:00:00 AM'
   }
 ];
 

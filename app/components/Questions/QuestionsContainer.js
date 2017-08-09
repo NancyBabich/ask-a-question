@@ -84,7 +84,9 @@ export default class QuestionsContainer extends Component {
             return -1;
           } else return 1;
         })
-      : filteredQuestions;
+      : filteredQuestions.sort(
+          (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
+        );
 
     const questionCards = filteredQuestions
       .map(getUser)
