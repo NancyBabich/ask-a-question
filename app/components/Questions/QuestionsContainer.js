@@ -57,6 +57,7 @@ export default class QuestionsContainer extends Component {
 
       return (
         <QuestionCard
+          authorId={question.authorId}
           key={question.questionId}
           name={currentUser.firstName}
           question={question.question}
@@ -88,7 +89,7 @@ export default class QuestionsContainer extends Component {
           (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
         );
 
-    const questionCards = filteredQuestions
+    const questionCards = sortedQuestions
       .map(getUser)
       .slice(0, this.state.questionsDisplayed);
 
@@ -107,7 +108,7 @@ export default class QuestionsContainer extends Component {
         />
         <ContentContainer>
           {questionCards}
-          {filteredQuestions.length > questionsDisplayed &&
+          {sortedQuestions.length > questionsDisplayed &&
             <LoadMoreContainer>
               <StyledButton
                 onClick={() =>

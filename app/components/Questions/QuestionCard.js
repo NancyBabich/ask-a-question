@@ -11,6 +11,7 @@ import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
 const QuestionCard = ({
+  authorId,
   handleVote,
   history,
   individualQuestion,
@@ -21,7 +22,7 @@ const QuestionCard = ({
   votingData
 }) => {
   const link = {
-    pathname: `/profile`,
+    pathname: `/profile/${authorId}`,
     state: { modal: true }
   };
 

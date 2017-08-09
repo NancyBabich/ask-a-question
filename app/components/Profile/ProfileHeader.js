@@ -7,7 +7,7 @@ import CloseButton from './CloseButton';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 
-const ProfileHeader = ({ history }) => {
+const ProfileHeader = ({ history, profileOwner }) => {
   const activityLevel = 2;
   let activitySymbols = [];
 
@@ -25,13 +25,11 @@ const ProfileHeader = ({ history }) => {
     );
   }
 
+  console.log(profileOwner);
   return (
     <ProfileHeaderContainer>
       <CloseButton history={history} />
-      <ProfilePicture
-        big
-        src="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-      />
+      <ProfilePicture big src={profileOwner.imgUrl} />
       <Name>Dr. Halima</Name>
       <UserSummary>
         <ActivityContainer>

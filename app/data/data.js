@@ -12,7 +12,8 @@ export const questions = [
     usersInvolved: [2, 3, 4, 5, 6, 7],
     discussions: [],
     conversations: [],
-    question: 'first HOT MOST RECENT Will insulin make my patient gain weight?',
+    question:
+      'MOST RECENT ON MY SHELF Will insulin make my patient gain weight?',
     isHot: true,
     dateAdded: 'Aug 09 2017 1:00:00 PM'
   },
@@ -27,24 +28,24 @@ export const questions = [
     usersInvolved: [4, 6, 8, 9, 10, 11, 12, 13, 14],
     discussions: [],
     conversations: [],
-    question: 'SLIGHTLY LESS RECENT Vegan diet in diabetes treatment?',
+    question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'Aug 09 2017 11:00:00 AM'
+    dateAdded: 'Mar 12 2012 10:00:00 AM'
   },
   {
     questionId: 3,
-    authorId: 3,
+    authorId: 5,
     status: 'asked',
-    comments: [16, 17],
+    comments: [16, 17, 18, 19, 20, 21, 22, 23, 24],
     answer: {
-      authorId: 1
+      authorId: 3
     },
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
-    question: 'Vegan diet to stop diabetes progress',
+    question: 'SLIGHTLY LESS RECENT my shelf Vegan diet in diabetes treatment?',
     isHot: false,
-    dateAdded: 'Mar 12 2012 10:00:00 AM'
+    dateAdded: 'Aug 09 2017 11:00:00 AM'
   },
   {
     questionId: 4,
@@ -80,19 +81,19 @@ export const questions = [
     questionId: 6,
     authorId: 8,
     status: 'asked',
-    comments: [16, 17],
+    comments: [25, 26],
     answer: {
       authorId: 1
     },
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
-    question: 'OLDEST Vegan diet to stop diabetes progress',
+    question: 'THIRD MOST RECENT shelf Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'Mar 12 2001 10:00:00 AM'
+    dateAdded: 'May 31 2017 10:00:00 PM'
   },
   {
-    questionId: 8,
+    questionId: 7,
     authorId: 8,
     status: 'asked',
     comments: [16, 17],
@@ -102,7 +103,8 @@ export const questions = [
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
-    question: 'LAST HOT QUESTION Vegan diet to stop diabetes progress',
+    question:
+      'last mr shelf LAST HOT QUESTION Vegan diet to stop diabetes progress',
     isHot: true,
     dateAdded: 'May 12 2014 10:00:00 AM'
   }
@@ -234,5 +236,5 @@ export const users = [
 /*-----------------LOGGED USER-----------------*/
 export const loggedUser = {
   userId: 666,
-  questionsFollowed: [1, 2, 3]
+  questionsFollowed: [1, 3, 6, 7]
 };

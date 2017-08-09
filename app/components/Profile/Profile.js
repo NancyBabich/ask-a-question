@@ -9,20 +9,26 @@ import HowItAllStarted from './HowItAllStarted';
 import HotDiscussion from './HotDiscussion';
 import OtherUsers from './OtherUsers';
 import ProfileHeader from './ProfileHeader';
+import { users } from '../../data/data';
 import UserHistoryStats from './UserHistoryStats';
 
-const Profile = ({ history }) =>
-  <Modal>
-    <ProfileContainer>
-      <UserHistory>
-        <ProfileHeader history={history} />
-        <HowItAllStarted />
-        <UserHistoryStats />
-        <OtherUsers />
-      </UserHistory>
-      <HotDiscussion />
-    </ProfileContainer>
-  </Modal>;
+const Profile = ({ history, match }) => {
+  const profileOwner = users.find(user => user.userId == match.params.userId);
+
+  return (
+    <Modal>
+      <ProfileContainer>
+        <UserHistory>
+          <ProfileHeader history={history} profileOwner={profileOwner} />
+          <HowItAllStarted />
+          <UserHistoryStats />
+          <OtherUsers />
+        </UserHistory>
+        <HotDiscussion />
+      </ProfileContainer>
+    </Modal>
+  );
+};
 
 export default withRouter(Profile);
 
