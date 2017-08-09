@@ -9,37 +9,68 @@ import Container from './../../styled-components/Container';
 import Colors from './../../consts/Colors';
 import NavButton from '../../styled-components/NavButton';
 
-const Header = ({ history, rightComponent, searchBar, singleQuestion }) =>
-  <NavContainer singleQuestion={singleQuestion}>
-    <BackButtonContainer singleQuestion={singleQuestion}>
-      <NavButton
-        big
-        left
-        onClick={() => history.go(-1)}
-        singleQuestion={singleQuestion}
-      />
-    </BackButtonContainer>
-    <DisplaySettingsContainer singleQuestion={singleQuestion}>
-      <StyledContainer singleQuestion={singleQuestion}>
-        <AddQuestion singleQuestion={singleQuestion}>
-          <div>
-            {singleQuestion ? 'Question' : 'Questions'}
-          </div>
-          <AddButtonContainer singleQuestion={singleQuestion}>
-            <AddButton singleQuestion={singleQuestion}>+</AddButton>
-          </AddButtonContainer>
-        </AddQuestion>
-        {rightComponent}
-      </StyledContainer>
-      <SearchContainer>
-        {searchBar &&
-          <InputContainer>
-            <StyledInput placeholder="Search questions" />
-            <SubmitButtton>search</SubmitButtton>
-          </InputContainer>}
-      </SearchContainer>
-    </DisplaySettingsContainer>
-  </NavContainer>;
+const Header = ({
+  handleSearch,
+  history,
+  rightComponent,
+  searchBar,
+  inputValue,
+  singleQuestion
+}) => {
+  let searchInput;
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    handleSearch(searchInput.value);
+  };
+
+  return (
+    <NavContainer singleQuestion={singleQuestion}>
+      <BackButtonContainer singleQuestion={singleQuestion}>
+        <NavButton
+          big
+          left
+          onClick={() => history.go(-1)}
+          singleQuestion={singleQuestion}
+        />
+      </BackButtonContainer>
+      <DisplaySettingsContainer singleQuestion={singleQuestion}>
+        <StyledContainer singleQuestion={singleQuestion}>
+          <AddQuestion singleQuestion={singleQuestion}>
+            <div>
+              {singleQuestion ? 'Question' : 'Questions'}
+            </div>
+            <AddButtonContainer singleQuestion={singleQuestion}>
+              <AddButton singleQuestion={singleQuestion}>+</AddButton>
+            </AddButtonContainer>
+          </AddQuestion>
+          {rightComponent}
+        </StyledContainer>
+        <SearchContainer>
+          {searchBar &&
+            <FormContainer>
+              <form onSubmit={handleFormSubmit}>
+                <InputContainer>
+                  <input
+                    style={{
+                      width: '100%',
+                      backgroundColor: `${Colors.lightGray}`,
+                      padding: '.5rem',
+                      border: `1px solid ${Colors.gray}`
+                    }}
+                    type="text"
+                    placeholder="Search questions"
+                    ref={input => (searchInput = input)}
+                  />
+                </InputContainer>
+                <SubmitButton type="submit">search</SubmitButton>
+              </form>
+            </FormContainer>}
+        </SearchContainer>
+      </DisplaySettingsContainer>
+    </NavContainer>
+  );
+};
 
 export default withRouter(Header);
 
@@ -144,7 +175,7 @@ const DisplaySettingsContainer = Container.extend`
   }
 `;
 
-const InputContainer = Container.extend`
+const FormContainer = Container.extend`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
@@ -204,18 +235,15 @@ const StyledContainer = Container.extend`
   }
 `;
 
-const StyledInput = styled.input`
+const InputContainer = styled.div`
   width: 75%;
-  background-color: ${Colors.lightGray};
-  padding: .5rem;
-  border: 1px solid ${Colors.gray};
 
   @media screen and (max-width: 550px) {
     width: 90%;
   }
 `;
 
-const SubmitButtton = styled.div`
+const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

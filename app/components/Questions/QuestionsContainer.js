@@ -15,9 +15,14 @@ export default class QuestionsContainer extends Component {
     this.state = {
       displayAllQuestions: false,
       questionsDisplayed: 3,
+      searchWord: '',
       showHot: false
     };
   }
+
+  handleSearch = searchInput => {
+    this.setState({ searchWord: searchInput });
+  };
 
   toggleDisplaySettings = buttonName => {
     if (
@@ -40,7 +45,12 @@ export default class QuestionsContainer extends Component {
   };
 
   render() {
-    const { displayAllQuestions, questionsDisplayed, showHot } = this.state;
+    const {
+      displayAllQuestions,
+      questionsDisplayed,
+      searchWord,
+      showHot
+    } = this.state;
 
     const getUser = question => {
       const currentUser = users.find(user => user.userId === question.authorId);
@@ -56,9 +66,13 @@ export default class QuestionsContainer extends Component {
       );
     };
 
+    const selectedQuestions = questions.filter(question =>
+      question.question.toUpperCase().includes(searchWord.toUpperCase())
+    );
+
     const filteredQuestions = displayAllQuestions
-      ? questions
-      : questions.filter(question =>
+      ? selectedQuestions
+      : selectedQuestions.filter(question =>
           loggedUser.questionsFollowed.includes(question.questionId)
         );
 
@@ -69,6 +83,7 @@ export default class QuestionsContainer extends Component {
     return (
       <StyledContainer>
         <Header
+          handleSearch={this.handleSearch}
           searchBar
           rightComponent={
             <FilterSort
