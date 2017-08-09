@@ -8,7 +8,7 @@ import Colors from './../../consts/Colors';
 import Container from './../../styled-components/Container';
 import RadioButton from './RadioButton';
 
-const FilterSort = ({ displayAllQuestions, handleDisplayChange, showHot }) =>
+const FilterSort = ({ displayAllQuestions, handleDisplayChange, sortByHot }) =>
   <FilterSortContainer>
     <FilterSettings>
       <FilterOption>
@@ -29,13 +29,13 @@ const FilterSort = ({ displayAllQuestions, handleDisplayChange, showHot }) =>
     <SortSettings>
       <span>Sort by: &nbsp;</span>
       <SortOption
-        active={!showHot}
+        active={!sortByHot}
         onClick={() => handleDisplayChange('recent')}
       >
         recent
       </SortOption>
       <span>&nbsp; or &nbsp;</span>
-      <SortOption active={showHot} onClick={() => handleDisplayChange('hot')}>
+      <SortOption active={sortByHot} onClick={() => handleDisplayChange('hot')}>
         hot
       </SortOption>
     </SortSettings>

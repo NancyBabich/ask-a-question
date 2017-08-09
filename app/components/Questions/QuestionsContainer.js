@@ -16,7 +16,7 @@ export default class QuestionsContainer extends Component {
       displayAllQuestions: false,
       questionsDisplayed: 3,
       searchWord: '',
-      showHot: false
+      sortByHot: false
     };
   }
 
@@ -35,11 +35,11 @@ export default class QuestionsContainer extends Component {
     }
 
     if (
-      (buttonName === 'recent' && this.state.showHot) ||
-      (buttonName === 'hot' && !this.state.showHot)
+      (buttonName === 'recent' && this.state.sortByHot) ||
+      (buttonName === 'hot' && !this.state.sortByHot)
     ) {
       this.setState({
-        showHot: !this.state.showHot
+        sortByHot: !this.state.sortByHot
       });
     }
   };
@@ -49,7 +49,7 @@ export default class QuestionsContainer extends Component {
       displayAllQuestions,
       questionsDisplayed,
       searchWord,
-      showHot
+      sortByHot
     } = this.state;
 
     const getUser = question => {
@@ -76,6 +76,16 @@ export default class QuestionsContainer extends Component {
           loggedUser.questionsFollowed.includes(question.questionId)
         );
 
+    const sortedQuestions = sortByHot
+      ? filteredQuestions.sort((a, b) => {
+          if (a.isHot === b.isHot) {
+            return 0;
+          } else if (a.isHot) {
+            return -1;
+          } else return 1;
+        })
+      : filteredQuestions;
+
     const questionCards = filteredQuestions
       .map(getUser)
       .slice(0, this.state.questionsDisplayed);
@@ -89,7 +99,7 @@ export default class QuestionsContainer extends Component {
             <FilterSort
               displayAllQuestions={displayAllQuestions}
               handleDisplayChange={this.toggleDisplaySettings}
-              showHot={showHot}
+              sortByHot={sortByHot}
             />
           }
         />

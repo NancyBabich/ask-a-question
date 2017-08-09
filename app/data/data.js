@@ -12,7 +12,7 @@ export const questions = [
     usersInvolved: [2, 3, 4, 5, 6, 7],
     discussions: [],
     conversations: [],
-    question: 'Will insulin make my patient gain weight?',
+    question: 'HOT QUESTION Will insulin make my patient gain weight?',
     isHot: true,
     dateAdded: 'new'
   },
@@ -57,8 +57,8 @@ export const questions = [
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
-    question: 'Vegan diet to stop diabetes progress',
-    isHot: false,
+    question: 'Another hot question',
+    isHot: true,
     dateAdded: 'new'
   },
   {
@@ -102,8 +102,8 @@ export const questions = [
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
-    question: 'Vegan diet to stop diabetes progress',
-    isHot: false,
+    question: 'LAST HOT QUESTION Vegan diet to stop diabetes progress',
+    isHot: true,
     dateAdded: 'new'
   }
 ];
