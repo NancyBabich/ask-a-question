@@ -49,7 +49,7 @@ const Header = ({
         <SearchContainer>
           {searchBar &&
             <FormContainer>
-              <form onSubmit={handleFormSubmit}>
+              <StyledForm onSubmit={handleFormSubmit}>
                 <InputContainer>
                   <input
                     style={{
@@ -64,7 +64,7 @@ const Header = ({
                   />
                 </InputContainer>
                 <SubmitButton type="submit">search</SubmitButton>
-              </form>
+              </StyledForm>
             </FormContainer>}
         </SearchContainer>
       </DisplaySettingsContainer>
@@ -235,6 +235,11 @@ const StyledContainer = Container.extend`
   }
 `;
 
+const StyledForm = styled.form`
+  display: flex;
+  width: 100%;
+`;
+
 const InputContainer = styled.div`
   width: 75%;
 
@@ -247,7 +252,7 @@ const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20%;
+  width: 25%;
   text-transform: uppercase;
   border: solid 1px ${Colors.darkGray};
   color: ${Colors.darkGray};
