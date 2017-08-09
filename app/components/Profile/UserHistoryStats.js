@@ -23,12 +23,12 @@ const UserHistoryStats = ({
         <UserStatsTile
           rotation="50"
           number={peers.length}
-          fact={peers.length > 1 ? 'peers' : 'peer'}
+          fact={peers.length !== 1 ? 'peers' : 'peer'}
         />
         <UserStatsTile
           rotation="65"
           number={discussions.length}
-          fact={discussions.length > 1 ? 'discussions' : 'discussion'}
+          fact={discussions.length !== 1 ? 'discussions' : 'discussion'}
           translateX="20"
         />
       </UserStats>
@@ -36,12 +36,12 @@ const UserHistoryStats = ({
         <UserStatsTile
           rotation="50"
           number={findings.length}
-          fact={findings.length > 1 ? 'findings' : 'finding'}
+          fact={findings.length !== 1 ? 'findings' : 'finding'}
         />
         <UserStatsTile
           rotation="65"
           number={questionsAsked.length}
-          fact={questionsAsked.length > 1 ? 'questions' : 'question'}
+          fact={questionsAsked.length !== 1 ? 'questions' : 'question'}
           translateX="20"
         />
       </UserStats>

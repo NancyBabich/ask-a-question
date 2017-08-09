@@ -5,7 +5,7 @@ export const questions = [
     questionId: 1,
     authorId: 1,
     status: 'asked',
-    comments: [1, 2, 3, 4, 5, 6],
+    comments: [1, 2, 3, 4, 5, 6, 7],
     answer: {
       authorId: 8
     },

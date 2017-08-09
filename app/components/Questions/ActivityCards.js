@@ -1,37 +1,84 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ActivityCard from './ActivityCard';
 
-const ActivityCards = () => {
-  const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export default class ActivityCards extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cardsNumber: 4
+    };
 
-  let activityCards = keys.slice(0, 4).map((key, i) => {
-    return (
-      <ActivityCard
-        key={i}
-        activity="commented"
-        imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-      />
-    );
-  });
+    this.mobileViewport = window.matchMedia('screen and (max-width: 480px)');
+  }
 
-  return keys.length <= 5
-    ? <StyledDiv>
-        {activityCards}
-      </StyledDiv>
-    : <StyledDiv>
-        <RemainingActivitiesCard>
-          <NumberContainer>
-            {keys.length - 4}
-          </NumberContainer>
-          <TextContainer>more activities</TextContainer>
-        </RemainingActivitiesCard>
-        {activityCards}
-      </StyledDiv>;
-};
+  componentDidMount() {
+    this.mobileViewport.addListener(this.onResize);
+    this.onResize(this.mobileViewport);
+  }
 
-export default ActivityCards;
+  getActivityCards = () =>
+    Array(this.state.cardsNumber)
+      .fill(0)
+      .map((el, i) =>
+        <ActivityCard
+          key={i}
+          activity="commented"
+          imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+        />
+      );
+
+  onResize = mq => {
+    const cardsNumber = mq.matches ? 1 : 4;
+    this.setState({
+      cardsNumber
+    });
+  };
+
+  componentWillUnmount() {
+    this.mobileViewport.removeListener(this.onResize);
+  }
+
+  render() {
+    const activityCards = this.getActivityCards();
+    //const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    //const {activityCards} = this.props;
+
+    // let activityCards = keys.slice(0, 4).map((key, i) => {
+    //   return (
+    //     <ActivityCard
+    //       key={i}
+    //       activity="commented"
+    //       imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+    //     />
+    //   );
+    // });
+    console.log(this.props.comments.legth);
+    return this.state.cardsNumber >= this.props.comments.length
+      ? <StyledDiv>
+          {activityCards}
+        </StyledDiv>
+      : <StyledDiv>
+          <RemainingActivitiesCard>
+            <NumberContainer>
+              {this.props.comments.length - this.state.cardsNumber}
+            </NumberContainer>
+            <TextContainer>
+              more{' '}
+              {this.props.comments.length - this.state.cardsNumber === 1
+                ? 'activity'
+                : 'activities'}
+            </TextContainer>
+          </RemainingActivitiesCard>
+          {activityCards}
+        </StyledDiv>; //:
+    //
+  }
+}
+
+//export default ActivityCards;
 
 const NumberContainer = styled.div`
   display: flex;
