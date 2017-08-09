@@ -1,31 +1,47 @@
 import React from 'react';
+import moment from 'moment';
 import styled from 'styled-components';
 
 import Breakpoints from '../../consts/Breakpoints';
 import ProfileSectionTitle from './ProfileSectionTitle';
 import UserStatsTile from './UserStatsTile';
 
-const UserHistoryStats = () =>
+const UserHistoryStats = ({
+  dateJoined,
+  discussions,
+  findings,
+  peers,
+  questionsAsked
+}) =>
   <ProfileSectionContainer>
     <ProfileSectionTitle>
-      That's where we have been these past 5 months ago
+      That's where we have been these past {moment(dateJoined).fromNow(true)}{' '}
+      ago
     </ProfileSectionTitle>
     <UserHistoryStatsContainer>
       <UserStats>
-        <UserStatsTile rotation="50" number="46" fact="peers" />
+        <UserStatsTile
+          rotation="50"
+          number={peers.length}
+          fact={peers.length > 1 ? 'peers' : 'peer'}
+        />
         <UserStatsTile
           rotation="65"
-          number="29"
-          fact="discussions"
+          number={discussions.length}
+          fact={discussions.length > 1 ? 'discussions' : 'discussion'}
           translateX="20"
         />
       </UserStats>
       <UserStats>
-        <UserStatsTile rotation="50" number="19" fact="findings" />
+        <UserStatsTile
+          rotation="50"
+          number={findings.length}
+          fact={findings.length > 1 ? 'findings' : 'finding'}
+        />
         <UserStatsTile
           rotation="65"
-          number="10"
-          fact="questions"
+          number={questionsAsked.length}
+          fact={questionsAsked.length > 1 ? 'questions' : 'question'}
           translateX="20"
         />
       </UserStats>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 import styled from 'styled-components';
 
 import Breakpoints from '../../consts/Breakpoints';
@@ -7,8 +8,14 @@ import CloseButton from './CloseButton';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 
-const ProfileHeader = ({ history, profileOwner }) => {
-  const activityLevel = 2;
+const ProfileHeader = ({
+  activityLevel,
+  dateJoined,
+  history,
+  lastName,
+  profileOwnerPicUrl,
+  title
+}) => {
   let activitySymbols = [];
 
   for (let i = 1; i <= 3; i++) {
@@ -25,16 +32,19 @@ const ProfileHeader = ({ history, profileOwner }) => {
     );
   }
 
-  console.log(profileOwner);
   return (
     <ProfileHeaderContainer>
       <CloseButton history={history} />
-      <ProfilePicture big src={profileOwner.imgUrl} />
-      <Name>Dr. Halima</Name>
+      <ProfilePicture big src={profileOwnerPicUrl} />
+      <Name>
+        {title} {lastName}
+      </Name>
       <UserSummary>
         <ActivityContainer>
           <Activity>member for</Activity>
-          <ActivityTime>5 months</ActivityTime>
+          <ActivityTime>
+            {moment(dateJoined).fromNow(true)}
+          </ActivityTime>
         </ActivityContainer>
         <ActivityContainer>
           <Activity>last seen</Activity>

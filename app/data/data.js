@@ -15,7 +15,7 @@ export const questions = [
     question:
       'MOST RECENT ON MY SHELF Will insulin make my patient gain weight?',
     isHot: true,
-    dateAdded: 'Aug 09 2017 1:00:00 PM'
+    dateAdded: '2017-08-09T14:48:00.000Z'
   },
   {
     questionId: 2,
@@ -30,7 +30,7 @@ export const questions = [
     conversations: [],
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'Mar 12 2012 10:00:00 AM'
+    dateAdded: '2000-10-05T14:48:00.000Z'
   },
   {
     questionId: 3,
@@ -45,7 +45,7 @@ export const questions = [
     conversations: [],
     question: 'SLIGHTLY LESS RECENT my shelf Vegan diet in diabetes treatment?',
     isHot: false,
-    dateAdded: 'Aug 09 2017 11:00:00 AM'
+    dateAdded: '2017-08-09T10:48:00.000Z'
   },
   {
     questionId: 4,
@@ -60,7 +60,7 @@ export const questions = [
     conversations: [],
     question: 'Another hot question',
     isHot: true,
-    dateAdded: 'Mar 12 2012 10:00:00 AM'
+    dateAdded: '2015-10-05T14:48:00.000Z'
   },
   {
     questionId: 5,
@@ -75,7 +75,7 @@ export const questions = [
     conversations: [],
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'Mar 12 2012 10:00:00 AM'
+    dateAdded: '2013-10-05T14:48:00.000Z'
   },
   {
     questionId: 6,
@@ -90,7 +90,7 @@ export const questions = [
     conversations: [],
     question: 'THIRD MOST RECENT shelf Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: 'May 31 2017 10:00:00 PM'
+    dateAdded: '2017-07-30T14:48:00.000Z'
   },
   {
     questionId: 7,
@@ -106,7 +106,7 @@ export const questions = [
     question:
       'last mr shelf LAST HOT QUESTION Vegan diet to stop diabetes progress',
     isHot: true,
-    dateAdded: 'May 12 2014 10:00:00 AM'
+    dateAdded: '1999-10-05T14:48:00.000Z'
   }
 ];
 
@@ -114,17 +114,18 @@ export const questions = [
 export const users = [
   {
     userId: 1,
+    title: 'Dr',
     firstName: 'Eva',
     lastName: 'McBorrough',
     imgUrl: 'https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg',
-    dateJoined: 'new',
-    lastLogged: 'new',
+    dateJoined: '2012-04-22T14:48:00.000Z',
+    lastLogged: '2017-08-06T17:03:00.000Z',
     activityLevel: 2,
     peers: [1, 5, 6, 8, 9, 122, 3432],
     discussions: [4, 5, 76, 89, 177, 6667],
     findings: [4, 7, 778, 1003],
-    questionsAsked: [],
-    questionsFollowed: []
+    questionsAsked: [28, 40, 108, 212],
+    questionsFollowed: [3, 18, 92, 177]
   },
   {
     userId: 2,

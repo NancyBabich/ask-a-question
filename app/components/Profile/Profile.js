@@ -15,13 +15,40 @@ import UserHistoryStats from './UserHistoryStats';
 const Profile = ({ history, match }) => {
   const profileOwner = users.find(user => user.userId == match.params.userId);
 
+  const {
+    activityLevel,
+    dateJoined,
+    discussions,
+    findings,
+    imgUrl,
+    lastLogged,
+    lastName,
+    peers,
+    questionsAsked,
+    title
+  } = profileOwner;
+
   return (
     <Modal>
       <ProfileContainer>
         <UserHistory>
-          <ProfileHeader history={history} profileOwner={profileOwner} />
+          <ProfileHeader
+            activityLevel={activityLevel}
+            dateJoined={dateJoined}
+            history={history}
+            lastLogged={lastLogged}
+            lastName={lastName}
+            profileOwnerPicUrl={imgUrl}
+            title={title}
+          />
           <HowItAllStarted />
-          <UserHistoryStats />
+          <UserHistoryStats
+            dateJoined={dateJoined}
+            discussions={discussions}
+            findings={findings}
+            peers={peers}
+            questionsAsked={questionsAsked}
+          />
           <OtherUsers />
         </UserHistory>
         <HotDiscussion />
