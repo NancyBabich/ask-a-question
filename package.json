@@ -23,6 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "history": "^4.6.3",
+    "moment": "^2.18.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.1.2",
