@@ -14,8 +14,11 @@ export const questions = [
       'MOST RECENT ON MY SHELF Will insulin make my patient gain weight?',
     isHot: true,
     dateAdded: '2017-08-09T14:48:00.000Z',
+    dateLastCommented: '2017-08-09T20:48:00.000Z',
     upvotes: 3,
-    downvotes: 1
+    downvotes: 1,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   },
   {
     questionId: 2,
@@ -29,8 +32,11 @@ export const questions = [
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
     dateAdded: '2000-10-05T14:48:00.000Z',
+    dateLastCommented: '2001-08-09T14:48:00.000Z',
     upvotes: 2,
-    downvotes: 1
+    downvotes: 1,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   },
   {
     questionId: 3,
@@ -44,8 +50,11 @@ export const questions = [
     question: 'SLIGHTLY LESS RECENT my shelf Vegan diet in diabetes treatment?',
     isHot: false,
     dateAdded: '2017-08-09T10:48:00.000Z',
+    dateLastCommented: '2017-08-10T14:48:00.000Z',
     upvotes: 5,
-    downvotes: 5
+    downvotes: 5,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   },
   {
     questionId: 4,
@@ -59,8 +68,11 @@ export const questions = [
     question: 'Another hot question',
     isHot: true,
     dateAdded: '2015-10-05T14:48:00.000Z',
+    dateLastCommented: '2017-01-01T14:48:00.000Z',
     upvotes: 8,
-    downvotes: 2
+    downvotes: 2,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   },
   {
     questionId: 5,
@@ -74,8 +86,11 @@ export const questions = [
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
     dateAdded: '2013-10-05T14:48:00.000Z',
+    dateLastCommented: '2015-09-10T14:48:00.000Z',
     upvotes: 7,
-    downvotes: 5
+    downvotes: 5,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   },
   {
     questionId: 6,
@@ -89,8 +104,11 @@ export const questions = [
     question: 'THIRD MOST RECENT shelf Vegan diet to stop diabetes progress',
     isHot: false,
     dateAdded: '2017-07-30T14:48:00.000Z',
+    dateLastCommented: '2017-08-01T20:48:00.000Z',
     upvotes: 4,
-    downvotes: 1
+    downvotes: 1,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   },
   {
     questionId: 7,
@@ -105,8 +123,11 @@ export const questions = [
       'last mr shelf LAST HOT QUESTION Vegan diet to stop diabetes progress',
     isHot: true,
     dateAdded: '1999-10-05T14:48:00.000Z',
+    dateLastCommented: '2004-03-04T14:48:00.000Z',
     upvotes: 10,
-    downvotes: 15
+    downvotes: 15,
+    questionText:
+      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
   }
 ];
 

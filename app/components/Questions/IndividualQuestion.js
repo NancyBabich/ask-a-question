@@ -23,6 +23,7 @@ export default class IndividualQuestion extends Component {
       downvotes: questions.find(
         question => question.questionId == this.props.match.params.questionId
       ).upvotes,
+      haveUpvoted: false,
       haveVoted: false,
       haveDownvoted: false
     };
@@ -49,7 +50,8 @@ export default class IndividualQuestion extends Component {
         <Header
           rightComponent={
             <QuestionStatusContainer>
-              Last time discussed 1 day ago
+              Last time discussed{' '}
+              {moment(currentQuestion.dateLastCommented).fromNow()}
             </QuestionStatusContainer>
           }
           singleQuestion
@@ -62,10 +64,13 @@ export default class IndividualQuestion extends Component {
             handleVote={this.handleVote}
             question={currentQuestion.question}
             votingData={this.state}
+            questionText={currentQuestion.questionText}
           />
           <ResponseSection>
             <ResponseSectionHeader>
-              <Number>2</Number> peers alread answered Eva
+              <Number>{currentQuestion.answers.length}</Number>{' '}
+              {currentQuestion.answers.length !== 1 ? 'peers' : 'peer'} already
+              answered Eva
             </ResponseSectionHeader>
             <ResponseContainer>
               <PrimaryResponseCard />
