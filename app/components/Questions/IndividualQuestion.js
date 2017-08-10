@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import styled from 'styled-components';
 
 import PrimaryResponseCard from './PrimaryResponseCard';
@@ -9,13 +10,19 @@ import Colors from '../../consts/Colors';
 import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
+import { questions, users } from '../../data/data';
 
 export default class IndividualQuestion extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      upvotes: 19,
-      downvotes: 5,
+      upvotes: questions.find(
+        question => question.questionId == this.props.match.params.questionId
+      ).upvotes,
+      downvotes: questions.find(
+        question => question.questionId == this.props.match.params.questionId
+      ).upvotes,
       haveVoted: false,
       haveDownvoted: false
     };
@@ -30,6 +37,13 @@ export default class IndividualQuestion extends Component {
   };
 
   render() {
+    const currentQuestion = questions.find(
+      question => question.questionId == this.props.match.params.questionId
+    );
+    const questionAuthor = users.find(
+      user => user.userId === currentQuestion.authorId
+    );
+
     return (
       <AppContainer>
         <Header
@@ -43,8 +57,10 @@ export default class IndividualQuestion extends Component {
         <ContentContainer>
           <QuestionCard
             individualQuestion
-            mainImgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+            mainImgSrc={questionAuthor.imgUrl}
+            name={questionAuthor.firstName}
             handleVote={this.handleVote}
+            question={currentQuestion.question}
             votingData={this.state}
           />
           <ResponseSection>

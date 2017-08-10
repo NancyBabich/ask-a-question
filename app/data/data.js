@@ -13,7 +13,9 @@ export const questions = [
     question:
       'MOST RECENT ON MY SHELF Will insulin make my patient gain weight?',
     isHot: true,
-    dateAdded: '2017-08-09T14:48:00.000Z'
+    dateAdded: '2017-08-09T14:48:00.000Z',
+    upvotes: 3,
+    downvotes: 1
   },
   {
     questionId: 2,
@@ -26,7 +28,9 @@ export const questions = [
     peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44, 144], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: '2000-10-05T14:48:00.000Z'
+    dateAdded: '2000-10-05T14:48:00.000Z',
+    upvotes: 2,
+    downvotes: 1
   },
   {
     questionId: 3,
@@ -39,7 +43,9 @@ export const questions = [
     peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'SLIGHTLY LESS RECENT my shelf Vegan diet in diabetes treatment?',
     isHot: false,
-    dateAdded: '2017-08-09T10:48:00.000Z'
+    dateAdded: '2017-08-09T10:48:00.000Z',
+    upvotes: 5,
+    downvotes: 5
   },
   {
     questionId: 4,
@@ -52,7 +58,9 @@ export const questions = [
     peersInvolved: [1, 2, 3, 4, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'Another hot question',
     isHot: true,
-    dateAdded: '2015-10-05T14:48:00.000Z'
+    dateAdded: '2015-10-05T14:48:00.000Z',
+    upvotes: 8,
+    downvotes: 2
   },
   {
     questionId: 5,
@@ -65,7 +73,9 @@ export const questions = [
     peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: '2013-10-05T14:48:00.000Z'
+    dateAdded: '2013-10-05T14:48:00.000Z',
+    upvotes: 7,
+    downvotes: 5
   },
   {
     questionId: 6,
@@ -78,7 +88,9 @@ export const questions = [
     peersInvolved: [1, 2, 3, 7, 10, 19, 22, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'THIRD MOST RECENT shelf Vegan diet to stop diabetes progress',
     isHot: false,
-    dateAdded: '2017-07-30T14:48:00.000Z'
+    dateAdded: '2017-07-30T14:48:00.000Z',
+    upvotes: 4,
+    downvotes: 1
   },
   {
     questionId: 7,
@@ -92,7 +104,9 @@ export const questions = [
     question:
       'last mr shelf LAST HOT QUESTION Vegan diet to stop diabetes progress',
     isHot: true,
-    dateAdded: '1999-10-05T14:48:00.000Z'
+    dateAdded: '1999-10-05T14:48:00.000Z',
+    upvotes: 10,
+    downvotes: 15
   }
 ];
 

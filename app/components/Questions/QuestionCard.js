@@ -16,6 +16,7 @@ const QuestionCard = ({
   discussions,
   questionAnswers,
   questionComments,
+  questionId,
   handleVote,
   history,
   individualQuestion,
@@ -50,7 +51,8 @@ const QuestionCard = ({
             </Title>
             <Question
               individualQuestion={individualQuestion}
-              onClick={() => !individualQuestion && history.push('/question')}
+              onClick={() =>
+                !individualQuestion && history.push(`/question/${questionId}`)}
             >
               {question}
               <Unfollow individualQuestion={individualQuestion}>

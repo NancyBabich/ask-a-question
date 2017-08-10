@@ -66,6 +66,7 @@ export default class QuestionsContainer extends Component {
           name={currentUser.firstName}
           peersInvolved={question.peersInvolved}
           question={question.question}
+          questionId={question.questionId}
           mainImgSrc={currentUser.imgUrl}
           status={question.status}
         />
