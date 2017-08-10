@@ -20,10 +20,12 @@ const QuestionCard = ({
   handleVote,
   history,
   individualQuestion,
+  isOnShelf,
   mainImgSrc,
   name,
   peersInvolved,
   question,
+  questionText,
   status,
   votingData
 }) => {
@@ -56,7 +58,7 @@ const QuestionCard = ({
             >
               {question}
               <Unfollow individualQuestion={individualQuestion}>
-                unfollow
+                {isOnShelf ? 'unfollow' : 'follow'}
               </Unfollow>
             </Question>
           </TitleContainer>
@@ -74,6 +76,7 @@ const QuestionCard = ({
                 ? <QuestionContent
                     handleVote={handleVote}
                     votingData={votingData}
+                    questionText={questionText}
                   />
                 : <ActivityCards
                     questionComments={questionComments}

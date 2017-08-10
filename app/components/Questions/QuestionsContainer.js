@@ -61,6 +61,7 @@ export default class QuestionsContainer extends Component {
           conversations={question.conversations}
           questionAnswers={question.answers}
           questionComments={question.comments}
+          questionText={question.questionText}
           discussions={question.discussions}
           key={question.questionId}
           name={currentUser.firstName}

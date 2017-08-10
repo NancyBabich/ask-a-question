@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
 
-import PrimaryResponseCard from './PrimaryResponseCard';
-import SecondaryResponseCard from './SecondaryResponseCard';
 import AppContainer from './../AppContainer';
 import Breakpoints from '../../consts/Breakpoints';
 import Colors from '../../consts/Colors';
 import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
-import { questions, users } from '../../data/data';
+import {
+  answers,
+  comments,
+  loggedUser,
+  questions,
+  users
+} from '../../data/data';
+import ResponseCard from './ResponseCard';
 
 export default class IndividualQuestion extends Component {
   constructor(props) {
@@ -45,13 +50,61 @@ export default class IndividualQuestion extends Component {
       user => user.userId === currentQuestion.authorId
     );
 
+    const responses = currentQuestion.answers.map((questionAnswer, i) => {
+      const currentAnswer = answers.find(
+        answer => answer.answerId === questionAnswer
+      );
+      const currentAnswerAuthor = users.find(
+        user => user.userId === currentAnswer.authorId
+      );
+      const currentAnswerComments = currentAnswer.comments.length
+        ? currentAnswer.comments.map((currentAnswerComment, j) => {
+            const currentComment = comments.find(
+              comment => comment.commentId === currentAnswerComment
+            );
+            const currentCommentAuthor = users.find(
+              user => user.userId === currentComment.authorId
+            );
+            return (
+              <ResponseCard
+                secondary
+                key={j}
+                authorPicUrl={currentCommentAuthor.imgUrl}
+                authorFirstName={currentCommentAuthor.firstName}
+                text={currentComment.comment}
+                dateAdded={currentComment.dateAdded}
+                downvotes={currentComment.downvotes}
+                upvotes={currentComment.upvotes}
+              />
+            );
+          })
+        : null;
+
+      return (
+        <ResponseContainer>
+          <ResponseCard
+            key={i}
+            authorPicUrl={currentAnswerAuthor.imgUrl}
+            authorFirstName={currentAnswerAuthor.firstName}
+            text={currentAnswer.answer}
+            dateAdded={currentAnswer.dateAdded}
+            downvotes={currentAnswer.downvotes}
+            upvotes={currentAnswer.upvotes}
+          />
+          {currentAnswerComments}
+        </ResponseContainer>
+      );
+    });
+
     return (
       <AppContainer>
         <Header
           rightComponent={
             <QuestionStatusContainer>
-              Last time discussed{' '}
-              {moment(currentQuestion.dateLastCommented).fromNow()}
+              <span>Last time discussed </span>
+              <Time>
+                {' '}{moment(currentQuestion.dateLastCommented).fromNow()}
+              </Time>
             </QuestionStatusContainer>
           }
           singleQuestion
@@ -65,6 +118,9 @@ export default class IndividualQuestion extends Component {
             question={currentQuestion.question}
             votingData={this.state}
             questionText={currentQuestion.questionText}
+            isOnShelf={loggedUser.questionsFollowed.includes(
+              currentQuestion.questionId
+            )}
           />
           <ResponseSection>
             <ResponseSectionHeader>
@@ -72,19 +128,8 @@ export default class IndividualQuestion extends Component {
               {currentQuestion.answers.length !== 1 ? 'peers' : 'peer'} already
               answered Eva
             </ResponseSectionHeader>
-            <ResponseContainer>
-              <PrimaryResponseCard />
-              <SecondaryResponseCard />
-              <StyledButton>
-                <Activity>continue </Activity> discussion
-              </StyledButton>
-            </ResponseContainer>
-            <ResponseContainer>
-              <PrimaryResponseCard />
-              <StyledButton>
-                <Activity>comment</Activity>
-              </StyledButton>
-            </ResponseContainer>
+
+            {responses}
           </ResponseSection>
         </ContentContainer>
       </AppContainer>
@@ -153,4 +198,9 @@ const StyledButton = styled.div`
   &:hover {
     cursor: pointer;
   }
+`;
+
+const Time = styled.span`
+  margin-left: .5rem;
+  margin-right: .5rem;
 `;

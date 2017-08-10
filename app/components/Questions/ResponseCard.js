@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import styled from 'styled-components';
+import { ifProp } from 'styled-tools';
 
+import Breakpoints from '../../consts/Breakpoints';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import VotingComponent from './VotingComponent';
 
-export default class SecondaryResponseCard extends Component {
+export default class PrimaryResponseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      upvotes: 19,
-      downvotes: 5,
+      upvotes: this.props.upvotes,
+      downvotes: this.props.downvotes,
       haveVoted: false
       //haveDownvoted: false
     };
@@ -25,24 +28,33 @@ export default class SecondaryResponseCard extends Component {
   };
 
   render() {
+    const {
+      authorFirstName,
+      authorPicUrl,
+      dateAdded,
+      downvotes,
+      secondary,
+      text,
+      upvotes
+    } = this.props;
+
     return (
-      <ResponseCardContainer>
-        <ProfilePictureContainer>
-          <ProfilePicture src="https://media1.popsugar-assets.com/files/thumbor/jTRjxXgxI-nNBHKof7ju_46Paho/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/09/02/092/n/1922153/e43c9ee6cc77c5e6_razorsquare.jpg" />
+      <ResponseCardContainer secondary={secondary}>
+        <ProfilePictureContainer secondary={secondary}>
+          <ProfilePicture src={authorPicUrl} />
         </ProfilePictureContainer>
-        <ResponseContainer>
-          <ResponseContentContainer>
+        <ResponseContainer secondary={secondary}>
+          <ResponseContentContainer secondary={secondary}>
             <ResponseHeader>
-              <Name>Patricia </Name>
-              commented it
-              <Divider /> <Time> yesterday</Time>
+              <Name>{authorFirstName} </Name>
+              <Activity>commented it </Activity>
+              <Divider /> <Time> {moment(dateAdded).fromNow()}</Time>
             </ResponseHeader>
             <ResponseContent>
-              Numbers or tingling in your feet should be reported to your doctor
-              at your regular visits.
+              {text}
             </ResponseContent>
           </ResponseContentContainer>
-          <VotingContainer>
+          <VotingContainer secondary={secondary}>
             <VotingComponent
               handleVote={this.handleVote}
               votingData={this.state}
@@ -77,21 +89,21 @@ const Name = styled.span`
 const ResponseCardContainer = styled.div`
   display: flex;
   align-self: flex-end;
-  width: 80%;
+  width: ${ifProp('secondary', '80%', '100%')};
   background-color: white;
-  margin-top: .1rem;
+  margin-top: ${ifProp('secondary', '.1rem', '2.5rem')};
 `;
 
 const ResponseContainer = styled.div`
   display: flex;
-  width: 85%;
+  width: ${ifProp('secondary', '85%', '80%')};
   padding-left: 1rem;
 `;
 
 const ResponseContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: ${ifProp('secondary', '70%', '75%')};
 `;
 
 const ResponseHeader = styled.div`
@@ -111,7 +123,7 @@ const ProfilePictureContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15%;
+  width: ${ifProp('secondary', '15%', '20%')};
   border-right: solid 1px ${Colors.lightGray};
 `;
 
@@ -123,7 +135,7 @@ const Time = styled.span`
 
 const VotingContainer = styled.div`
   display: flex;
-  width: 30%;
+  width: ${ifProp('secondary', '30%', '25%')};
   align-items: center;
   justify-content: center;
 `;
