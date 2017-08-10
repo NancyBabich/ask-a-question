@@ -22,6 +22,7 @@ export default class ModalSwitch extends Component {
       this.previousLocation = this.props.location;
     }
   }
+
   render() {
     const { location } = this.props;
     const isModal = !!(
