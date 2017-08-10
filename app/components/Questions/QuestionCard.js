@@ -12,6 +12,7 @@ import SecondaryCard from './SecondaryCard';
 
 const QuestionCard = ({
   authorId,
+  questionAnswers,
   questionComments,
   handleVote,
   history,
@@ -65,7 +66,10 @@ const QuestionCard = ({
                     handleVote={handleVote}
                     votingData={votingData}
                   />
-                : <ActivityCards questionComments={questionComments} />
+                : <ActivityCards
+                    questionComments={questionComments}
+                    questionAnswers={questionAnswers}
+                  />
             }
           />
         </PrimaryCardBody>

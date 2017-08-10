@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ActivityCard from './ActivityCard';
-import { comments, users } from '../../data/data';
+import { answers, comments, users } from '../../data/data';
 
 export default class ActivityCards extends Component {
   constructor(props) {
@@ -19,17 +19,6 @@ export default class ActivityCards extends Component {
     this.onResize(this.mobileViewport);
   }
 
-  // getActivityCards = () =>
-
-  //   this.props.comments.slice(0, this.state.cardsNumber - 1)
-
-  //       <ActivityCard
-  //         key={i}
-  //         activity="commented"
-  //         imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-  //       />
-  //     );
-
   onResize = mq => {
     const cardsNumber = mq.matches ? 1 : 4;
     this.setState({
@@ -42,31 +31,38 @@ export default class ActivityCards extends Component {
   }
 
   render() {
-    //const activityCards = this.getActivityCards();
-
     const { cardsNumber } = this.state;
-    const { questionComments } = this.props;
-    const commentsToDiplay = questionComments.slice(0, cardsNumber);
+    const { questionAnswers, questionComments } = this.props;
+    const commentsToDiplayIds = questionComments.slice(
+      0,
+      cardsNumber - questionAnswers.length
+    );
 
-    const getComment = commentToDiplay => {
-      const currentComment = comments.find(
-        comment => comment.commentId === commentToDiplay
-      );
+    const commentsToDiplay = commentsToDiplayIds.map(commentToDiplayId =>
+      comments.find(comment => comment.commentId === commentToDiplayId)
+    );
+    const answersToDisplay = questionAnswers.map(questionAnswer =>
+      answers.find(answer => answer.answerId === questionAnswer)
+    );
+    const activitiesToDisplay = commentsToDiplay.concat(answersToDisplay);
 
-      const commentAuthor = users.find(
-        user => user.userId === currentComment.authorId
-      );
+    const getActivity = (activityToDisplay, i) => {
+      const isComment = i < commentsToDiplayIds.length;
+      const authorPicUrl = users.find(
+        user => user.userId === activityToDisplay.authorId
+      ).imgUrl;
 
       return (
         <ActivityCard
-          activity="commented"
-          key={currentComment.commentId}
-          imgSrc={commentAuthor.imgUrl}
+          activity={isComment ? 'commented' : 'answered'}
+          isAnswer={!isComment}
+          key={i}
+          imgSrc={authorPicUrl}
         />
       );
     };
 
-    const activityCards = commentsToDiplay.map(getComment);
+    const activityCards = activitiesToDisplay.map(getActivity);
 
     return cardsNumber >= questionComments.length
       ? <StyledDiv>
@@ -86,46 +82,8 @@ export default class ActivityCards extends Component {
           </RemainingActivitiesCard>
           {activityCards}
         </StyledDiv>;
-
-    //const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-    //const {activityCards} = this.props;
-
-    // let activityCards = keys.slice(0, 4).map((key, i) => {
-    //   return (
-    //     <ActivityCard
-    //       key={i}
-    //       activity="commented"
-    //       imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-    //     />
-    //   );
-    // });
-
-    //console.log(this.props.comments.legth);
-
-    // return this.state.cardsNumber >= this.props.comments.length
-    //   ? <StyledDiv>
-    //       {activityCards}
-    //     </StyledDiv>
-    //   : <StyledDiv>
-    //       <RemainingActivitiesCard>
-    //         <NumberContainer>
-    //           {this.props.comments.length - this.state.cardsNumber}
-    //         </NumberContainer>
-    //         <TextContainer>
-    //           more{' '}
-    //           {this.props.comments.length - this.state.cardsNumber === 1
-    //             ? 'activity'
-    //             : 'activities'}
-    //         </TextContainer>
-    //       </RemainingActivitiesCard>
-    //       {activityCards}
-    //     </StyledDiv>; //:
-    //
   }
 }
-
-//export default ActivityCards;
 
 const NumberContainer = styled.div`
   display: flex;

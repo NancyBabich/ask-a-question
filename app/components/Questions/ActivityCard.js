@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ifProp } from 'styled-tools';
 
 import Colors from './../../consts/Colors';
 import ProfilePicture from './../../styled-components/ProfilePicture';
 
-const ActivityCard = ({ activity, imgSrc }) =>
+const ActivityCard = ({ activity, imgSrc, isAnswer }) =>
   <StyledDiv>
     <ProfilePicture src={imgSrc} />
-    <ActivityType>
+    <ActivityType isAnswer={isAnswer}>
       {activity}
     </ActivityType>
-    <Dot />
+    <Dot isAnswer={isAnswer} />
   </StyledDiv>;
 
 export default ActivityCard;
 
 const ActivityType = styled.div`
-  border-top: solid 1px ${Colors.darkGray};
+  border-top: solid ${ifProp('isAnswer', '2px', '1px')};
   text-transform: uppercase;
   padding: .25rem 0;
   font-size: .75rem;
@@ -28,7 +29,11 @@ const Dot = styled.div`
   width: .6rem;
   height: .6rem;
   border-radius: 50%;
-  background-color: ${Colors.gray};
+  background-color: ${ifProp(
+    'isAnswer',
+    `${Colors.darkGray}`,
+    `${Colors.gray}`
+  )};
 `;
 
 const StyledDiv = styled.div`

@@ -58,6 +58,7 @@ export default class QuestionsContainer extends Component {
       return (
         <QuestionCard
           authorId={question.authorId}
+          questionAnswers={question.answers}
           questionComments={question.comments}
           key={question.questionId}
           name={currentUser.firstName}
