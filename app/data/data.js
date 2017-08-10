@@ -5,7 +5,7 @@ export const questions = [
     questionId: 1,
     authorId: 1,
     status: 'asked',
-    comments: [1, 2, 3, 4, 5, 6, 7],
+    comments: [1, 2, 3, 4, 5, 6],
     answer: {
       authorId: 8
     },
@@ -21,7 +21,7 @@ export const questions = [
     questionId: 2,
     authorId: 2,
     status: 'asked',
-    comments: [7, 8, 9, 10, 11, 12, 13, 14, 15],
+    comments: [7, 8, 9],
     answer: {
       authorId: 3
     },
@@ -51,7 +51,7 @@ export const questions = [
     questionId: 4,
     authorId: 8,
     status: 'asked',
-    comments: [16, 17],
+    comments: [10, 11],
     answer: {
       authorId: 1
     },
@@ -66,7 +66,7 @@ export const questions = [
     questionId: 5,
     authorId: 8,
     status: 'asked',
-    comments: [16, 17],
+    comments: [12],
     answer: {
       authorId: 1
     },
@@ -94,9 +94,9 @@ export const questions = [
   },
   {
     questionId: 7,
-    authorId: 8,
+    authorId: 3,
     status: 'asked',
-    comments: [16, 17],
+    comments: [13, 14, 15],
     answer: {
       authorId: 1
     },
@@ -129,6 +129,7 @@ export const users = [
   },
   {
     userId: 2,
+    title: 'Dr',
     firstName: 'Tom',
     lastName: 'McBorrough',
     imgUrl:
@@ -144,8 +145,9 @@ export const users = [
   },
   {
     userId: 3,
+    title: 'Mr',
     firstName: 'John',
-    lastName: 'McBorrough',
+    lastName: 'Kavanagh',
     imgUrl:
       'https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2017/01/matt-bomer-square-face.jpg',
     dateJoined: 'new',
@@ -159,8 +161,9 @@ export const users = [
   },
   {
     userId: 4,
-    firstName: 'Eva',
-    lastName: 'McBorrough',
+    title: 'Dr',
+    firstName: 'Mike',
+    lastName: 'Flynn',
     imgUrl:
       'http://machohairstyles.com/wp-content/uploads/2016/06/Urban-Pompadour.jpg',
     dateJoined: 'new',
@@ -174,8 +177,9 @@ export const users = [
   },
   {
     userId: 5,
-    firstName: 'Eva',
-    lastName: 'McBorrough',
+    title: 'Dr',
+    firstName: 'Sarah',
+    lastName: 'Abberton',
     imgUrl:
       'https://s-media-cache-ak0.pinimg.com/originals/72/45/2b/72452b907c61d21363fafdd1c4a452e6.jpg',
     dateJoined: 'new',
@@ -189,8 +193,9 @@ export const users = [
   },
   {
     userId: 6,
-    firstName: 'Eva',
-    lastName: 'McBorrough',
+    title: 'Ms',
+    firstName: 'Martha',
+    lastName: 'Quinsey',
     imgUrl:
       'http://www.coolshorthairstyles.com/wp-content/uploads/2014/09/short-hairstyles-for-square-face-blonde-with-bangs.jpg',
     dateJoined: 'new',
@@ -204,8 +209,9 @@ export const users = [
   },
   {
     userId: 8,
-    firstName: 'Eva',
-    lastName: 'McBorrough',
+    title: 'Mr',
+    firstName: 'Emmanuel',
+    lastName: 'Bodongo',
     imgUrl:
       'http://glamyhair.com/wp-content/uploads/2013/12/Perfect-Short-Hairstyle-for-Men-with-Square-Face.jpg',
     dateJoined: 'new',
@@ -219,8 +225,9 @@ export const users = [
   },
   {
     userId: 9,
-    firstName: 'Eva',
-    lastName: 'McBorrough',
+    title: 'Ms',
+    firstName: 'Patricia',
+    lastName: 'Abirtonne',
     imgUrl:
       'https://s-media-cache-ak0.pinimg.com/736x/da/e9/ec/dae9ec9566ee9a7a2c661dc40aace77c--rock-on-short-hairstyles-for-women.jpg',
     dateJoined: 'new',
@@ -231,6 +238,140 @@ export const users = [
     findings: [4, 7, 778, 1003],
     questionsAsked: [],
     questionsFollowed: []
+  }
+];
+
+/*-----------------COMMENTS-----------------*/
+export const comments = [
+  {
+    commentId: 1,
+    authorId: 2,
+    questionId: 1
+  },
+  {
+    commentId: 2,
+    authorId: 3,
+    questionId: 1
+  },
+  {
+    commentId: 3,
+    authorId: 4,
+    questionId: 1
+  },
+  {
+    commentId: 4,
+    authorId: 5,
+    questionId: 1
+  },
+  {
+    commentId: 5,
+    authorId: 6,
+    questionId: 1
+  },
+  {
+    commentId: 6,
+    authorId: 7,
+    questionId: 1
+  },
+  {
+    commentId: 7,
+    authorId: 1,
+    questionId: 2
+  },
+  {
+    commentId: 8,
+    authorId: 3,
+    questionId: 2
+  },
+  {
+    commentId: 9,
+    authorId: 5,
+    questionId: 2
+  },
+  {
+    commentId: 10,
+    authorId: 5,
+    questionId: 4
+  },
+  {
+    commentId: 11,
+    authorId: 1,
+    questionId: 4
+  },
+  {
+    commentId: 12,
+    authorId: 2,
+    questionId: 5
+  },
+  {
+    commentId: 13,
+    authorId: 2,
+    questionId: 7
+  },
+  {
+    commentId: 14,
+    authorId: 1,
+    questionId: 7
+  },
+  {
+    commentId: 15,
+    authorId: 4,
+    questionId: 7
+  },
+  {
+    commentId: 16,
+    authorId: 4,
+    questionId: 3
+  },
+  {
+    commentId: 17,
+    authorId: 8,
+    questionId: 3
+  },
+  {
+    commentId: 18,
+    authorId: 6,
+    questionId: 3
+  },
+  {
+    commentId: 19,
+    authorId: 9,
+    questionId: 3
+  },
+  {
+    commentId: 20,
+    authorId: 10,
+    questionId: 3
+  },
+  {
+    commentId: 21,
+    authorId: 11,
+    questionId: 3
+  },
+  {
+    commentId: 22,
+    authorId: 12,
+    questionId: 3
+  },
+  {
+    commentId: 23,
+    authorId: 13,
+    questionId: 3
+  },
+  {
+    commentId: 24,
+    authorId: 14,
+    questionId: 3
+  },
+  {
+    commentId: 25,
+    authorId: 6,
+    questionId: 6
+  },
+  {
+    commentId: 26,
+    authorId: 3,
+    questionId: 6
   }
 ];
 

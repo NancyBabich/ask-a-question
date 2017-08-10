@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ActivityCard from './ActivityCard';
+import { comments, users } from '../../data/data';
 
 export default class ActivityCards extends Component {
   constructor(props) {
@@ -18,16 +19,16 @@ export default class ActivityCards extends Component {
     this.onResize(this.mobileViewport);
   }
 
-  getActivityCards = () =>
-    Array(this.state.cardsNumber)
-      .fill(0)
-      .map((el, i) =>
-        <ActivityCard
-          key={i}
-          activity="commented"
-          imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
-        />
-      );
+  // getActivityCards = () =>
+
+  //   this.props.comments.slice(0, this.state.cardsNumber - 1)
+
+  //       <ActivityCard
+  //         key={i}
+  //         activity="commented"
+  //         imgSrc="https://m2hair.files.wordpress.com/2014/07/long-square-face.jpg"
+  //       />
+  //     );
 
   onResize = mq => {
     const cardsNumber = mq.matches ? 1 : 4;
@@ -41,7 +42,51 @@ export default class ActivityCards extends Component {
   }
 
   render() {
-    const activityCards = this.getActivityCards();
+    //const activityCards = this.getActivityCards();
+
+    const { cardsNumber } = this.state;
+    const { questionComments } = this.props;
+    const commentsToDiplay = questionComments.slice(0, cardsNumber);
+
+    const getComment = commentToDiplay => {
+      const currentComment = comments.find(
+        comment => comment.commentId === commentToDiplay
+      );
+
+      const commentAuthor = users.find(
+        user => user.userId === currentComment.authorId
+      );
+
+      return (
+        <ActivityCard
+          activity="commented"
+          key={currentComment.commentId}
+          imgSrc={commentAuthor.imgUrl}
+        />
+      );
+    };
+
+    const activityCards = commentsToDiplay.map(getComment);
+
+    return cardsNumber >= questionComments.length
+      ? <StyledDiv>
+          {activityCards}
+        </StyledDiv>
+      : <StyledDiv>
+          <RemainingActivitiesCard>
+            <NumberContainer>
+              {questionComments.length - cardsNumber}
+            </NumberContainer>
+            <TextContainer>
+              more{' '}
+              {questionComments.length - cardsNumber === 1
+                ? 'activity'
+                : 'activities'}
+            </TextContainer>
+          </RemainingActivitiesCard>
+          {activityCards}
+        </StyledDiv>;
+
     //const keys = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     //const {activityCards} = this.props;
@@ -55,25 +100,27 @@ export default class ActivityCards extends Component {
     //     />
     //   );
     // });
-    console.log(this.props.comments.legth);
-    return this.state.cardsNumber >= this.props.comments.length
-      ? <StyledDiv>
-          {activityCards}
-        </StyledDiv>
-      : <StyledDiv>
-          <RemainingActivitiesCard>
-            <NumberContainer>
-              {this.props.comments.length - this.state.cardsNumber}
-            </NumberContainer>
-            <TextContainer>
-              more{' '}
-              {this.props.comments.length - this.state.cardsNumber === 1
-                ? 'activity'
-                : 'activities'}
-            </TextContainer>
-          </RemainingActivitiesCard>
-          {activityCards}
-        </StyledDiv>; //:
+
+    //console.log(this.props.comments.legth);
+
+    // return this.state.cardsNumber >= this.props.comments.length
+    //   ? <StyledDiv>
+    //       {activityCards}
+    //     </StyledDiv>
+    //   : <StyledDiv>
+    //       <RemainingActivitiesCard>
+    //         <NumberContainer>
+    //           {this.props.comments.length - this.state.cardsNumber}
+    //         </NumberContainer>
+    //         <TextContainer>
+    //           more{' '}
+    //           {this.props.comments.length - this.state.cardsNumber === 1
+    //             ? 'activity'
+    //             : 'activities'}
+    //         </TextContainer>
+    //       </RemainingActivitiesCard>
+    //       {activityCards}
+    //     </StyledDiv>; //:
     //
   }
 }
