@@ -6,9 +6,7 @@ export const questions = [
     authorId: 1,
     status: 'asked',
     comments: [1, 2, 3, 4, 5, 6],
-    answer: {
-      authorId: 8
-    },
+    answers: [1],
     usersInvolved: [2, 3, 4, 5, 6, 7],
     discussions: [],
     conversations: [],
@@ -22,9 +20,7 @@ export const questions = [
     authorId: 2,
     status: 'asked',
     comments: [7, 8, 9],
-    answer: {
-      authorId: 3
-    },
+    answers: [4],
     usersInvolved: [4, 6, 8, 9, 10, 11, 12, 13, 14],
     discussions: [],
     conversations: [],
@@ -37,9 +33,7 @@ export const questions = [
     authorId: 5,
     status: 'asked',
     comments: [16, 17, 18, 19, 20, 21, 22, 23, 24],
-    answer: {
-      authorId: 3
-    },
+    answers: [2],
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
@@ -52,9 +46,7 @@ export const questions = [
     authorId: 8,
     status: 'asked',
     comments: [10, 11],
-    answer: {
-      authorId: 1
-    },
+    answers: [5],
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
@@ -67,9 +59,7 @@ export const questions = [
     authorId: 8,
     status: 'asked',
     comments: [12],
-    answer: {
-      authorId: 1
-    },
+    answers: [6],
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
@@ -82,9 +72,7 @@ export const questions = [
     authorId: 8,
     status: 'asked',
     comments: [25, 26],
-    answer: {
-      authorId: 1
-    },
+    answers: [3],
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
@@ -97,9 +85,7 @@ export const questions = [
     authorId: 3,
     status: 'asked',
     comments: [13, 14, 15],
-    answer: {
-      authorId: 1
-    },
+    answers: [7],
     usersInvolved: [3, 6],
     discussions: [],
     conversations: [],
@@ -372,6 +358,45 @@ export const comments = [
     commentId: 26,
     authorId: 3,
     questionId: 6
+  }
+];
+
+/*-----------------ANSWERS-----------------*/
+export const answers = [
+  {
+    answerId: 1,
+    authorId: 8,
+    questionId: 1
+  },
+  {
+    answerId: 2,
+    authorId: 3,
+    questionId: 3
+  },
+  {
+    answerId: 3,
+    authorId: 1,
+    questionId: 6
+  },
+  {
+    answerId: 4,
+    authorId: 4,
+    questionId: 2
+  },
+  {
+    answerId: 5,
+    authorId: 2,
+    questionId: 4
+  },
+  {
+    answerId: 6,
+    authorId: 6,
+    questionId: 5
+  },
+  {
+    answerId: 7,
+    authorId: 5,
+    questionId: 7
   }
 ];
 
