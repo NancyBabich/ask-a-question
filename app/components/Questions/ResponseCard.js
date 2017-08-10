@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
@@ -8,7 +10,7 @@ import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import VotingComponent from './VotingComponent';
 
-export default class PrimaryResponseCard extends Component {
+class ResponseCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +32,7 @@ export default class PrimaryResponseCard extends Component {
   render() {
     const {
       authorFirstName,
+      authorId,
       authorPicUrl,
       dateAdded,
       downvotes,
@@ -38,15 +41,26 @@ export default class PrimaryResponseCard extends Component {
       upvotes
     } = this.props;
 
+    const link = {
+      pathname: `/profile/${authorId}`,
+      state: { modal: true }
+    };
+
     return (
       <ResponseCardContainer secondary={secondary}>
         <ProfilePictureContainer secondary={secondary}>
-          <ProfilePicture src={authorPicUrl} />
+          <Link to={link}>
+            <ProfilePicture src={authorPicUrl} />
+          </Link>
         </ProfilePictureContainer>
         <ResponseContainer secondary={secondary}>
           <ResponseContentContainer secondary={secondary}>
             <ResponseHeader>
-              <Name>{authorFirstName} </Name>
+              <Link to={link} style={{ textDecoration: 'none' }}>
+                <Name>
+                  {authorFirstName}{' '}
+                </Name>
+              </Link>
               <Activity>commented it </Activity>
               <Divider /> <Time> {moment(dateAdded).fromNow()}</Time>
             </ResponseHeader>
@@ -65,6 +79,8 @@ export default class PrimaryResponseCard extends Component {
     );
   }
 }
+
+export default withRouter(ResponseCard);
 
 const Activity = styled.span`
   text-transform: uppercase;

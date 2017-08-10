@@ -71,6 +71,7 @@ export default class IndividualQuestion extends Component {
                 key={j}
                 authorPicUrl={currentCommentAuthor.imgUrl}
                 authorFirstName={currentCommentAuthor.firstName}
+                authorId={currentCommentAuthor.userId}
                 text={currentComment.comment}
                 dateAdded={currentComment.dateAdded}
                 downvotes={currentComment.downvotes}
@@ -84,6 +85,7 @@ export default class IndividualQuestion extends Component {
         <ResponseContainer>
           <ResponseCard
             key={i}
+            authorId={currentAnswerAuthor.userId}
             authorPicUrl={currentAnswerAuthor.imgUrl}
             authorFirstName={currentAnswerAuthor.firstName}
             text={currentAnswer.answer}
@@ -111,6 +113,7 @@ export default class IndividualQuestion extends Component {
         />
         <ContentContainer>
           <QuestionCard
+            authorId={questionAuthor.userId}
             individualQuestion
             mainImgSrc={questionAuthor.imgUrl}
             name={questionAuthor.firstName}
