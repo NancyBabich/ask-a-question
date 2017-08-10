@@ -49,8 +49,8 @@ const QuestionCard = ({
               </Link>is asking
             </Title>
             <Question
-              onClick={() => !individualQuestion && history.push('/new')}
               individualQuestion={individualQuestion}
+              onClick={() => !individualQuestion && history.push('/question')}
             >
               {question}
               <Unfollow individualQuestion={individualQuestion}>
@@ -81,22 +81,23 @@ const QuestionCard = ({
           />
         </PrimaryCardBody>
       </PrimaryCard>
-      <StatsContainer individualQuestion={individualQuestion}>
-        <Stats>
-          <div>
-            {discussions.length} related{' '}
-            {discussions.length !== 1 ? 'discussions' : 'discussion'}
-          </div>
-          <div>
-            {peersInvolved.length}{' '}
-            {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
-          </div>
-          <div>
-            {conversations.length}{' '}
-            {conversations.length !== 1 ? 'conversations' : 'conversation'}
-          </div>
-        </Stats>
-      </StatsContainer>
+      {!individualQuestion &&
+        <StatsContainer individualQuestion={individualQuestion}>
+          <Stats>
+            <div>
+              {discussions.length} related{' '}
+              {discussions.length !== 1 ? 'discussions' : 'discussion'}
+            </div>
+            <div>
+              {peersInvolved.length}{' '}
+              {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
+            </div>
+            <div>
+              {conversations.length}{' '}
+              {conversations.length !== 1 ? 'conversations' : 'conversation'}
+            </div>
+          </Stats>
+        </StatsContainer>}
       {individualQuestion &&
         <StyledButton>
           <Activity>give </Activity>new answer
