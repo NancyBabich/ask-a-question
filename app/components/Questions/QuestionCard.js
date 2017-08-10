@@ -12,6 +12,8 @@ import SecondaryCard from './SecondaryCard';
 
 const QuestionCard = ({
   authorId,
+  conversations,
+  discussions,
   questionAnswers,
   questionComments,
   handleVote,
@@ -19,6 +21,7 @@ const QuestionCard = ({
   individualQuestion,
   mainImgSrc,
   name,
+  peersInvolved,
   question,
   status,
   votingData
@@ -39,7 +42,11 @@ const QuestionCard = ({
           </HeaderImageContainer>
           <TitleContainer>
             <Title>
-              <Name>{name} </Name>is asking
+              <Link to={link} style={{ textDecoration: 'none' }}>
+                <Name>
+                  {name}{' '}
+                </Name>
+              </Link>is asking
             </Title>
             <Question
               onClick={() => !individualQuestion && history.push('/new')}
@@ -76,9 +83,18 @@ const QuestionCard = ({
       </PrimaryCard>
       <StatsContainer individualQuestion={individualQuestion}>
         <Stats>
-          <div>1 related discussion</div>
-          <div>6 peers involved</div>
-          <div>3 conversations</div>
+          <div>
+            {discussions.length} related{' '}
+            {discussions.length !== 1 ? 'discussions' : 'discussion'}
+          </div>
+          <div>
+            {peersInvolved.length}{' '}
+            {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
+          </div>
+          <div>
+            {conversations.length}{' '}
+            {conversations.length !== 1 ? 'conversations' : 'conversation'}
+          </div>
         </Stats>
       </StatsContainer>
       {individualQuestion &&

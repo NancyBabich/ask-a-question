@@ -1,20 +1,32 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
 import Colors from './../../consts/Colors';
 import ProfilePicture from './../../styled-components/ProfilePicture';
 
-const ActivityCard = ({ activity, imgSrc, isAnswer }) =>
-  <StyledDiv>
-    <ProfilePicture src={imgSrc} />
-    <ActivityType isAnswer={isAnswer}>
-      {activity}
-    </ActivityType>
-    <Dot isAnswer={isAnswer} />
-  </StyledDiv>;
+const ActivityCard = ({ activity, authorId, imgSrc, isAnswer }) => {
+  const link = {
+    pathname: `/profile/${authorId}`,
+    state: { modal: true }
+  };
 
-export default ActivityCard;
+  return (
+    <StyledDiv>
+      <Link to={link}>
+        <ProfilePicture src={imgSrc} />
+      </Link>
+      <ActivityType isAnswer={isAnswer}>
+        {activity}
+      </ActivityType>
+      <Dot isAnswer={isAnswer} />
+    </StyledDiv>
+  );
+};
+
+export default withRouter(ActivityCard);
 
 const ActivityType = styled.div`
   border-top: solid ${ifProp('isAnswer', '2px', '1px')};

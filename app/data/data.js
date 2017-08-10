@@ -7,9 +7,9 @@ export const questions = [
     status: 'asked',
     comments: [1, 2, 3, 4, 5, 6],
     answers: [1],
-    usersInvolved: [2, 3, 4, 5, 6, 7],
-    discussions: [],
-    conversations: [],
+    discussions: [3, 19, 201], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question:
       'MOST RECENT ON MY SHELF Will insulin make my patient gain weight?',
     isHot: true,
@@ -21,9 +21,9 @@ export const questions = [
     status: 'asked',
     comments: [7, 8, 9],
     answers: [4],
-    usersInvolved: [4, 6, 8, 9, 10, 11, 12, 13, 14],
-    discussions: [],
-    conversations: [],
+    discussions: [85, 89, 134, 201], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [4, 28, 176, 233], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44, 144], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
     dateAdded: '2000-10-05T14:48:00.000Z'
@@ -34,9 +34,9 @@ export const questions = [
     status: 'asked',
     comments: [16, 17, 18, 19, 20, 21, 22, 23, 24],
     answers: [2],
-    usersInvolved: [3, 6],
-    discussions: [],
-    conversations: [],
+    discussions: [85, 89, 134, 201], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [4, 28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'SLIGHTLY LESS RECENT my shelf Vegan diet in diabetes treatment?',
     isHot: false,
     dateAdded: '2017-08-09T10:48:00.000Z'
@@ -47,9 +47,9 @@ export const questions = [
     status: 'asked',
     comments: [10, 11],
     answers: [5],
-    usersInvolved: [3, 6],
-    discussions: [],
-    conversations: [],
+    discussions: [1, 3, 19, 85, 89, 134, 201, 354], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [4, 28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1, 2, 3, 4, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'Another hot question',
     isHot: true,
     dateAdded: '2015-10-05T14:48:00.000Z'
@@ -60,9 +60,9 @@ export const questions = [
     status: 'asked',
     comments: [12],
     answers: [6],
-    usersInvolved: [3, 6],
-    discussions: [],
-    conversations: [],
+    discussions: [2, 3, 19, 85, 89, 134, 201], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [4, 28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'Vegan diet to stop diabetes progress',
     isHot: false,
     dateAdded: '2013-10-05T14:48:00.000Z'
@@ -73,9 +73,9 @@ export const questions = [
     status: 'asked',
     comments: [25, 26],
     answers: [3],
-    usersInvolved: [3, 6],
-    discussions: [],
-    conversations: [],
+    discussions: [3, 19, 20, 21, 22, 85, 89, 134, 201], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [4, 28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1, 2, 3, 7, 10, 19, 22, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question: 'THIRD MOST RECENT shelf Vegan diet to stop diabetes progress',
     isHot: false,
     dateAdded: '2017-07-30T14:48:00.000Z'
@@ -86,9 +86,9 @@ export const questions = [
     status: 'asked',
     comments: [13, 14, 15],
     answers: [7],
-    usersInvolved: [3, 6],
-    discussions: [],
-    conversations: [],
+    discussions: [3, 4, 19, 85, 89, 134, 201, 556], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    conversations: [4, 28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
+    peersInvolved: [1], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INFINITELY EXPAND THE DATA SET
     question:
       'last mr shelf LAST HOT QUESTION Vegan diet to stop diabetes progress',
     isHot: true,
@@ -122,7 +122,7 @@ export const users = [
       'http://www.menshairstyletrends.com/wp-content/uploads/2014/08/Hairstyles-for-Square-Faces-Men-Ryan-Seacrest-Hair.jpg',
     dateJoined: 'new',
     lastLogged: 'new',
-    activityLevel: 2,
+    activityLevel: 3,
     peers: [1, 5, 6, 8, 9, 122, 3432],
     discussions: [4, 5, 76, 89, 177, 6667],
     findings: [4, 7, 778, 1003],
@@ -138,7 +138,7 @@ export const users = [
       'https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2017/01/matt-bomer-square-face.jpg',
     dateJoined: 'new',
     lastLogged: 'new',
-    activityLevel: 2,
+    activityLevel: 1,
     peers: [1, 5, 6, 8, 9, 122, 3432],
     discussions: [4, 5, 76, 89, 177, 6667],
     findings: [4, 7, 778, 1003],
@@ -154,7 +154,7 @@ export const users = [
       'http://machohairstyles.com/wp-content/uploads/2016/06/Urban-Pompadour.jpg',
     dateJoined: 'new',
     lastLogged: 'new',
-    activityLevel: 2,
+    activityLevel: 1,
     peers: [1, 5, 6, 8, 9, 122, 3432],
     discussions: [4, 5, 76, 89, 177, 6667],
     findings: [4, 7, 778, 1003],
@@ -170,7 +170,7 @@ export const users = [
       'https://s-media-cache-ak0.pinimg.com/originals/72/45/2b/72452b907c61d21363fafdd1c4a452e6.jpg',
     dateJoined: 'new',
     lastLogged: 'new',
-    activityLevel: 2,
+    activityLevel: 3,
     peers: [1, 5, 6, 8, 9, 122, 3432],
     discussions: [4, 5, 76, 89, 177, 6667],
     findings: [4, 7, 778, 1003],
@@ -218,7 +218,7 @@ export const users = [
       'https://s-media-cache-ak0.pinimg.com/736x/da/e9/ec/dae9ec9566ee9a7a2c661dc40aace77c--rock-on-short-hairstyles-for-women.jpg',
     dateJoined: 'new',
     lastLogged: 'new',
-    activityLevel: 2,
+    activityLevel: 1,
     peers: [1, 5, 6, 8, 9, 122, 3432],
     discussions: [4, 5, 76, 89, 177, 6667],
     findings: [4, 7, 778, 1003],

@@ -48,16 +48,17 @@ export default class ActivityCards extends Component {
 
     const getActivity = (activityToDisplay, i) => {
       const isComment = i < commentsToDiplayIds.length;
-      const authorPicUrl = users.find(
+      const author = users.find(
         user => user.userId === activityToDisplay.authorId
-      ).imgUrl;
+      );
 
       return (
         <ActivityCard
           activity={isComment ? 'commented' : 'answered'}
+          authorId={author.userId}
           isAnswer={!isComment}
           key={i}
-          imgSrc={authorPicUrl}
+          imgSrc={author.imgUrl}
         />
       );
     };

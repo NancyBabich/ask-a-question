@@ -58,10 +58,13 @@ export default class QuestionsContainer extends Component {
       return (
         <QuestionCard
           authorId={question.authorId}
+          conversations={question.conversations}
           questionAnswers={question.answers}
           questionComments={question.comments}
+          discussions={question.discussions}
           key={question.questionId}
           name={currentUser.firstName}
+          peersInvolved={question.peersInvolved}
           question={question.question}
           mainImgSrc={currentUser.imgUrl}
           status={question.status}
