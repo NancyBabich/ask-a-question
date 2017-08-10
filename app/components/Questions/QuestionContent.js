@@ -6,14 +6,10 @@ import Colors from '../../consts/Colors';
 import Container from '../../styled-components/Container';
 import VotingComponent from './VotingComponent';
 
-const QuestionContent = ({ handleVote, votingData }) =>
+const QuestionContent = ({ handleVote, questionText, votingData }) =>
   <InnerContainer>
     <TextContainer>
-      All my patients with diabetes should see an ophthalmologist yearly for a
-      dialated eye examination- begining at diagnosis inpeople with type 2
-      diabetes, and after 5 years in people with type 1 diabetes after puberty.
-      Patients with know eye disease, symptoms of blurred vision in one eye, or
-      blind spots need to see their ophthalmologist more frequently.
+      {questionText}
     </TextContainer>
     <VotingContainer>
       <VotingComponent votingData={votingData} handleVote={handleVote} />

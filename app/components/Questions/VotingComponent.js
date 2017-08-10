@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Colors from '../../consts/Colors';
+import VotingButton from './VotingButton';
 
 const VotingComponent = ({ handleVote, votingData }) => {
   const handleVoteClick = stateKey => {
@@ -22,14 +23,15 @@ const VotingComponent = ({ handleVote, votingData }) => {
       </div>
       <div>
         <VotingArrowContainer>
-          <Upvote
-            onClick={() =>
+          <VotingButton
+            handleVote={() =>
               votingData.haveVoted === false && handleVoteClick('upvotes')}
           />
         </VotingArrowContainer>
         <VotingArrowContainer>
-          <Downvote
-            onClick={() =>
+          <VotingButton
+            down
+            handleVote={() =>
               votingData.haveVoted === false && handleVoteClick('downvotes')}
           />
         </VotingArrowContainer>
@@ -40,31 +42,9 @@ const VotingComponent = ({ handleVote, votingData }) => {
 
 export default VotingComponent;
 
-const Downvote = styled.div`
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid ${Colors.darkBlue};
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const Number = styled.span`
   font-family: 'Roboto Condensed';
   font-style: normal;
-`;
-
-const Upvote = styled.div`
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 10px solid ${Colors.darkBlue};
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const Votes = styled.span`
