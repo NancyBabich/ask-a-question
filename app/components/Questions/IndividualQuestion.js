@@ -58,7 +58,7 @@ export default class IndividualQuestion extends Component {
         user => user.userId === currentAnswer.authorId
       );
       const currentAnswerComments = currentAnswer.comments.length
-        ? currentAnswer.comments.map((currentAnswerComment, j) => {
+        ? currentAnswer.comments.map((currentAnswerComment, i) => {
             const currentComment = comments.find(
               comment => comment.commentId === currentAnswerComment
             );
@@ -68,7 +68,7 @@ export default class IndividualQuestion extends Component {
             return (
               <ResponseCard
                 secondary
-                key={j}
+                key={i}
                 authorPicUrl={currentCommentAuthor.imgUrl}
                 authorFirstName={currentCommentAuthor.firstName}
                 authorId={currentCommentAuthor.userId}
@@ -94,6 +94,13 @@ export default class IndividualQuestion extends Component {
             upvotes={currentAnswer.upvotes}
           />
           {currentAnswerComments}
+          <StyledButton>
+            {currentAnswerComments
+              ? <span>
+                  <Activity>continue</Activity> discussion
+                </span>
+              : <Activity>comment</Activity>}
+          </StyledButton>
         </ResponseContainer>
       );
     });
