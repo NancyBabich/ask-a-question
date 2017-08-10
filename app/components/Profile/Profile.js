@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -12,50 +12,60 @@ import ProfileHeader from './ProfileHeader';
 import { users } from '../../data/data';
 import UserHistoryStats from './UserHistoryStats';
 
-const Profile = ({ history, match }) => {
-  const profileOwner = users.find(user => user.userId == match.params.userId);
+class Profile extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const {
-    activityLevel,
-    dateJoined,
-    discussions,
-    findings,
-    imgUrl,
-    lastLogged,
-    lastName,
-    peers,
-    questionsAsked,
-    title
-  } = profileOwner;
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
-  return (
-    <Modal>
-      <ProfileContainer>
-        <UserHistory>
-          <ProfileHeader
-            activityLevel={activityLevel}
-            dateJoined={dateJoined}
-            history={history}
-            lastLogged={lastLogged}
-            lastName={lastName}
-            profileOwnerPicUrl={imgUrl}
-            title={title}
-          />
-          <HowItAllStarted />
-          <UserHistoryStats
-            dateJoined={dateJoined}
-            discussions={discussions}
-            findings={findings}
-            peers={peers}
-            questionsAsked={questionsAsked}
-          />
-          <OtherUsers />
-        </UserHistory>
-        <HotDiscussion />
-      </ProfileContainer>
-    </Modal>
-  );
-};
+  render() {
+    const { history, match } = this.props;
+    const profileOwner = users.find(user => user.userId == match.params.userId);
+    const {
+      activityLevel,
+      dateJoined,
+      discussions,
+      findings,
+      imgUrl,
+      lastLogged,
+      lastName,
+      peers,
+      questionsAsked,
+      title
+    } = profileOwner;
+
+    return (
+      <Modal>
+        <ProfileContainer>
+          <UserHistory>
+            <ProfileHeader
+              activityLevel={activityLevel}
+              dateJoined={dateJoined}
+              history={history}
+              lastLogged={lastLogged}
+              lastName={lastName}
+              profileOwnerPicUrl={imgUrl}
+              title={title}
+            />
+            <HowItAllStarted />
+            <UserHistoryStats
+              dateJoined={dateJoined}
+              discussions={discussions}
+              findings={findings}
+              peers={peers}
+              questionsAsked={questionsAsked}
+            />
+            <OtherUsers />
+          </UserHistory>
+          <HotDiscussion />
+        </ProfileContainer>
+      </Modal>
+    );
+  }
+}
 
 export default withRouter(Profile);
 
