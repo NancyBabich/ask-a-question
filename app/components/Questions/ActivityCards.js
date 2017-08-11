@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ActivityCard from './ActivityCard';
+import Breakpoints from '../../consts/breakpoints';
 import { answers, comments, users } from '../../data/data';
 
 export default class ActivityCards extends Component {
@@ -11,7 +12,9 @@ export default class ActivityCards extends Component {
       cardsNumber: 4
     };
 
-    this.mobileViewport = window.matchMedia('screen and (max-width: 480px)');
+    this.mobileViewport = window.matchMedia(
+      `screen and (max-width: ${Breakpoints.tablet})`
+    );
   }
 
   componentDidMount() {
@@ -33,21 +36,32 @@ export default class ActivityCards extends Component {
   render() {
     const { cardsNumber } = this.state;
     const { questionAnswers, questionComments } = this.props;
-    const commentsToDiplayIds = questionComments.slice(
+    const allActivitiesNumber =
+      questionAnswers.length + questionComments.length;
+    const commentsToDisplayIds = questionComments.slice(
       0,
-      cardsNumber - questionAnswers.length
+      cardsNumber === 1 && questionAnswers.length
+        ? 0
+        : cardsNumber - questionAnswers.length
     );
 
-    const commentsToDiplay = commentsToDiplayIds.map(commentToDiplayId =>
-      comments.find(comment => comment.commentId === commentToDiplayId)
+    const commentsToDisplay = commentsToDisplayIds.map(commentToDisplayId =>
+      comments.find(comment => comment.commentId === commentToDisplayId)
     );
-    const answersToDisplay = questionAnswers.map(questionAnswer =>
-      answers.find(answer => answer.answerId === questionAnswer)
-    );
-    const activitiesToDisplay = commentsToDiplay.concat(answersToDisplay);
+    const answersToDisplay = questionAnswers
+      .map(questionAnswer =>
+        answers.find(answer => answer.answerId === questionAnswer)
+      )
+      .slice(
+        0,
+        this.state.cardsNumber >= questionAnswers.length
+          ? questionAnswers.length
+          : this.state.cardsNumber
+      );
+    const activitiesToDisplay = commentsToDisplay.concat(answersToDisplay);
 
     const getActivity = (activityToDisplay, i) => {
-      const isComment = i < commentsToDiplayIds.length;
+      const isComment = i < commentsToDisplayIds.length;
       const author = users.find(
         user => user.userId === activityToDisplay.authorId
       );
@@ -72,11 +86,11 @@ export default class ActivityCards extends Component {
       : <StyledDiv>
           <RemainingActivitiesCard>
             <NumberContainer>
-              {questionComments.length - cardsNumber}
+              {allActivitiesNumber - cardsNumber}
             </NumberContainer>
             <TextContainer>
               more{' '}
-              {questionComments.length - cardsNumber === 1
+              {allActivitiesNumber - cardsNumber === 1
                 ? 'activity'
                 : 'activities'}
             </TextContainer>
