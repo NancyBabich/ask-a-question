@@ -1,5 +1,3 @@
-/* @flow */
-
 export default {
   darkBlue: '#0266B3',
   darkGray: '#404B51',

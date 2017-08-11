@@ -16,6 +16,7 @@ const SecondaryCardContainer = styled.div`
   align-items: flex-end;
   background-color: white;
   width: 85%;
+  height: 100%;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     justify-content: center;

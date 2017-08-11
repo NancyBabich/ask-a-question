@@ -26,7 +26,7 @@ const PrimaryContainer = styled.div`
 const SecondaryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 97%;
+  width: 95%;
   height: 90%;
   background-color: ${Colors.lightGray};
   align-items: center;

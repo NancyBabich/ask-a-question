@@ -32,11 +32,11 @@ const FilterSort = ({ displayAllQuestions, handleDisplayChange, sortByHot }) =>
         active={!sortByHot}
         onClick={() => handleDisplayChange('recent')}
       >
-        recent
+        <span>recent</span>
       </SortOption>
       <span>&nbsp; or &nbsp;</span>
       <SortOption active={sortByHot} onClick={() => handleDisplayChange('hot')}>
-        hot
+        <span>hot</span>
       </SortOption>
     </SortSettings>
   </FilterSortContainer>;
@@ -60,11 +60,12 @@ const FilterSortContainer = styled.div`
   }
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   @media screen and (max-width: 650px) {
-    flex-direction: column;
+    width: 100%;
     align-items: center;
   }
 `;
@@ -92,15 +93,6 @@ const FilterSettings = styled.div`
     width: auto;
   }
 
-  @media screen and (max-width: ${Breakpoints.mobile}) {
-    width: 50%;
-  }
-
-  @media screen and (max-width: 650px) {
-    width: 100%;
-    justify-content: center;
-  }
-
   @media screen and (max-width: 415px) {
     width: 50%;
     flex-direction: column;
@@ -113,7 +105,7 @@ const FilterSettings = styled.div`
 
 const SortOption = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   color: ${ifProp('active', `${Colors.darkGray}`, `${Colors.darkBlue}`)};
   text-decoration: ${ifProp('active', 'underline', 'none')};
   font-style: normal;
@@ -122,26 +114,21 @@ const SortOption = styled.div`
   }
 `;
 
-const SortSettings = Centered.extend`
+const SortSettings = styled.div`
   width: 45%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   font-style: italic;
   font-family: 'Crimson Text';
   font-size: 1rem;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     width: auto;
-    margin-left: 2rem;
-  }
-
-  @media screen and (max-width: ${Breakpoints.mobile}) {
-    width: 50%;
+    margin-top: 1.25rem;
   }
 
   @media screen and (max-width: 650px) {
-    width: 100%;
-    justify-content: center;
     margin-top: 1rem;
   }
 

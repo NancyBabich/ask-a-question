@@ -148,7 +148,7 @@ const BackButtonContainer = Container.extend`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 20%;
+  width: 19%;
   height: 50%;
 
   @media screen and (max-width: 650px) {
@@ -157,7 +157,7 @@ const BackButtonContainer = Container.extend`
 `;
 
 const DisplaySettingsContainer = Container.extend`
-  width: 60%;
+  width: 61%;
   align-items: space-between;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
@@ -181,8 +181,11 @@ const FormContainer = Container.extend`
   width: 100%;
   padding: 1rem 0;
 
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: ${Breakpoints.tablet}) {
     flex-direction: column;
+  }
+
+  @media screen and (max-width: 650px) {
     align-items: center;
   }
 `;
@@ -193,36 +196,36 @@ const NavContainer = styled.div`
   display: flex;
   align-items: flex-start;
   width: 100%;
-  height: ${ifProp('singleQuestion', '5rem', '8rem')};
+  height: ${ifProp('singleQuestion', '5rem', '10rem')};
   background-color: white;
   font-weight: 700;
   padding-top: 2rem;
   z-index: 2;
-  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.47);  
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.47);
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    height: ${ifProp('singleQuestion', '4rem', '10rem')};
+    height: ${ifProp('singleQuestion', '4rem', '14rem')};
   }
 
   @media screen and (max-width: 650px) {
-    height: ${ifProp('singleQuestion', '4rem', '13rem')};
+    height: ${ifProp('singleQuestion', '4rem', '14rem')};
   }
 
   @media screen and (max-width: 550px) {
-    height: ${ifProp('singleQuestion', '4rem', '15rem')};
+    height: ${ifProp('singleQuestion', '4rem', '17rem')};
   }
 
   @media screen and (max-width: 415px) {
-    height: ${ifProp('singleQuestion', '4rem', '20rem')};
+    height: ${ifProp('singleQuestion', '4rem', '22rem')};
   }
 `;
 
-const SearchContainer = Container.extend`
+const SearchContainer = styled.div`
+  display: flex;
   flex-direction: row;
   width: 100%;
   height: 50%;
   padding: 0;
-  justify-content: center;
 `;
 
 const StyledContainer = Container.extend`
@@ -239,13 +242,23 @@ const StyledContainer = Container.extend`
 const StyledForm = styled.form`
   display: flex;
   width: 100%;
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 550px) {
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+  }
 `;
 
 const InputContainer = styled.div`
-  width: 75%;
+  width: 81%;
 
   @media screen and (max-width: 550px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 
@@ -253,17 +266,20 @@ const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
+  width: 17%;
+  margin-left: .5rem;
   text-transform: uppercase;
   border: solid 1px ${Colors.darkGray};
-  color: ${Colors.darkGray};
+  color: ${Colors.gray};
+  font-weight: 700;
+  background-color: white;
   &:hover {
     cursor: pointer;
   }
 
   @media screen and (max-width: 550px) {
-    width: 50%;
-    height: 1.75rem;
-    margin-top: 1rem;
+    width: 80%;
+    height: 2rem;
+    margin: 1rem 0 0 0;
   }
 `;

@@ -67,7 +67,11 @@ const QuestionCard = ({
       </QuestionCardHeader>
       <QuestionCardBody>
         <QuestionCardsContainer>
-          <QuestionStatusCard />
+          <QuestionStatusCard>
+            <QuestionStatus>
+              {status}
+            </QuestionStatus>
+          </QuestionStatusCard>
           <SecondaryCard
             content={
               individualQuestion
@@ -192,9 +196,15 @@ const MainCard = styled.div`
 `;
 
 const QuestionStatusCard = styled.div`
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   width: 15%;
   height: 100%;
   background-color: ${Colors.lightBlue};
+  font-size: .75rem;
+  text-transform: uppercase;
 `;
 
 const QuestionCardsContainer = styled.div`
@@ -206,7 +216,7 @@ const QuestionCardsContainer = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   width: 15%;
-  hjkdhkhkjhdpadding-top: 1rem;
+  padding-top: 1rem;
   justify-content: center;
 `;
 
@@ -278,10 +288,11 @@ const QuestionCardContainer = styled.div`
 
 const QuestionStatus = styled.div`
   width: 75%;
-  border-top: solid 2px ${Colors.darkGray};
-  padding: .5rem 0;
+  border-top: solid 1px ${Colors.darkGray};
   text-align: center;
   font-size: .75rem;
+  padding-bottom: .5rem;
+  padding-top: .25rem;
 `;
 
 const QuestionStatusContainer = styled.div`

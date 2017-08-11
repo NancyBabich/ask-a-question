@@ -1,7 +1,5 @@
-/* @flow */
-
 import styled from 'styled-components';
-import { ifProp, prop } from 'styled-tools';
+import { ifProp } from 'styled-tools';
 
 const ProfilePicture = styled.img`
   display: block;
