@@ -1,14 +1,14 @@
 /* @flow */
 import styled from 'styled-components';
 
-import Breakpoints from '../consts/Breakpoints';
+import Breakpoints from '../consts/breakpoints';
 
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0;
   width: 65%;
-  margin: 9.4rem auto 0 auto;
+  margin: 9.5rem auto;
   background: none;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {

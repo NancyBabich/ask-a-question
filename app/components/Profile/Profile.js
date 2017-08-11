@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Breakpoints from '../../consts/Breakpoints';
+import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/Colors';
 import Container from '../../styled-components/Container';
 import HowItAllStarted from './HowItAllStarted';

@@ -10,8 +10,7 @@ export const questions = [
     discussions: [3, 19, 201], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INDEFINITELY EXPAND THE DATA SET
     conversations: [28, 176], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INDEFINITELY EXPAND THE DATA SET
     peersInvolved: [1, 2, 3, 7, 10, 19, 23, 44], //THIS IS NOT HOW THINGS WOULD BE NORMALLY HANDLED IN SUCH AN APP BUT I CHOSE THIS WAY SO AS NOT TO HAVE TO INDEFINITELY EXPAND THE DATA SET
-    question:
-      'MOST RECENT ON MY SHELF Will insulin make my patient gain weight?',
+    question: 'Will insulin make my patient gain weight?',
     isHot: true,
     dateAdded: '2017-08-09T14:48:00.000Z',
     dateLastCommented: '2017-08-09T20:48:00.000Z',

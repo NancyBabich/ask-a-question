@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
 
-import AppContainer from './../AppContainer';
-import Breakpoints from '../../consts/Breakpoints';
+import AppContainer from '../AppContainer';
+import BodyContainer from '../BodyContainer';
+import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/Colors';
 import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
@@ -118,30 +119,32 @@ export default class IndividualQuestion extends Component {
           }
           singleQuestion
         />
-        <ContentContainer>
-          <QuestionCard
-            authorId={questionAuthor.userId}
-            individualQuestion
-            mainImgSrc={questionAuthor.imgUrl}
-            name={questionAuthor.firstName}
-            handleVote={this.handleVote}
-            question={currentQuestion.question}
-            votingData={this.state}
-            questionText={currentQuestion.questionText}
-            isOnShelf={loggedUser.questionsFollowed.includes(
-              currentQuestion.questionId
-            )}
-          />
-          <ResponseSection>
-            <ResponseSectionHeader>
-              <Number>{currentQuestion.answers.length}</Number>{' '}
-              {currentQuestion.answers.length !== 1 ? 'peers' : 'peer'} already
-              answered Eva
-            </ResponseSectionHeader>
+        <BodyContainer>
+          <ContentContainer>
+            <QuestionCard
+              authorId={questionAuthor.userId}
+              individualQuestion
+              mainImgSrc={questionAuthor.imgUrl}
+              name={questionAuthor.firstName}
+              handleVote={this.handleVote}
+              question={currentQuestion.question}
+              votingData={this.state}
+              questionText={currentQuestion.questionText}
+              isOnShelf={loggedUser.questionsFollowed.includes(
+                currentQuestion.questionId
+              )}
+            />
+            <ResponseSection>
+              <ResponseSectionHeader>
+                <Number>{currentQuestion.answers.length}</Number>{' '}
+                {currentQuestion.answers.length !== 1 ? 'peers' : 'peer'}{' '}
+                already answered Eva
+              </ResponseSectionHeader>
 
-            {responses}
-          </ResponseSection>
-        </ContentContainer>
+              {responses}
+            </ResponseSection>
+          </ContentContainer>
+        </BodyContainer>
       </AppContainer>
     );
   }

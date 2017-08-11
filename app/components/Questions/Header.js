@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ifProp, prop } from 'styled-tools';
 import { withRouter } from 'react-router';
 
-import Breakpoints from '../../consts/Breakpoints';
+import Breakpoints from '../../consts/breakpoints';
 import Centered from './../../styled-components/Centered';
 import Container from './../../styled-components/Container';
 import Colors from './../../consts/Colors';
@@ -198,6 +198,7 @@ const NavContainer = styled.div`
   font-weight: 700;
   padding-top: 2rem;
   z-index: 2;
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.47);  
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     height: ${ifProp('singleQuestion', '4rem', '10rem')};

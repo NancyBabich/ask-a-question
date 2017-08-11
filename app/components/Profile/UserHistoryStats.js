@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
 
-import Breakpoints from '../../consts/Breakpoints';
+import Breakpoints from '../../consts/breakpoints';
 import ProfileSectionTitle from './ProfileSectionTitle';
 import UserStatsTile from './UserStatsTile';
 

@@ -31,13 +31,13 @@ export default class ModalSwitch extends Component {
       this.previousLocation !== location
     );
     return (
-      <AppContainer>
+      <div>
         <Switch location={isModal ? this.previousLocation : location}>
           <Route exact path="/" component={Questions} />
           <Route path="/question/:questionId" component={IndividualQuestion} />
         </Switch>
         {isModal ? <Route path="/profile/:userId" component={Profile} /> : null}
-      </AppContainer>
+      </div>
     );
   }
 }

@@ -57,7 +57,7 @@ const StyledDiv = styled.div`
   height: 70%;
   width: 20%;
   background-color: ${Colors.lightGray};
-  margin: .25rem;
+  margin: 0 .25rem;
   font-size: .5em;
   padding: .5rem 0;
   &:last-child {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Breakpoints from '../../consts/Breakpoints';
+import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';

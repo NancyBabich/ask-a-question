@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import ActivityCards from './ActivityCards';
+import Breakpoints from '../../consts/breakpoints';
 import Colors from './../../consts/Colors';
 import ProfilePicture from './../../styled-components/ProfilePicture';
 import QuestionContent from './QuestionContent';
@@ -36,6 +37,76 @@ const QuestionCard = ({
 
   return (
     <QuestionCardContainer>
+      <QuestionCardHeader>
+        <ImageContainer>
+          <Link to={link}>
+            <ProfilePicture src={mainImgSrc} />
+          </Link>
+        </ImageContainer>
+        <HeaderContentContainer>
+          <div>
+            <Link to={link} style={{ textDecoration: 'none' }}>
+              <Name>
+                {name}{' '}
+              </Name>
+            </Link>is asking
+          </div>
+          <div>
+            <Question
+              individualQuestion={individualQuestion}
+              onClick={() =>
+                !individualQuestion && history.push(`/question/${questionId}`)}
+            >
+              {question}
+              <Unfollow individualQuestion={individualQuestion}>
+                {isOnShelf ? 'unfollow' : 'follow'}
+              </Unfollow>
+            </Question>
+          </div>
+        </HeaderContentContainer>
+      </QuestionCardHeader>
+      <QuestionCardBody>
+        <QuestionCardsContainer>
+          <QuestionStatusCard />
+          <SecondaryCard
+            content={
+              individualQuestion
+                ? <QuestionContent
+                    handleVote={handleVote}
+                    votingData={votingData}
+                    questionText={questionText}
+                  />
+                : <ActivityCards
+                    questionComments={questionComments}
+                    questionAnswers={questionAnswers}
+                  />
+            }
+          />
+        </QuestionCardsContainer>
+        {!individualQuestion &&
+          <StatsContainer individualQuestion={individualQuestion}>
+            <Stats>
+              <div>
+                {discussions.length} related{' '}
+                {discussions.length !== 1 ? 'discussions' : 'discussion'}
+              </div>
+              <div>
+                {peersInvolved.length}{' '}
+                {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
+              </div>
+              <div>
+                {conversations.length}{' '}
+                {conversations.length !== 1 ? 'conversations' : 'conversation'}
+              </div>
+            </Stats>
+          </StatsContainer>}
+      </QuestionCardBody>
+    </QuestionCardContainer>
+  );
+};
+
+{
+  /* <QuestionCardContainer>
       <PrimaryCard individualQuestion={individualQuestion}>
         <PrimaryCardHeader>
           <HeaderImageContainer>
@@ -107,18 +178,35 @@ const QuestionCard = ({
         <StyledButton>
           <Activity>give </Activity>new answer
         </StyledButton>}
-    </QuestionCardContainer>
-  );
-};
+    </QuestionCardContainer> */
+}
 
 export default withRouter(QuestionCard);
 
 const Activity = styled.span`text-transform: uppercase;`;
 
-const HeaderImageContainer = styled.div`
+const MainCard = styled.div`
   display: flex;
-  width: 20%;
-  padding-top: 1rem;
+  width: 85%;
+  height; 100%;
+`;
+
+const QuestionStatusCard = styled.div`
+  width: 15%;
+  height: 100%;
+  background-color: ${Colors.lightBlue};
+`;
+
+const QuestionCardsContainer = styled.div`
+  height: 100%;
+  width: 80%;
+  display: flex;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  width: 15%;
+  hjkdhkhkjhdpadding-top: 1rem;
   justify-content: center;
 `;
 
@@ -132,16 +220,21 @@ const PrimaryCard = styled.div`
   background-color: ${Colors.lightBlue};
 `;
 
-const PrimaryCardBody = styled.div`
+const QuestionCardBody = styled.div`
   display: flex;
   height: 60%;
   width: 100%;
 `;
 
-const PrimaryCardHeader = styled.div`
+const QuestionCardHeader = styled.div`
   display: flex;
   height: 40%;
-  width: 100%;
+  width: 80%;
+  background-color: ${Colors.lightBlue};
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 100%;
+  }
 `;
 
 const Name = styled.span`
@@ -171,13 +264,16 @@ const Question = styled.div`
 const QuestionCardContainer = styled.div`
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 20rem;
+  height: 23rem;
   border-bottom: solid 1px ${Colors.lightGray};
   background-color: white;
+  padding-bottom: 3rem;
+  margin-top: 1px;
+  box-shadow: 4px 0px 5px 0px rgba(50, 50, 50, 0.47);
 `;
 
 const QuestionStatus = styled.div`
@@ -203,7 +299,7 @@ const Stats = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 48%;
+  height: 70%;
   font-family: 'Crimson Text';
   font-size: .9rem;
   font-style: italic;
@@ -216,7 +312,7 @@ const StatsContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 20%;
-  height: 90%;
+  height: 100%;
 `;
 
 const StyledButton = styled.div`
@@ -244,11 +340,11 @@ const Title = styled.div`
   font-size: .75rem;
 `;
 
-const TitleContainer = styled.div`
+const HeaderContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
-  width: 80%;
+  width: 85%;
 `;
 
 const Unfollow = styled.div`

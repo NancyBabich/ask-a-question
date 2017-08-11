@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
-import Breakpoints from '../../consts/Breakpoints';
+import Breakpoints from '../../consts/breakpoints';
 import Centered from './../../styled-components/Centered';
 import Colors from './../../consts/Colors';
 import Container from './../../styled-components/Container';
