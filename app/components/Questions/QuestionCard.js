@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
@@ -11,103 +11,127 @@ import ProfilePicture from './../../styled-components/ProfilePicture';
 import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
-const QuestionCard = ({
-  authorId,
-  conversations,
-  discussions,
-  questionAnswers,
-  questionComments,
-  questionId,
-  handleVote,
-  history,
-  individualQuestion,
-  isOnShelf,
-  mainImgSrc,
-  name,
-  peersInvolved,
-  question,
-  questionText,
-  status,
-  votingData
-}) => {
-  const link = {
-    pathname: `/profile/${authorId}`,
-    state: { modal: true }
+class QuestionCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFollowed: this.props.isOnShelf
+    };
+  }
+
+  toggleFollow = () => {
+    this.setState({
+      isFollowed: !this.state.isFollowed
+    });
   };
 
-  return (
-    <QuestionCardContainer>
-      <QuestionCardHeader>
-        <ImageContainer>
-          <Link to={link}>
-            <ProfilePicture src={mainImgSrc} />
-          </Link>
-        </ImageContainer>
-        <HeaderContentContainer>
-          <QuestionDescription>
-            <Link to={link} style={{ textDecoration: 'none' }}>
-              <Name>
-                {name}{' '}
-              </Name>
-            </Link>is asking
-          </QuestionDescription>
-          <div>
-            <Question
-              individualQuestion={individualQuestion}
-              onClick={() =>
-                !individualQuestion && history.push(`/question/${questionId}`)}
-            >
-              {question}
-              <Unfollow individualQuestion={individualQuestion}>
-                {isOnShelf ? 'unfollow' : 'follow'}
-              </Unfollow>
-            </Question>
-          </div>
-        </HeaderContentContainer>
-      </QuestionCardHeader>
-      <QuestionCardBody>
-        <QuestionCardsContainer>
-          <QuestionStatusCard>
-            <QuestionStatus>
-              {status}
-            </QuestionStatus>
-          </QuestionStatusCard>
-          <SecondaryCard
-            content={
-              individualQuestion
-                ? <QuestionContent
-                    handleVote={handleVote}
-                    votingData={votingData}
-                    questionText={questionText}
-                  />
-                : <ActivityCards
-                    questionComments={questionComments}
-                    questionAnswers={questionAnswers}
-                  />
-            }
-          />
-        </QuestionCardsContainer>
-        {!individualQuestion &&
-          <StatsContainer individualQuestion={individualQuestion}>
-            <Stats>
-              <div>
-                {discussions.length} related{' '}
-                {discussions.length !== 1 ? 'discussions' : 'discussion'}
-              </div>
-              <div>
-                {peersInvolved.length}{' '}
-                {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
-              </div>
-              <div>
-                {conversations.length}{' '}
-                {conversations.length !== 1 ? 'conversations' : 'conversation'}
-              </div>
-            </Stats>
-          </StatsContainer>}
-      </QuestionCardBody>
-    </QuestionCardContainer>
-  );
-};
+  render() {
+    const {
+      authorId,
+      conversations,
+      discussions,
+      questionAnswers,
+      questionComments,
+      questionId,
+      handleVote,
+      history,
+      individualQuestion,
+      isOnShelf,
+      mainImgSrc,
+      name,
+      peersInvolved,
+      question,
+      questionText,
+      status,
+      votingData
+    } = this.props;
+
+    const link = {
+      pathname: `/profile/${authorId}`,
+      state: { modal: true }
+    };
+
+    return (
+      <QuestionCardContainer individualQuestion={individualQuestion}>
+        <QuestionCardHeader individualQuestion={individualQuestion}>
+          <ImageContainer>
+            <Link to={link}>
+              <ProfilePicture src={mainImgSrc} />
+            </Link>
+          </ImageContainer>
+          <HeaderContentContainer>
+            <QuestionDescription>
+              <Link to={link} style={{ textDecoration: 'none' }}>
+                <Name>
+                  {name}{' '}
+                </Name>
+              </Link>is asking
+            </QuestionDescription>
+            <div>
+              <Question
+                individualQuestion={individualQuestion}
+                onClick={() =>
+                  !individualQuestion &&
+                  history.push(`/question/${questionId}`)}
+              >
+                {question}
+                <Unfollow
+                  individualQuestion={individualQuestion}
+                  onClick={this.toggleFollow}
+                >
+                  {this.state.isFollowed ? 'unfollow' : 'follow'}
+                </Unfollow>
+              </Question>
+            </div>
+          </HeaderContentContainer>
+        </QuestionCardHeader>
+        <QuestionCardBody>
+          <QuestionCardsContainer>
+            <QuestionStatusCard>
+              {!individualQuestion &&
+                <QuestionStatus>
+                  {status}
+                </QuestionStatus>}
+            </QuestionStatusCard>
+            <SecondaryCard
+              content={
+                individualQuestion
+                  ? <QuestionContent
+                      handleVote={handleVote}
+                      votingData={votingData}
+                      questionText={questionText}
+                    />
+                  : <ActivityCards
+                      questionComments={questionComments}
+                      questionAnswers={questionAnswers}
+                    />
+              }
+            />
+          </QuestionCardsContainer>
+          {!individualQuestion &&
+            <StatsContainer individualQuestion={individualQuestion}>
+              <Stats>
+                <div>
+                  {discussions.length} related{' '}
+                  {discussions.length !== 1 ? 'discussions' : 'discussion'}
+                </div>
+                <div>
+                  {peersInvolved.length}{' '}
+                  {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
+                </div>
+                <div>
+                  {conversations.length}{' '}
+                  {conversations.length !== 1
+                    ? 'conversations'
+                    : 'conversation'}
+                </div>
+              </Stats>
+            </StatsContainer>}
+        </QuestionCardBody>
+      </QuestionCardContainer>
+    );
+  }
+}
 
 export default withRouter(QuestionCard);
 
@@ -191,7 +215,7 @@ const QuestionCardContainer = styled.div`
   height: 23rem;
   border-bottom: solid 1px ${Colors.lightGray};
   background-color: white;
-  padding-bottom: 3rem;
+  padding-bottom: ${ifProp('individualQuestion', '0', '3rem')};
   margin-top: 1px;
   box-shadow: 4px 0px 5px 0px rgba(50, 50, 50, 0.47);
 `;
@@ -199,7 +223,7 @@ const QuestionCardContainer = styled.div`
 const QuestionCardHeader = styled.div`
   display: flex;
   height: 40%;
-  width: 80%;
+  width: ${ifProp('individualQuestion', '100%', '80%')};
   background-color: ${Colors.lightBlue};
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
