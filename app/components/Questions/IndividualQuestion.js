@@ -136,9 +136,14 @@ export default class IndividualQuestion extends Component {
             />
             <ResponseSection>
               <ResponseSectionHeader>
-                <Number>{currentQuestion.answers.length}</Number>{' '}
+                <Number>
+                  {currentQuestion.answers.length
+                    ? currentQuestion.answers.length
+                    : 'No'}
+                </Number>{' '}
                 {currentQuestion.answers.length !== 1 ? 'peers' : 'peer'}{' '}
-                already answered Eva
+                {!currentQuestion.answers.length ? '' : 'already'} answered{' '}
+                {questionAuthor.firstName}
               </ResponseSectionHeader>
 
               {responses}
