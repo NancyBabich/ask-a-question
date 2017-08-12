@@ -401,6 +401,44 @@ export const comments = [
     upvotes: 2,
     downvotes: 0,
     dateAdded: '2017-08-10T17:13:34.000Z'
+  },
+  {
+    commentId: 100,
+    authorId: 1,
+    answerId: 6,
+    comment: 'Remember, though, to always consult common sense first.',
+    upvotes: 6,
+    downvotes: 0,
+    dateAdded: '2017-08-12T17:13:34.000Z'
+  },
+  {
+    commentId: 101,
+    authorId: 3,
+    answerId: 5,
+    comment:
+      'Not all symptoms need to be immediately considered as potentially dangerous.',
+    upvotes: 6,
+    downvotes: 6,
+    dateAdded: '2017-08-11T23:13:34.000Z'
+  },
+  {
+    commentId: 102,
+    authorId: 3,
+    answerId: 6,
+    comment:
+      'Check most recent online publications on the topic to find out more.',
+    upvotes: 2,
+    downvotes: 13,
+    dateAdded: '2017-08-12T17:13:34.000Z'
+  },
+  {
+    commentId: 103,
+    authorId: 2,
+    answerId: 2,
+    comment: 'Remember to ask your medical advisor on your next appointment.',
+    upvotes: 5,
+    downvotes: 4,
+    dateAdded: '2017-08-12T16:13:34.000Z'
   }
 ];
 
@@ -420,32 +458,65 @@ export const answers = [
   {
     answerId: 2,
     authorId: 3,
-    questionId: 3
+    questionId: 3,
+    answer: 'This should be immediately reported to your doctor.',
+    comments: [103],
+    upvotes: 10,
+    downvotes: 20,
+    dateAdded: '2017-07-15T20:27:22.000Z'
   },
   {
     answerId: 3,
     authorId: 1,
-    questionId: 6
+    questionId: 6,
+    answer:
+      'To be able to answer, one would need more data in order to come up with reasonable advice.',
+    comments: [],
+    upvotes: 15,
+    downvotes: 15,
+    dateAdded: '2017-08-01T11:03:22.000Z'
   },
   {
     answerId: 4,
     authorId: 4,
-    questionId: 2
+    questionId: 2,
+    answer: 'This could be dangerous and, as such, ahould be avoided.',
+    comments: [],
+    upvotes: 8,
+    downvotes: 7,
+    dateAdded: '2017-02-14T20:03:22.000Z'
   },
   {
     answerId: 5,
     authorId: 2,
-    questionId: 4
+    questionId: 4,
+    answer:
+      'This distinction no longer holds in the light of the most rcent findings.',
+    comments: [101],
+    upvotes: 5,
+    downvotes: 10,
+    dateAdded: '2017-01-22T20:03:22.000Z'
   },
   {
     answerId: 6,
     authorId: 6,
-    questionId: 5
+    questionId: 5,
+    answer: 'To find out, read Jonh Buhlynne, especially "The art of knowing."',
+    comments: [100, 102],
+    upvotes: 12,
+    downvotes: 4,
+    dateAdded: '2017-04-10T20:03:22.000Z'
   },
   {
     answerId: 7,
     authorId: 5,
-    questionId: 7
+    questionId: 7,
+    answer:
+      'Such complicated issues should be discussed with your pediatrician, who knows you and your actual condition.',
+    comments: [],
+    upvotes: 1,
+    downvotes: 1,
+    dateAdded: '2017-05-10T20:03:22.000Z'
   },
   {
     answerId: 44,
