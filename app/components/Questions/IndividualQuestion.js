@@ -87,9 +87,8 @@ export default class IndividualQuestion extends Component {
         : null;
 
       return (
-        <ResponseContainer>
+        <ResponseContainer key={i}>
           <ResponseCard
-            key={i}
             authorId={currentAnswerAuthor.userId}
             authorPicUrl={currentAnswerAuthor.imgUrl}
             authorFirstName={currentAnswerAuthor.firstName}

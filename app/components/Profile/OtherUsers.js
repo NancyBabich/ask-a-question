@@ -20,8 +20,8 @@ const OtherUsers = ({ dateJoined, profileOwnerId, users }) => {
     })
     .slice(0, 3);
 
-  const closestUsersTiles = otherUsersToDisplay.map(user =>
-    <OtherUserCardContainer>
+  const closestUsersTiles = otherUsersToDisplay.map((user, i) =>
+    <OtherUserCardContainer key={i}>
       <OtherUserCard>
         <ProfilePicture src={user.imgUrl} />
       </OtherUserCard>
