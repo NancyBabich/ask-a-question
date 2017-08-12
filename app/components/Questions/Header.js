@@ -41,7 +41,9 @@ const Header = ({
               {singleQuestion ? 'Question' : 'Questions'}
             </div>
             <AddButtonContainer singleQuestion={singleQuestion}>
-              <AddButton singleQuestion={singleQuestion}>+</AddButton>
+              <AddButton singleQuestion={singleQuestion}>
+                <AddButtonBar />
+              </AddButton>
             </AddButtonContainer>
           </AddQuestion>
           {rightComponent}
@@ -75,19 +77,17 @@ const Header = ({
 export default withRouter(Header);
 
 const AddButton = styled.div`
+  position: relative;
   margin-left: 2rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 20px;
+  height: 20px;
   background-color: ${Colors.darkBlue};
   border: 1px solid ${Colors.darkBlue};
   border-radius: 50%;
-  text-align: center;
-  line-height: 1.25rem;
   color: white;
-  font-weight: 400;
-  font-size: 1.5rem;
   &:hover {
     cursor: pointer;
+    background-color: ${Colors.lightBlue};
   }
 
   @media screen and (max-width: 415px) {
@@ -103,10 +103,25 @@ const AddButton = styled.div`
   }
 `;
 
+const AddButtonBar = styled.div`
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  height: 2px;
+  width: 14px;
+  background-color: white;
+  &::after {
+    position: absolute;
+    height: 2px;
+    width: 14px;
+    content: '';
+    transform: rotate(90deg);
+    background-color: white;
+  }
+`;
+
 const AddButtonContainer = styled.div`
-  display: flex;
   height: 100%;
-  align-items: center;
 
   @media screen and (max-width: 415px) {
     margin: ${ifProp('singleQuestion', '0', '1rem 0')};
