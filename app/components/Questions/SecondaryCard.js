@@ -21,4 +21,8 @@ const SecondaryCardContainer = styled.div`
   @media screen and (max-width: ${Breakpoints.tablet}) {
     justify-content: center;
   }
+
+  @media screen and (max-width: 555px) {
+    width: 100%;
+  }
 `;

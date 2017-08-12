@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import ActivityCard from './ActivityCard';
 import Breakpoints from '../../consts/breakpoints';
+import Colors from '../../consts/colors';
 import { answers, comments, users } from '../../data/data';
 
 export default class ActivityCards extends Component {
@@ -94,11 +95,25 @@ export default class ActivityCards extends Component {
                 ? 'activity'
                 : 'activities'}
             </TextContainer>
+            <Dot />
           </RemainingActivitiesCard>
           {activityCards}
         </StyledDiv>;
   }
 }
+
+const Dot = styled.div`
+  position: absolute;
+  bottom: -.3rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  background-color: ${Colors.darkGray};
+
+  @media screen and (max-width: 555px) {
+    display: block;
+  }
+`;
 
 const NumberContainer = styled.div`
   display: flex;
@@ -107,9 +122,14 @@ const NumberContainer = styled.div`
   width: 3.5rem;
   height: 3.5rem;
   font-size: 1rem;
+
+  @media screen and (max-width: 555px) {
+    margin-top: .25rem;
+  }
 `;
 
 const RemainingActivitiesCard = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,6 +139,14 @@ const RemainingActivitiesCard = styled.div`
   margin: .25rem;
   padding: .5rem 0;
   font-size: .5em;
+
+  @media screen and (max-width: 555px) {
+    background-color: ${Colors.lightGray};
+    height: 99%;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const StyledDiv = styled.div`
@@ -126,6 +154,9 @@ const StyledDiv = styled.div`
   height: 100%;
   width: 100%;
   align-items: flex-end;
+  @media screen and (max-width: 555px) {
+    justify-content: center;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -134,4 +165,8 @@ const TextContainer = styled.div`
   font-weight: 700;
   font-style: italic;
   text-align: center;
+
+  @media screen and (max-width: 555px) {
+    padding-bottom: .5rem;
+  }
 `;

@@ -44,13 +44,13 @@ const QuestionCard = ({
           </Link>
         </ImageContainer>
         <HeaderContentContainer>
-          <div>
+          <QuestionDescription>
             <Link to={link} style={{ textDecoration: 'none' }}>
               <Name>
                 {name}{' '}
               </Name>
             </Link>is asking
-          </div>
+          </QuestionDescription>
           <div>
             <Question
               individualQuestion={individualQuestion}
@@ -109,108 +109,15 @@ const QuestionCard = ({
   );
 };
 
-{
-  /* <QuestionCardContainer>
-      <PrimaryCard individualQuestion={individualQuestion}>
-        <PrimaryCardHeader>
-          <HeaderImageContainer>
-            <Link to={link}>
-              <ProfilePicture src={mainImgSrc} />
-            </Link>
-          </HeaderImageContainer>
-          <TitleContainer>
-            <Title>
-              <Link to={link} style={{ textDecoration: 'none' }}>
-                <Name>
-                  {name}{' '}
-                </Name>
-              </Link>is asking
-            </Title>
-            <Question
-              individualQuestion={individualQuestion}
-              onClick={() =>
-                !individualQuestion && history.push(`/question/${questionId}`)}
-            >
-              {question}
-              <Unfollow individualQuestion={individualQuestion}>
-                {isOnShelf ? 'unfollow' : 'follow'}
-              </Unfollow>
-            </Question>
-          </TitleContainer>
-        </PrimaryCardHeader>
-        <PrimaryCardBody>
-          <QuestionStatusContainer>
-            {!individualQuestion &&
-              <QuestionStatus>
-                {status}
-              </QuestionStatus>}
-          </QuestionStatusContainer>
-          <SecondaryCard
-            content={
-              individualQuestion
-                ? <QuestionContent
-                    handleVote={handleVote}
-                    votingData={votingData}
-                    questionText={questionText}
-                  />
-                : <ActivityCards
-                    questionComments={questionComments}
-                    questionAnswers={questionAnswers}
-                  />
-            }
-          />
-        </PrimaryCardBody>
-      </PrimaryCard>
-      {!individualQuestion &&
-        <StatsContainer individualQuestion={individualQuestion}>
-          <Stats>
-            <div>
-              {discussions.length} related{' '}
-              {discussions.length !== 1 ? 'discussions' : 'discussion'}
-            </div>
-            <div>
-              {peersInvolved.length}{' '}
-              {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
-            </div>
-            <div>
-              {conversations.length}{' '}
-              {conversations.length !== 1 ? 'conversations' : 'conversation'}
-            </div>
-          </Stats>
-        </StatsContainer>}
-      {individualQuestion &&
-        <StyledButton>
-          <Activity>give </Activity>new answer
-        </StyledButton>}
-    </QuestionCardContainer> */
-}
-
 export default withRouter(QuestionCard);
 
 const Activity = styled.span`text-transform: uppercase;`;
 
-const MainCard = styled.div`
+const HeaderContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
   width: 85%;
-  height; 100%;
-`;
-
-const QuestionStatusCard = styled.div`
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  width: 15%;
-  height: 100%;
-  background-color: ${Colors.lightBlue};
-  font-size: .75rem;
-  text-transform: uppercase;
-`;
-
-const QuestionCardsContainer = styled.div`
-  height: 100%;
-  width: 80%;
-  display: flex;
 `;
 
 const ImageContainer = styled.div`
@@ -218,6 +125,15 @@ const ImageContainer = styled.div`
   width: 15%;
   padding-top: 1rem;
   justify-content: center;
+`;
+
+const Name = styled.span`
+  text-transform: none;
+  color: ${Colors.darkBlue};
+  &:hover {
+    cursor: pointer;
+  }
+  font-size: 1rem;
 `;
 
 const PrimaryCard = styled.div`
@@ -228,32 +144,6 @@ const PrimaryCard = styled.div`
   height: ${ifProp('individualQuestion', '100%', '90%')};
   width: ${ifProp('individualQuestion', '100%', '80%')};
   background-color: ${Colors.lightBlue};
-`;
-
-const QuestionCardBody = styled.div`
-  display: flex;
-  height: 60%;
-  width: 100%;
-`;
-
-const QuestionCardHeader = styled.div`
-  display: flex;
-  height: 40%;
-  width: 80%;
-  background-color: ${Colors.lightBlue};
-
-  @media screen and (max-width: ${Breakpoints.tablet}) {
-    width: 100%;
-  }
-`;
-
-const Name = styled.span`
-  text-transform: none;
-  color: ${Colors.darkBlue};
-  &:hover {
-    cursor: pointer;
-  }
-  font-size: 1rem;
 `;
 
 const Question = styled.div`
@@ -268,6 +158,26 @@ const Question = styled.div`
   font-style: italic;
   &:hover {
     cursor: ${ifProp('individualQuestion', 'auto', 'pointer')};
+  }
+
+  @media screen and (max-width: 360px) {
+    padding-left: 1rem;
+  }
+`;
+
+const QuestionCardBody = styled.div`
+  display: flex;
+  height: 60%;
+  width: 100%;
+`;
+
+const QuestionCardsContainer = styled.div`
+  height: 100%;
+  width: 80%;
+  display: flex;
+
+  @media screen and (max-width: 555px) {
+    width: 60%;
   }
 `;
 
@@ -284,6 +194,23 @@ const QuestionCardContainer = styled.div`
   padding-bottom: 3rem;
   margin-top: 1px;
   box-shadow: 4px 0px 5px 0px rgba(50, 50, 50, 0.47);
+`;
+
+const QuestionCardHeader = styled.div`
+  display: flex;
+  height: 40%;
+  width: 80%;
+  background-color: ${Colors.lightBlue};
+
+  @media screen and (max-width: ${Breakpoints.tablet}) {
+    width: 100%;
+  }
+`;
+
+const QuestionDescription = styled.div`
+  @media screen and (max-width: 360px) {
+    padding-left: 1rem;
+  }
 `;
 
 const QuestionStatus = styled.div`
@@ -305,6 +232,22 @@ const QuestionStatusContainer = styled.div`
   color: ${Colors.darkGray};
 `;
 
+const QuestionStatusCard = styled.div`
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 15%;
+  height: 100%;
+  background-color: ${Colors.lightBlue};
+  font-size: .75rem;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 555px) {
+    display: none;
+  }
+`;
+
 const Stats = styled.div`
   display: flex;
   flex-direction: column;
@@ -315,6 +258,14 @@ const Stats = styled.div`
   font-size: .9rem;
   font-style: italic;
   font-weight: 700;
+
+  @media screen and (max-width: 290px) {
+    font-size: .75rem;
+  }
+
+  @media screen and (max-width: 250px) {
+    font-size: .7rem;
+  }
 `;
 
 const StatsContainer = styled.div`
@@ -324,6 +275,11 @@ const StatsContainer = styled.div`
   justify-content: flex-end;
   width: 20%;
   height: 100%;
+
+  @media screen and (max-width: 555px) {
+    width: 40%;
+    justify-content: center;
+  }
 `;
 
 const StyledButton = styled.div`
@@ -349,13 +305,6 @@ const Title = styled.div`
   color: ${Colors.darkGray};
   text-transform: uppercase;
   font-size: .75rem;
-`;
-
-const HeaderContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
-  width: 85%;
 `;
 
 const Unfollow = styled.div`

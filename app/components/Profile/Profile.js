@@ -79,7 +79,7 @@ const Modal = styled.div`
   right: 0;
   background-color: rgba(0, 0, 0, 0.7);
   padding-top: 5%;
-  height: 150vh;
+  height: 200vh;
   width: 100%;
   z-index: 3;
 
@@ -90,7 +90,7 @@ const Modal = styled.div`
 
 const ProfileContainer = Container.extend`
   width: 50%;
-  height: 100%;
+  height: 80%;
   background-color: white;
   justify-content: center;
   align-items: center;

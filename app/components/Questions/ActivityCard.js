@@ -54,7 +54,7 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 70%;
+  height: 85%;
   width: 20%;
   background-color: ${Colors.lightGray};
   margin: 0 .25rem;
@@ -62,5 +62,10 @@ const StyledDiv = styled.div`
   padding: .5rem 0;
   &:last-child {
     margin-right: 0;
+  }
+
+  @media screen and (max-width: 555px) {
+    width: 50%;
+    height: 99%;
   }
 `;
