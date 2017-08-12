@@ -6,13 +6,9 @@ import ProfilePicture from '../../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';
 
 const OtherUsers = ({ dateJoined, profileOwnerId, users }) => {
-  const profileOwnerIndex = users.indexOf(
-    users.find(user => user.userId === profileOwnerId)
-  );
+  const otherUsers = users.filter(user => user.userId !== profileOwnerId);
 
-  users.splice(profileOwnerIndex, 1);
-
-  const otherUsersToDisplay = users
+  const otherUsersToDisplay = otherUsers
     .sort((a, b) => {
       const diffA = Math.abs(dateJoined - a);
       const diffB = Math.abs(dateJoined - b);
