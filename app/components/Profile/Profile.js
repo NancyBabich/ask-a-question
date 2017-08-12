@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/colors';
-import Container from '../../styled-components/Container';
 import HowItAllStarted from './HowItAllStarted';
 import HotDiscussion from './HotDiscussion';
 import OtherUsers from './OtherUsers';
@@ -93,12 +92,15 @@ const Modal = styled.div`
   }
 `;
 
-const ProfileContainer = Container.extend`
+const ProfileContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 50%;
   height: auto;
   background-color: white;
-  justify-content: flex-start;
-  align-items: center;
   padding-top: 3rem;
   color: ${Colors.gray};
 

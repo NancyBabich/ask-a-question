@@ -4,8 +4,6 @@ import { ifProp, prop } from 'styled-tools';
 import { withRouter } from 'react-router';
 
 import Breakpoints from '../../consts/breakpoints';
-import Centered from './../../styled-components/Centered';
-import Container from './../../styled-components/Container';
 import Colors from './../../consts/colors';
 import NavButton from '../../styled-components/NavButton';
 
@@ -127,8 +125,9 @@ const AddButtonContainer = styled.div`
   }
 `;
 
-const AddQuestion = Centered.extend`
+const AddQuestion = styled.div`
   display: flex;
+  align-items: center;
   justify-content: flex-start;
   width: 50%;
   height: 100%;
@@ -163,8 +162,10 @@ const AddQuestion = Centered.extend`
   }
 `;
 
-const BackButtonContainer = Container.extend`
+const BackButtonContainer = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 19%;
@@ -175,7 +176,9 @@ const BackButtonContainer = Container.extend`
   }
 `;
 
-const DisplaySettingsContainer = Container.extend`
+const DisplaySettingsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 61%;
   align-items: space-between;
 
@@ -194,7 +197,10 @@ const DisplaySettingsContainer = Container.extend`
   }
 `;
 
-const FormContainer = Container.extend`
+const FormContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: stretch;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
@@ -243,8 +249,11 @@ const SearchContainer = styled.div`
   padding: 0;
 `;
 
-const StyledContainer = Container.extend`
+const StyledContainer = styled.div`
+  position: relative;
+  display: flex;
   flex-direction: row;
+  align-items: stretch;
   width: 100%;
   height: 50%;
   padding: 0;

@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Centered from '../../styled-components/Centered';
 import Colors from '../../consts/colors';
-import Container from '../../styled-components/Container';
 import VotingComponent from './VotingComponent';
 
 const QuestionContent = ({ handleVote, questionText, votingData }) =>
@@ -18,7 +16,9 @@ const QuestionContent = ({ handleVote, questionText, votingData }) =>
 
 export default QuestionContent;
 
-const InnerContainer = Centered.extend`
+const InnerContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   position: relative;
   width: 100%;
   height: 100%;
@@ -26,11 +26,14 @@ const InnerContainer = Centered.extend`
   align-items: flex-start;
 `;
 
-const TextContainer = Container.extend`
-  width: 70%;
-  height: 100%;
+const TextContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 70%;
+  height: 100%;
   line-height: 1.5;
   padding: 1.5rem 1rem 0 1rem;
 `;

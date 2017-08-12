@@ -339,6 +339,7 @@ const Title = styled.div`
 const Unfollow = styled.div`
   display: ${ifProp('individualQuestion', 'flex', 'none')};
   padding: 0 4rem;
+  font-family: 'Roboto Condensed';
   font-style: normal;
   &:hover {
     cursor: pointer;
