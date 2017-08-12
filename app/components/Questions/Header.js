@@ -87,7 +87,6 @@ const AddButton = styled.div`
   color: white;
   &:hover {
     cursor: pointer;
-    background-color: ${Colors.lightBlue};
   }
 
   @media screen and (max-width: 415px) {
