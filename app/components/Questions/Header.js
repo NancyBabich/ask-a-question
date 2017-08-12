@@ -150,6 +150,11 @@ const AddQuestion = Centered.extend`
 
   @media screen and (max-width: 650px) {
     width: 100%;
+    justify-content: ${ifProp('singleQuestion', 'flex-start', 'center')};
+  }
+
+  @media screen and (max-width: 560px) {
+    width: 100%;
     justify-content: ${ifProp('singleQuestion', 'space-between', 'center')};
   }
 
@@ -210,7 +215,7 @@ const NavContainer = styled.div`
   display: flex;
   align-items: flex-start;
   width: 100%;
-  height: ${ifProp('singleQuestion', '5rem', '10rem')};
+  height: ${ifProp('singleQuestion', '7rem', '10rem')};
   background-color: white;
   font-weight: 700;
   padding-top: 2rem;
@@ -218,19 +223,15 @@ const NavContainer = styled.div`
   box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.47);
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
-    height: ${ifProp('singleQuestion', '4rem', '14rem')};
-  }
-
-  @media screen and (max-width: 650px) {
-    height: ${ifProp('singleQuestion', '4rem', '14rem')};
+    height: ${ifProp('singleQuestion', '7rem', '14rem')};
   }
 
   @media screen and (max-width: 550px) {
-    height: ${ifProp('singleQuestion', '4rem', '17rem')};
+    height: ${ifProp('singleQuestion', '7rem', '17rem')};
   }
 
   @media screen and (max-width: 415px) {
-    height: ${ifProp('singleQuestion', '4rem', '22rem')};
+    height: ${ifProp('singleQuestion', '7rem', '22rem')};
   }
 `;
 

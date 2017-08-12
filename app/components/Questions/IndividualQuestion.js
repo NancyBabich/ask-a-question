@@ -120,7 +120,7 @@ export default class IndividualQuestion extends Component {
           singleQuestion
         />
         <BodyContainer>
-          <ContentContainer>
+          <ContentContainer singleQuestion>
             <QuestionCard
               authorId={questionAuthor.userId}
               individualQuestion
@@ -164,7 +164,7 @@ const QuestionStatusContainer = styled.div`
   align-self: center;
   font-style: italic;
 
-  @media screen and (max-width: ${Breakpoints.mobile}) {
+  @media screen and (max-width: 560px) {
     display: none;
   }
 `;
