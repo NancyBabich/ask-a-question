@@ -108,6 +108,7 @@ const ResponseCardContainer = styled.div`
   width: ${ifProp('secondary', '80%', '100%')};
   background-color: white;
   margin-top: ${ifProp('secondary', '.1rem', '2.5rem')};
+  box-shadow: 4px 0px 5px 0px rgba(50, 50, 50, 0.47);
 `;
 
 const ResponseContainer = styled.div`

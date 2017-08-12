@@ -86,7 +86,7 @@ class QuestionCard extends Component {
           </HeaderContentContainer>
         </QuestionCardHeader>
         <QuestionCardBody>
-          <QuestionCardsContainer>
+          <QuestionCardsContainer individualQuestion={individualQuestion}>
             <QuestionStatusCard>
               {!individualQuestion &&
                 <QuestionStatus>
@@ -197,7 +197,7 @@ const QuestionCardBody = styled.div`
 
 const QuestionCardsContainer = styled.div`
   height: 100%;
-  width: 80%;
+  width: ${ifProp('individualQuestion', '100%', '80%')};
   display: flex;
 
   @media screen and (max-width: 555px) {

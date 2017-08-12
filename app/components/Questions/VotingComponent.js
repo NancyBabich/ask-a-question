@@ -12,9 +12,9 @@ const VotingComponent = ({ handleVote, votingData }) => {
   return (
     <VotingComponentContainer>
       <div>
-        {votingData.upvotes >= votingData.downvotes //&&
-          ? //votingData.haveDownvoted === false
-            <Votes>
+        {votingData.upvotes >= votingData.downvotes &&
+        (!votingData.haveVoted || !votingData.haveDownvoted)
+          ? <Votes>
               <Number>{votingData.upvotes}</Number> upvotes
             </Votes>
           : <Votes>
@@ -25,14 +25,14 @@ const VotingComponent = ({ handleVote, votingData }) => {
         <VotingArrowContainer>
           <VotingButton
             handleVote={() =>
-              votingData.haveVoted === false && handleVoteClick('upvotes')}
+              !votingData.haveVoted && handleVoteClick('upvotes')}
           />
         </VotingArrowContainer>
         <VotingArrowContainer>
           <VotingButton
             down
             handleVote={() =>
-              votingData.haveVoted === false && handleVoteClick('downvotes')}
+              !votingData.haveVoted && handleVoteClick('downvotes')}
           />
         </VotingArrowContainer>
       </div>

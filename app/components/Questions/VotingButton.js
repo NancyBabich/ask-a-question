@@ -40,4 +40,5 @@ const VotingArrow = styled.div`
   &:hover {
     cursor: ${ifProp('wasClicked', 'normal', 'pointer')};
   }
+  pointer-event: ${ifProp('wasClicked', 'none', 'auto')};
 `;
