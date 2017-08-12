@@ -35,7 +35,7 @@ export const questions = [
     upvotes: 2,
     downvotes: 1,
     questionText:
-      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
+      'A 2012 Cochrane Collaboration systematic review of controlled clinical trials of exercise interventions in cancer survivors indicated that physical activity may have beneficial effects on overall health-related quality of life and on specific quality-of-life issues, including body image/self-esteem, emotional well-being, sexuality, sleep disturbance, social functioning, anxiety, fatigue, and pain.'
   },
   {
     questionId: 3,
@@ -53,7 +53,7 @@ export const questions = [
     upvotes: 5,
     downvotes: 5,
     questionText:
-      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
+      'For children and adolescents, the guidelines recommend at least 60 minutes (1 hour) of physical activity daily. Most of the 60 or more minutes a day should be either moderate- or vigorous-intensity aerobic physical activity, and should include vigorous-intensity physical activity at least 3 days a week.'
   },
   {
     questionId: 4,
@@ -71,7 +71,7 @@ export const questions = [
     upvotes: 8,
     downvotes: 2,
     questionText:
-      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
+      'Sedentary behavior, such as prolonged periods of television viewing, sitting, and lying down, is a risk factor for developing chronic conditions, including cancer, cardiovascular disease, and type 2 diabetes, and for premature death.'
   },
   {
     questionId: 5,
@@ -89,7 +89,7 @@ export const questions = [
     upvotes: 7,
     downvotes: 5,
     questionText:
-      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
+      'Nearly all of the evidence linking physical activity to cancer risk comes from observational studies, in which individuals report on their physical activity and are followed for years for diagnoses of cancer. Data from observational studies can give researchers clues about the relationship between physical activity and cancer risk.'
   },
   {
     questionId: 6,
@@ -107,7 +107,7 @@ export const questions = [
     upvotes: 4,
     downvotes: 1,
     questionText:
-      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
+      'Many studies show that physically active women have a lower risk of breast cancer than inactive women; in a 2013 meta-analysis of 31 prospective studies, the average breast cancer risk reduction associated with physical activity was 12%.'
   },
   {
     questionId: 7,
@@ -125,7 +125,7 @@ export const questions = [
     upvotes: 10,
     downvotes: 15,
     questionText:
-      'All my patients with diabetes should see an ophthalmologist yearly for a dialated eye examination- begining at diagnosis inpeople with type 2 diabetes, and after 5 years in people with type 1 diabetes after puberty. Patients with know eye disease, symptoms of blurred vision in one eye, or blind spots need to see their ophthalmologist more frequently.'
+      'Physical activity is defined as any movement that uses skeletal muscles and requires more energy than does resting. Physical activity can include working, exercising, performing household chores, and leisure-time activities such as walking, tennis, hiking, bicycling, and swimming.'
   }
 ];
 
