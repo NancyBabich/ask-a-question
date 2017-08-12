@@ -12,13 +12,16 @@ const VotingComponent = ({ handleVote, votingData }) => {
   return (
     <VotingComponentContainer>
       <div>
-        {votingData.upvotes >= votingData.downvotes &&
-        (!votingData.haveVoted || !votingData.haveDownvoted)
-          ? <Votes>
-              <Number>{votingData.upvotes}</Number> upvotes
+        {votingData.upvotes >= votingData.downvotes ||
+        (votingData.haveVoted && !votingData.haveDownvoted)
+          ? //(!votingData.haveVoted || !votingData.haveDownvoted)
+            <Votes>
+              <Number>{votingData.upvotes}</Number>{' '}
+              {votingData.upvotes !== 1 ? 'upvotes' : 'upvote'}
             </Votes>
           : <Votes>
-              <Number>{votingData.downvotes}</Number> downvotes
+              <Number>{votingData.downvotes}</Number>{' '}
+              {votingData.downvotes !== 1 ? 'downvotes' : 'downvote'}
             </Votes>}
       </div>
       <div>

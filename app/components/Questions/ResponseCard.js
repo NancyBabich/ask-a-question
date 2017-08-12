@@ -16,16 +16,17 @@ class ResponseCard extends Component {
     this.state = {
       upvotes: this.props.upvotes,
       downvotes: this.props.downvotes,
-      haveVoted: false
-      //haveDownvoted: false
+      haveVoted: false,
+      haveDownvoted: false,
+      haveUpvoted: false
     };
   }
 
   handleVote = stateKey => {
     this.setState({
       [stateKey]: this.state[stateKey] + 1,
-      haveVoted: true
-      //haveDownvoted: [stateKey] === 'downvotes' && true
+      haveVoted: true,
+      haveDownvoted: [stateKey] === 'downvotes' ? true : false
     });
   };
 
