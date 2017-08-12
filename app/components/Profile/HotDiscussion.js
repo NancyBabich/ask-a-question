@@ -90,8 +90,9 @@ const DiscussionFact = styled.div`
 `;
 
 const DiscussionFactNumber = styled.span`
-  font-family: 'Roboto Condensed';
   padding-right: .25rem;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
 `;
 
 const DiscussionStats = styled.div`

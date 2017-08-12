@@ -161,10 +161,7 @@ export default class IndividualQuestion extends Component {
 
 const Activity = styled.span`text-transform: uppercase;`;
 
-const Number = styled.span`
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-`;
+const Number = styled.span`font-style: normal;`;
 
 const QuestionStatusContainer = styled.div`
   display: flex;

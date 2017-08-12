@@ -112,15 +112,15 @@ class QuestionCard extends Component {
             <StatsContainer individualQuestion={individualQuestion}>
               <Stats>
                 <div>
-                  {discussions.length} related{' '}
+                  <Number>{discussions.length}</Number> related{' '}
                   {discussions.length !== 1 ? 'discussions' : 'discussion'}
                 </div>
                 <div>
-                  {peersInvolved.length}{' '}
+                  <Number>{peersInvolved.length}</Number>{' '}
                   {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
                 </div>
                 <div>
-                  {conversations.length}{' '}
+                  <Number>{conversations.length}</Number>{' '}
                   {conversations.length !== 1
                     ? 'conversations'
                     : 'conversation'}
@@ -158,6 +158,11 @@ const Name = styled.span`
     cursor: pointer;
   }
   font-size: 1rem;
+`;
+
+const Number = styled.span`
+  font-family: 'Roboto Condensed';
+  font-style: normal;
 `;
 
 const PrimaryCard = styled.div`
@@ -338,6 +343,5 @@ const Unfollow = styled.div`
   &:hover {
     cursor: pointer;
   }
-  font-family: 'Roboto Condensed';
   font-size: 1rem;
 `;
