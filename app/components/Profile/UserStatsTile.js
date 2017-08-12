@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ifProp, prop } from 'styled-tools';
 
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 
 const UserStatsTile = ({ number, fact, rotation, translateX }) =>
   <Tile
@@ -32,6 +32,11 @@ const Tile = styled.div`
   width: 5rem;
   height: 5rem;
   background-color: ${Colors.lightBlue};
+
+  @media screen and (max-width: 360px) {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 const TileData = styled.div`

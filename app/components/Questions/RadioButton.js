@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Colors from './../../consts/Colors';
+import Colors from './../../consts/colors';
 
 const RadioButton = ({ on, onClick }) =>
   <RadioButtonSymbol onClick={onClick}>

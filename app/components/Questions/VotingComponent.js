@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import VotingButton from './VotingButton';
 
 const VotingComponent = ({ handleVote, votingData }) => {

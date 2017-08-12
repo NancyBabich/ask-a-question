@@ -6,7 +6,7 @@ import { withRouter } from 'react-router';
 import Breakpoints from '../../consts/breakpoints';
 import Centered from './../../styled-components/Centered';
 import Container from './../../styled-components/Container';
-import Colors from './../../consts/Colors';
+import Colors from './../../consts/colors';
 import NavButton from '../../styled-components/NavButton';
 
 const Header = ({

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Breakpoints from '../../consts/breakpoints';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';
 
@@ -83,6 +83,7 @@ const DiscussionFact = styled.div`
   width: 50%;
   justify-content: center;
   align-items: center;
+  font-size: .75rem;
 
   @media screen and (max-width: ${Breakpoints.mobile}) {
   }

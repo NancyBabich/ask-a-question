@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 
 export default class VotingButton extends Component {
   constructor(props) {

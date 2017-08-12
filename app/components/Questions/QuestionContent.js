@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Centered from '../../styled-components/Centered';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import Container from '../../styled-components/Container';
 import VotingComponent from './VotingComponent';
 

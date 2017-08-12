@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';
 
@@ -65,6 +65,11 @@ const OtherUserCard = styled.div`
   background-color: ${Colors.lightGray};
   height: 5rem;
   width: 5rem;
+
+  @media screen and (max-width: 290px) {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
 `;
 
 const OtherUserCardContainer = styled.div`
@@ -72,6 +77,10 @@ const OtherUserCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 .5rem;
+
+  @media screen and (max-width: 290px) {
+    margin: 0 .25rem;
+  }
 `;
 
 const OtherUserName = styled.div`

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import AppContainer from '../AppContainer';
 import BodyContainer from '../BodyContainer';
 import Breakpoints from '../../consts/breakpoints';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import ContentContainer from '../../styled-components/ContentContainer';
 import Header from './Header';
 import QuestionCard from './QuestionCard';

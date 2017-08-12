@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
 import Breakpoints from '../../consts/breakpoints';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import VotingComponent from './VotingComponent';
 

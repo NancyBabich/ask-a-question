@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Breakpoints from '../../consts/breakpoints';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import Container from '../../styled-components/Container';
 import HowItAllStarted from './HowItAllStarted';
 import HotDiscussion from './HotDiscussion';
@@ -113,4 +113,8 @@ const UserHistory = styled.div`
   width: 75%;
   height: auto;
   align-items: center;
+
+  @media screen and (max-width: ${Breakpoints.mobile}) {
+    width: 95%;
+  }
 `;

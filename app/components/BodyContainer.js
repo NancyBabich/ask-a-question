@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Breakpoints from '../consts/breakpoints';
-import Colors from '../consts/Colors';
+import Colors from '../consts/colors';
 
 const BodyContainer = ({ children }) =>
   <PrimaryContainer>

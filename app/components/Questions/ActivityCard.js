@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
-import Colors from './../../consts/Colors';
+import Colors from './../../consts/colors';
 import ProfilePicture from './../../styled-components/ProfilePicture';
 
 const ActivityCard = ({ activity, authorId, imgSrc, isAnswer }) => {

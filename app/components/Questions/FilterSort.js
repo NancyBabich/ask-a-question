@@ -4,7 +4,7 @@ import { ifProp } from 'styled-tools';
 
 import Breakpoints from '../../consts/breakpoints';
 import Centered from './../../styled-components/Centered';
-import Colors from './../../consts/Colors';
+import Colors from './../../consts/colors';
 import Container from './../../styled-components/Container';
 import RadioButton from './RadioButton';
 

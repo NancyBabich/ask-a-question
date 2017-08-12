@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Breakpoints from '../../consts/breakpoints';
 import CloseButton from './CloseButton';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 
 const ProfileHeader = ({

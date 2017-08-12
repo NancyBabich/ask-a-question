@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import AppContainer from '../AppContainer';
 import BodyContainer from '../BodyContainer';
-import Colors from '../../consts/Colors';
+import Colors from '../../consts/colors';
 import ContentContainer from '../../styled-components/ContentContainer';
 import { loggedUser, questions, users } from '../../data/data';
 import FilterSort from './FilterSort';
