@@ -35,6 +35,10 @@ export default class IndividualQuestion extends Component {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   handleVote = stateKey => {
     this.setState({
       [stateKey]: this.state[stateKey] + 1,
