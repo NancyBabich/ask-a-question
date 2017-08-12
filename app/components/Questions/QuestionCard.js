@@ -201,7 +201,7 @@ const QuestionCardsContainer = styled.div`
   display: flex;
 
   @media screen and (max-width: 555px) {
-    width: 60%;
+    width: ${ifProp('individualQuestion', '100%', '60%')};
   }
 `;
 

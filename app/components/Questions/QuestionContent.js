@@ -32,9 +32,7 @@ const TextContainer = Container.extend`
   align-items: flex-start;
   justify-content: flex-start;
   line-height: 1.5;
-  padding-top: 1.5rem;
-  padding-left: 1rem;
-  padding-right: 3rem;
+  padding: 1.5rem 1rem 0 1rem;
 `;
 
 const VotingContainer = styled.div`
