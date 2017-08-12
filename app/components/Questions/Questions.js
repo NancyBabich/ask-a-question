@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import AppContainer from '../AppContainer';
-import BodyContainer from '../BodyContainer';
+import AppContainer from '../../styled-components/AppContainer';
+import BodyContainer from '../../styled-components/BodyContainer';
 import Colors from '../../consts/colors';
 import ContentContainer from './ContentContainer';
 import { loggedUser, questions, users } from '../../data/data';
