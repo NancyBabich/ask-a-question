@@ -34,6 +34,7 @@ class Profile extends Component {
       lastName,
       peers,
       questionsAsked,
+      userId,
       title
     } = profileOwner;
 
@@ -58,7 +59,11 @@ class Profile extends Component {
               peers={peers}
               questionsAsked={questionsAsked}
             />
-            <OtherUsers />
+            <OtherUsers
+              dateJoined={dateJoined}
+              profileOwnerId={userId}
+              users={users}
+            />
           </UserHistory>
           <HotDiscussion />
         </ProfileContainer>
@@ -78,10 +83,10 @@ const Modal = styled.div`
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  padding-top: 5%;
-  height: 200vh;
+  padding: 5% 0;
   width: 100%;
-  z-index: 3;
+  height: 200vh;
+  z-index 3;
 
   @media screen and (max-width: ${Breakpoints.tablet}) {
     padding-top: 0;
@@ -90,11 +95,11 @@ const Modal = styled.div`
 
 const ProfileContainer = Container.extend`
   width: 50%;
-  height: 80%;
+  height: auto;
   background-color: white;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 3rem 0;
+  padding-top: 3rem;
   color: ${Colors.gray};
 
   @media screen and (max-width: ${Breakpoints.tablet}) {

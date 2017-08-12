@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Colors from '../../consts/Colors';
 
 const CloseButton = ({ history }) =>
-  <ButtonContainer onClick={() => history.go(-1)}>
+  <ButtonContainer onClick={() => history.goBack()}>
     <CloseButtonBar />
     <CloseButtonBar />
   </ButtonContainer>;
@@ -18,7 +18,7 @@ const ButtonContainer = styled.div`
   right: 0;
   width: 20px;
   height: 20px;
-  padding: .75rem;
+  padding: 1rem;
   &:hover {
     cursor: pointer;
   }

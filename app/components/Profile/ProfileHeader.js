@@ -117,7 +117,7 @@ const ActivityTime = styled.div`
 const Name = styled.div`
   color: ${Colors.darkBlue};
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-top: 1rem;
 `;
 
@@ -133,9 +133,9 @@ const UserSummary = styled.div`
   width: 100%;
   justify-content: space-between;
   font-size: .75em;
-  padding: 1rem 0 2rem 0;
+  padding: 1rem 0;
   border-bottom: solid 1px ${Colors.gray};
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   @media screen and (max-width: ${Breakpoints.mobile}) {
     flex-direction: column;

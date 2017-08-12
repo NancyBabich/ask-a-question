@@ -19,20 +19,20 @@ const HotDiscussion = () =>
       <DiscussionTopic>Vegan diet to stop diabetes progress</DiscussionTopic>
       <DiscussionStats>
         <DiscussionStatsUnit>
-          <DiscussionFactOne>
+          <DiscussionFact>
             <DiscussionFactNumber>6</DiscussionFactNumber> peers involved
-          </DiscussionFactOne>
-          <DiscussionFactTwo>
+          </DiscussionFact>
+          <DiscussionFact>
             <DiscussionFactNumber>3</DiscussionFactNumber> related discussions
-          </DiscussionFactTwo>
+          </DiscussionFact>
         </DiscussionStatsUnit>
         <DiscussionStatsUnit>
-          <DiscussionFactThree>
+          <DiscussionFact>
             <DiscussionFactNumber>3</DiscussionFactNumber> conversations
-          </DiscussionFactThree>
-          <DiscussionFactFour>
+          </DiscussionFact>
+          <DiscussionFact>
             <DiscussionFactNumber>19</DiscussionFactNumber> upvotes
-          </DiscussionFactFour>
+          </DiscussionFact>
         </DiscussionStatsUnit>
       </DiscussionStats>
     </DiscussionDetails>
@@ -78,47 +78,13 @@ const DiscussionDetails = styled.div`
   margin-top: 3rem;
 `;
 
-const DiscussionFactOne = styled.div`
+const DiscussionFact = styled.div`
   display: flex;
   width: 50%;
   justify-content: center;
   align-items: center;
 
   @media screen and (max-width: ${Breakpoints.mobile}) {
-    order: 3;
-  }
-`;
-
-const DiscussionFactTwo = styled.div`
-  display: flex;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: ${Breakpoints.mobile}) {
-    order: 1;
-  }
-`;
-
-const DiscussionFactThree = styled.div`
-  display: flex;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: ${Breakpoints.mobile}) {
-    order: 2;
-  }
-`;
-
-const DiscussionFactFour = styled.div`
-  display: flex;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: ${Breakpoints.mobile}) {
-    order: 4;
   }
 `;
 

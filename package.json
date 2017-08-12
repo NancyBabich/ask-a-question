@@ -8,7 +8,6 @@
     "production": "webpack -p",
     "start": "webpack-dev-server --inline --hot",
     "prettier": "prettier --single-quote --write ./app/**/*.js",
-    "flow": "flow"
   },
   "repository": {
     "type": "git",
@@ -40,8 +39,7 @@
     "html-webpack-plugin": "^2.26.0",
     "prettier": "^1.5.3",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2",
-    "flow-bin": "^0.47.0"
+    "webpack-dev-server": "^1.16.2"
   },
   "bugs": {
     "url": "https://github.com/NancyBabich/ask-a-question/issues"

@@ -5,32 +5,48 @@ import Colors from '../../consts/Colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';
 
-const OtherUsers = () =>
-  <OtherUsersContainer>
-    <ProfileSectionTitle>
-      Who joined the platform that same period
-    </ProfileSectionTitle>
-    <UserCards>
-      <OtherUserCardContainer>
-        <OtherUserCard>
-          <ProfilePicture src="https://s-media-cache-ak0.pinimg.com/736x/7e/92/e3/7e92e3bc2f433cf2c87d1bf870f506c4--square-face-hairstyles-wavy-bob-hairstyles.jpg" />
-        </OtherUserCard>
-        <OtherUserName>S.E.N. Waweru</OtherUserName>
-      </OtherUserCardContainer>
-      <OtherUserCardContainer>
-        <OtherUserCard>
-          <ProfilePicture src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/7/005/087/3bb/1f6a219.jpg" />
-        </OtherUserCard>
-        <OtherUserName>Patricia</OtherUserName>
-      </OtherUserCardContainer>
-      <OtherUserCardContainer>
-        <OtherUserCard>
-          <ProfilePicture src="https://media1.popsugar-assets.com/files/thumbor/jTRjxXgxI-nNBHKof7ju_46Paho/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/09/02/092/n/1922153/e43c9ee6cc77c5e6_razorsquare.jpg" />
-        </OtherUserCard>
-        <OtherUserName>Joseph Aluoch</OtherUserName>
-      </OtherUserCardContainer>
-    </UserCards>
-  </OtherUsersContainer>;
+const OtherUsers = ({ dateJoined, profileOwnerId, users }) => {
+  const profileOwnerIndex = users.indexOf(
+    users.find(user => user.userId === profileOwnerId)
+  );
+
+  users.splice(profileOwnerIndex, 1);
+
+  const otherUsersToDisplay = users
+    .sort((a, b) => {
+      const diffA = Math.abs(dateJoined - a);
+      const diffB = Math.abs(dateJoined - b);
+      return diffA - diffB;
+    })
+    .slice(0, 3);
+
+  const closestUsersTiles = otherUsersToDisplay.map(user =>
+    <OtherUserCardContainer>
+      <OtherUserCard>
+        <ProfilePicture src={user.imgUrl} />
+      </OtherUserCard>
+      <OtherUserName>
+        <div>
+          {user.firstName}
+        </div>
+        <div>
+          {user.lastName}
+        </div>
+      </OtherUserName>
+    </OtherUserCardContainer>
+  );
+
+  return (
+    <OtherUsersContainer>
+      <ProfileSectionTitle>
+        Who joined the platform that same period
+      </ProfileSectionTitle>
+      <UserCards>
+        {closestUsersTiles}
+      </UserCards>
+    </OtherUsersContainer>
+  );
+};
 
 export default OtherUsers;
 
@@ -55,12 +71,14 @@ const OtherUserCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 .5rem;
 `;
 
 const OtherUserName = styled.div`
   width: 100%;
   text-align: center;
   color: ${Colors.darkBlue};
+  font-size: .85rem;
   font-weight: 700;
   margin-top: .5rem;
 `;

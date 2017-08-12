@@ -58,7 +58,7 @@ const ProfileSectionContainer = styled.div`
 const UserHistoryStatsContainer = styled.div`
   display: flex;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   justify-content: center;
 
   @media screen and (max-width: ${Breakpoints.mobile}) {
