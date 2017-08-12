@@ -12,6 +12,7 @@ const ProfileHeader = ({
   activityLevel,
   dateJoined,
   history,
+  lastLogged,
   lastName,
   profileOwnerPicUrl,
   title
@@ -32,6 +33,17 @@ const ProfileHeader = ({
     );
   }
 
+  moment.locale('yourlang', {
+    calendar: {
+      lastDay: function() {
+        return '[last]';
+      },
+      sameDay: function() {
+        return '[Today]';
+      }
+    }
+  });
+
   return (
     <ProfileHeaderContainer>
       <CloseButton history={history} />
@@ -48,7 +60,9 @@ const ProfileHeader = ({
         </ActivityContainer>
         <ActivityContainer>
           <Activity>last seen</Activity>
-          <ActivityTime>Saturday afternoon</ActivityTime>
+          <ActivityTime>
+            {moment(lastLogged).calendar()}
+          </ActivityTime>
         </ActivityContainer>
         <ActivityContainer>
           <Activity>activity level</Activity>
