@@ -1,5 +1,5 @@
 # ask-a-question
-Ask-a-question is a piece of a user interface for a question-and-answer app. Built with React.js, it was an exercise in writing SAPs. So far, there is no back end for the app. The app will be improved and expanded with time. See the "Issues" tab to find out more about what will be fixed in the first place.
+Ask-a-question is a piece of a user interface for a question-and-answer app. Built with React.js, it was an exercise in writing SPAs. So far, there is no back end for the app. The app will be improved and expanded with time. See the "Issues" tab to find out more about what will be fixed in the first place.
 
 ## Using
 Run </br></br>
