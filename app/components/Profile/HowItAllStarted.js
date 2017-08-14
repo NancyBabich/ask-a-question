@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import NavButton from '../../styled-components/NavButton';
+import NavButton from '..//styled-components/NavButton';
 
 const HowItAllStarted = () =>
   <HowItStartedContainer>

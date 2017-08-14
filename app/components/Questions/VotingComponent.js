@@ -13,8 +13,7 @@ const VotingComponent = ({ handleVote, votingData }) => {
       <div>
         {votingData.upvotes >= votingData.downvotes ||
         (votingData.haveVoted && !votingData.haveDownvoted)
-          ?
-            <Votes>
+          ? <Votes>
               <Number>{votingData.upvotes}</Number>{' '}
               {votingData.upvotes !== 1 ? 'upvotes' : 'upvote'}
             </Votes>

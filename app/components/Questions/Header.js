@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 import Breakpoints from '../../consts/breakpoints';
 import Colors from './../../consts/colors';
-import NavButton from '../../styled-components/NavButton';
+import NavButton from '../styled-components/NavButton';
 
 const Header = ({
   handleSearch,

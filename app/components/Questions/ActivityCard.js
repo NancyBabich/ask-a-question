@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
 import Colors from './../../consts/colors';
-import ProfilePicture from './../../styled-components/ProfilePicture';
+import ProfilePicture from '../styled-components/ProfilePicture';
 
 const ActivityCard = ({ activity, authorId, imgSrc, isAnswer }) => {
   const link = {

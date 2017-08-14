@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Colors from '../../consts/colors';
-import ProfilePicture from '../../styled-components/ProfilePicture';
+import ProfilePicture from '../styled-components/ProfilePicture';
 import ProfileSectionTitle from './ProfileSectionTitle';
 
 const OtherUsers = ({ dateJoined, profileOwnerId, users }) => {
