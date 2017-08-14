@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 import ActivityCards from './ActivityCards';
 import Breakpoints from '../../consts/breakpoints';
-import Colors from './../../consts/colors';
-import ProfilePicture from './../../styled-components/ProfilePicture';
+import Colors from '../../consts/colors';
+import ProfilePicture from '../styled-components/ProfilePicture';
 import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 
