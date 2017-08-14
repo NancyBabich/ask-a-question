@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ifProp } from 'styled-tools';
 
-import ActivityCard from './ActivityCard';
 import Breakpoints from '../../consts/breakpoints';
 
 const SecondaryCard = ({ content }) =>

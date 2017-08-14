@@ -36,7 +36,6 @@ class QuestionCard extends Component {
       handleVote,
       history,
       individualQuestion,
-      isOnShelf,
       mainImgSrc,
       name,
       peersInvolved,
@@ -135,8 +134,6 @@ class QuestionCard extends Component {
 
 export default withRouter(QuestionCard);
 
-const Activity = styled.span`text-transform: uppercase;`;
-
 const HeaderContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -165,16 +162,6 @@ const Number = styled.span`
   font-style: normal;
 `;
 
-const PrimaryCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: ${ifProp('individualQuestion', '100%', '90%')};
-  width: ${ifProp('individualQuestion', '100%', '80%')};
-  background-color: ${Colors.lightBlue};
-`;
-
 const Question = styled.div`
   display: flex;
   width: 100%;
@@ -200,16 +187,6 @@ const QuestionCardBody = styled.div`
   width: 100%;
 `;
 
-const QuestionCardsContainer = styled.div`
-  height: 100%;
-  width: ${ifProp('individualQuestion', '100%', '80%')};
-  display: flex;
-
-  @media screen and (max-width: 555px) {
-    width: ${ifProp('individualQuestion', '100%', '60%')};
-  }
-`;
-
 const QuestionCardContainer = styled.div`
   position: relative;
   display: flex;
@@ -223,6 +200,16 @@ const QuestionCardContainer = styled.div`
   padding-bottom: ${ifProp('individualQuestion', '0', '3rem')};
   margin-top: 1px;
   box-shadow: 4px 0px 5px 0px rgba(50, 50, 50, 0.47);
+`;
+
+const QuestionCardsContainer = styled.div`
+  height: 100%;
+  width: ${ifProp('individualQuestion', '100%', '80%')};
+  display: flex;
+
+  @media screen and (max-width: 555px) {
+    width: ${ifProp('individualQuestion', '100%', '60%')};
+  }
 `;
 
 const QuestionCardHeader = styled.div`
@@ -249,16 +236,6 @@ const QuestionStatus = styled.div`
   font-size: .75rem;
   padding-bottom: .5rem;
   padding-top: .25rem;
-`;
-
-const QuestionStatusContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  width: 20%;
-  text-transform: uppercase;
-  color: ${Colors.darkGray};
 `;
 
 const QuestionStatusCard = styled.div`
@@ -309,31 +286,6 @@ const StatsContainer = styled.div`
     width: 40%;
     justify-content: center;
   }
-`;
-
-const StyledButton = styled.div`
-  position: absolute;
-  width: 150px;
-  height: 30px;
-  border: solid 1px ${Colors.gray};
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  background-color: white;
-  vertical-align: middle;
-  font-size: .8rem;
-  font-weight: 700;
-  line-height: 30px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const Title = styled.div`
-  color: ${Colors.darkGray};
-  text-transform: uppercase;
-  font-size: .75rem;
 `;
 
 const Unfollow = styled.div`

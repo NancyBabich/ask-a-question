@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { ifProp, prop } from 'styled-tools';
+import { ifProp } from 'styled-tools';
 import { withRouter } from 'react-router';
 
 import Breakpoints from '../../consts/breakpoints';
@@ -12,7 +12,6 @@ const Header = ({
   history,
   rightComponent,
   searchBar,
-  inputValue,
   singleQuestion
 }) => {
   let searchInput;

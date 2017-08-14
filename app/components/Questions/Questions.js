@@ -149,5 +149,3 @@ const StyledButton = styled.div`
     cursor: pointer;
   }
 `;
-
-const StyledContainer = styled.div`width: 100%;`;

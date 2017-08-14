@@ -5,7 +5,6 @@ import moment from 'moment';
 import styled from 'styled-components';
 import { ifProp } from 'styled-tools';
 
-import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/colors';
 import ProfilePicture from '../../styled-components/ProfilePicture';
 import VotingComponent from './VotingComponent';
@@ -36,10 +35,8 @@ class ResponseCard extends Component {
       authorId,
       authorPicUrl,
       dateAdded,
-      downvotes,
       secondary,
-      text,
-      upvotes
+      text
     } = this.props;
 
     const link = {

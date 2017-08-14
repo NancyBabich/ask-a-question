@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ifProp, prop } from 'styled-tools';
 
 import Colors from '../../consts/colors';
 

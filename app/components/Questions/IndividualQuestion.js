@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import AppContainer from '../../styled-components/AppContainer';
 import BodyContainer from '../../styled-components/BodyContainer';
-import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/colors';
 import ContentContainer from './ContentContainer';
 import Header from './Header';

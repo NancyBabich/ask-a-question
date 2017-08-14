@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Route, Switch } from 'react-router-dom';
 
-import AppContainer from '../styled-components/AppContainer';
 import IndividualQuestion from './Questions/IndividualQuestion';
 import Profile from './Profile/Profile';
 import Questions from './Questions/Questions';

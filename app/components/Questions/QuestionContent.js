@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Colors from '../../consts/colors';
 import VotingComponent from './VotingComponent';
 
 const QuestionContent = ({ handleVote, questionText, votingData }) =>
