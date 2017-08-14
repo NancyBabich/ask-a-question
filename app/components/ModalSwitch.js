@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import IndividualQuestion from './Questions/IndividualQuestion';
 import Profile from './Profile/Profile';
