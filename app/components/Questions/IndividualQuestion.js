@@ -42,7 +42,7 @@ export default class IndividualQuestion extends Component {
     this.setState({
       [stateKey]: this.state[stateKey] + 1,
       haveVoted: true,
-      haveDownvoted: [stateKey] === 'downvotes' ? true : false
+      haveDownvoted: stateKey === 'downvotes' ? true : false
     });
   };
 
