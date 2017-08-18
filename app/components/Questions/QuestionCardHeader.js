@@ -25,10 +25,12 @@ class QuestionCardHeader extends Component {
   render() {
     const {
       authorId,
+      history,
       individualQuestion,
       mainImgSrc,
       name,
-      question
+      question,
+      questionId
     } = this.props;
 
     const link = {

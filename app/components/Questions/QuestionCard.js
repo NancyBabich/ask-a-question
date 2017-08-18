@@ -8,76 +8,77 @@ import QuestionContent from './QuestionContent';
 import SecondaryCard from './SecondaryCard';
 import QuestionCardHeader from './QuestionCardHeader';
 
-const QuestionCard = ({authorId,
-      conversations,
-      discussions,
-      questionAnswers,
-      questionComments,
-      handleVote,
-      individualQuestion,
-      isOnShelf,
-      mainImgSrc,
-      name,
-      peersInvolved,
-      question,
-      questionText,
-      status,
-      votingData}) =>
-    
-      <QuestionCardContainer individualQuestion={individualQuestion}>
-        <QuestionCardHeader
-          authorId={authorId}
-          individualQuestion={individualQuestion}
-          isOnShelf={isOnShelf}
-          mainImgSrc={mainImgSrc}
-          name={name}
-          question={question}
-        />
+const QuestionCard = ({
+  authorId,
+  conversations,
+  discussions,
+  questionAnswers,
+  questionComments,
+  handleVote,
+  individualQuestion,
+  isOnShelf,
+  mainImgSrc,
+  name,
+  peersInvolved,
+  question,
+  questionId,
+  questionText,
+  status,
+  votingData
+}) =>
+  <QuestionCardContainer individualQuestion={individualQuestion}>
+    <QuestionCardHeader
+      authorId={authorId}
+      individualQuestion={individualQuestion}
+      isOnShelf={isOnShelf}
+      mainImgSrc={mainImgSrc}
+      name={name}
+      question={question}
+      questionId={questionId}
+    />
 
-        <QuestionCardBody>
-          <QuestionCardsContainer individualQuestion={individualQuestion}>
-            <QuestionStatusCard>
-              {!individualQuestion &&
-                <QuestionStatus>
-                  {status}
-                </QuestionStatus>}
-            </QuestionStatusCard>
-            <SecondaryCard
-              content={
-                individualQuestion
-                  ? <QuestionContent
-                      handleVote={handleVote}
-                      votingData={votingData}
-                      questionText={questionText}
-                    />
-                  : <ActivityCards
-                      questionComments={questionComments}
-                      questionAnswers={questionAnswers}
-                    />
-              }
-            />
-          </QuestionCardsContainer>
+    <QuestionCardBody>
+      <QuestionCardsContainer individualQuestion={individualQuestion}>
+        <QuestionStatusCard>
           {!individualQuestion &&
-            <StatsContainer individualQuestion={individualQuestion}>
-              <Stats>
-                <div>
-                  <Number>{discussions.length}</Number> related{' '}
-                  {discussions.length !== 1 ? 'discussions' : 'discussion'}
-                </div>
-                <div>
-                  <Number>{peersInvolved.length}</Number>{' '}
-                  {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
-                </div>
-                <div>
-                  <Number>{conversations.length}</Number>{' '}
-                  {conversations.length !== 1
-                    ? 'conversations'
-                    : 'conversation'}
-                </div>
-              </Stats>
-            </StatsContainer>}
-        </QuestionCardBody>
-      </QuestionCardContainer>;
+            <QuestionStatus>
+              {status}
+            </QuestionStatus>}
+        </QuestionStatusCard>
+        <SecondaryCard
+          content={
+            individualQuestion
+              ? <QuestionContent
+                  handleVote={handleVote}
+                  votingData={votingData}
+                  questionText={questionText}
+                />
+              : <ActivityCards
+                  questionComments={questionComments}
+                  questionAnswers={questionAnswers}
+                />
+          }
+        />
+      </QuestionCardsContainer>
+      {!individualQuestion &&
+        <StatsContainer individualQuestion={individualQuestion}>
+          <Stats>
+            <div>
+              <Number>{discussions.length}</Number> related{' '}
+              {discussions.length !== 1 ? 'discussions' : 'discussion'}
+            </div>
+            <div>
+              <Number>{peersInvolved.length}</Number>{' '}
+              {peersInvolved.length !== 1 ? 'peers' : 'peer'} involved
+            </div>
+            <div>
+              <Number>{conversations.length}</Number>{' '}
+              {conversations.length !== 1 ? 'conversations' : 'conversation'}
+            </div>
+          </Stats>
+        </StatsContainer>}
+    </QuestionCardBody>
+  </QuestionCardContainer>;
 
 export default QuestionCard;
 
