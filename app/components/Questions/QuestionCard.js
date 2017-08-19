@@ -47,9 +47,15 @@ const QuestionCard = ({
       status={status}
       upvotes={upvotes}
     />
+    {individualQuestion &&
+      <StyledButton>
+        <Activity>give</Activity> new answer
+      </StyledButton>}
   </QuestionCardContainer>;
 
 export default QuestionCard;
+
+const Activity = styled.span`text-transform: uppercase;`;
 
 const QuestionCardContainer = styled.div`
   position: relative;
@@ -60,4 +66,23 @@ const QuestionCardContainer = styled.div`
   padding-bottom: ${ifProp('individualQuestion', '0', '3rem')};
   margin-top: 1px;
   box-shadow: 4px 0px 5px 0px rgba(50, 50, 50, 0.47);
+`;
+
+const StyledButton = styled.div`
+  position: absolute;
+  width: 125px;
+  height: 30px;
+  border: solid 1px ${Colors.gray};
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: white;
+  vertical-align: middle;
+  font-size: .8rem;
+  font-weight: 700;
+  line-height: 30px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
