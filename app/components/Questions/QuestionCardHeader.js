@@ -39,7 +39,7 @@ class QuestionCardHeader extends Component {
     };
 
     return (
-      <Container>
+      <Container individualQuestion={individualQuestion}>
         <ImageContainer>
           <Link to={link}>
             <ProfilePicture src={mainImgSrc} />
@@ -60,12 +60,13 @@ class QuestionCardHeader extends Component {
                 !individualQuestion && history.push(`/question/${questionId}`)}
             >
               {question}
-              <Unfollow
-                individualQuestion={individualQuestion}
-                onClick={this.toggleFollow}
-              >
-                {this.state.isFollowed ? 'unfollow' : 'follow'}
-              </Unfollow>
+              {individualQuestion &&
+                <Unfollow
+                  individualQuestion={individualQuestion}
+                  onClick={this.toggleFollow}
+                >
+                  {this.state.isFollowed ? 'unfollow' : 'follow'}
+                </Unfollow>}
             </Question>
           </div>
         </HeaderContentContainer>
@@ -136,7 +137,6 @@ const QuestionDescription = styled.div`
 `;
 
 const Unfollow = styled.div`
-  display: ${ifProp('individualQuestion', 'flex', 'none')};
   padding: 0 4rem;
   font-family: 'Roboto Condensed';
   font-style: normal;
