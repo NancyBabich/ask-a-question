@@ -1,5 +1,5 @@
 ***
-IMPORTANT: The most recent, cleaner version of the app is available on branch `refactor`. It has not been merged to `master` yet so as not to violate the terms of the agreement. However, if interested in the refactored and slightly tweaked version, follow the steps described in the __Using__ section but run `git checkout refactor` before running `npm run start`.
+__IMPORTANT:__ The most recent, cleaner version of the app is available on branch `refactor`. It has not been merged to `master` yet so as not to violate the terms of the agreement. However, if interested in the refactored and slightly tweaked version, follow the steps described in the __Using__ section but run `git checkout refactor` before running `npm run start`.
 ***
 
 # ask-a-question
