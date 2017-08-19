@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import VotingComponent from './VotingComponent';
 
-const QuestionContent = ({ handleVote, questionText, votingData }) =>
+const QuestionContent = ({ downvotes, questionText, upvotes }) =>
   <InnerContainer>
     <TextContainer>
       {questionText}
     </TextContainer>
     <VotingContainer>
-      <VotingComponent votingData={votingData} handleVote={handleVote} />
+      <VotingComponent downvotes={downvotes} upvotes={upvotes} />
     </VotingContainer>
   </InnerContainer>;
 

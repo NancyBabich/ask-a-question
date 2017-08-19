@@ -9,74 +9,50 @@ import Colors from '../../consts/colors';
 import ProfilePicture from '../styled-components/ProfilePicture';
 import VotingComponent from './VotingComponent';
 
-class ResponseCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      upvotes: this.props.upvotes,
-      downvotes: this.props.downvotes,
-      haveVoted: false,
-      haveDownvoted: false,
-      haveUpvoted: false
-    };
-  }
-
-  handleVote = stateKey => {
-    this.setState({
-      [stateKey]: this.state[stateKey] + 1,
-      haveVoted: true,
-      haveDownvoted: [stateKey] === 'downvotes' ? true : false
-    });
+const ResponseCard = ({
+  authorFirstName,
+  authorId,
+  authorPicUrl,
+  dateAdded,
+  downvotes,
+  secondary,
+  text,
+  upvotes
+}) => {
+  const link = {
+    pathname: `/profile/${authorId}`,
+    state: { modal: true }
   };
 
-  render() {
-    const {
-      authorFirstName,
-      authorId,
-      authorPicUrl,
-      dateAdded,
-      secondary,
-      text
-    } = this.props;
-
-    const link = {
-      pathname: `/profile/${authorId}`,
-      state: { modal: true }
-    };
-
-    return (
-      <ResponseCardContainer secondary={secondary}>
-        <ProfilePictureContainer secondary={secondary}>
-          <Link to={link}>
-            <ProfilePicture src={authorPicUrl} />
-          </Link>
-        </ProfilePictureContainer>
-        <ResponseContainer secondary={secondary}>
-          <ResponseContentContainer secondary={secondary}>
-            <ResponseHeader>
-              <Link to={link} style={{ textDecoration: 'none' }}>
-                <Name>
-                  {authorFirstName}{' '}
-                </Name>
-              </Link>
-              <Activity>commented it </Activity>
-              <Divider /> <Time> {moment(dateAdded).fromNow()}</Time>
-            </ResponseHeader>
-            <ResponseContent>
-              {text}
-            </ResponseContent>
-          </ResponseContentContainer>
-          <VotingContainer secondary={secondary}>
-            <VotingComponent
-              handleVote={this.handleVote}
-              votingData={this.state}
-            />
-          </VotingContainer>
-        </ResponseContainer>
-      </ResponseCardContainer>
-    );
-  }
-}
+  return (
+    <ResponseCardContainer secondary={secondary}>
+      <ProfilePictureContainer secondary={secondary}>
+        <Link to={link}>
+          <ProfilePicture src={authorPicUrl} />
+        </Link>
+      </ProfilePictureContainer>
+      <ResponseContainer secondary={secondary}>
+        <ResponseContentContainer secondary={secondary}>
+          <ResponseHeader>
+            <Link to={link} style={{ textDecoration: 'none' }}>
+              <Name>
+                {authorFirstName}{' '}
+              </Name>
+            </Link>
+            <Activity>commented it </Activity>
+            <Divider /> <Time> {moment(dateAdded).fromNow()}</Time>
+          </ResponseHeader>
+          <ResponseContent>
+            {text}
+          </ResponseContent>
+        </ResponseContentContainer>
+        <VotingContainer secondary={secondary}>
+          <VotingComponent downvotes={downvotes} upvotes={upvotes} />
+        </VotingContainer>
+      </ResponseContainer>
+    </ResponseCardContainer>
+  );
+};
 
 export default withRouter(ResponseCard);
 

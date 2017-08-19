@@ -10,9 +10,9 @@ const QuestionCard = ({
   authorId,
   conversations,
   discussions,
+  downvotes,
   questionAnswers,
   questionComments,
-  handleVote,
   individualQuestion,
   isOnShelf,
   mainImgSrc,
@@ -22,7 +22,7 @@ const QuestionCard = ({
   questionId,
   questionText,
   status,
-  votingData
+  upvotes
 }) =>
   <QuestionCardContainer individualQuestion={individualQuestion}>
     <QuestionCardHeader
@@ -38,14 +38,14 @@ const QuestionCard = ({
     <QuestionCardBody
       conversations={conversations}
       discussions={discussions}
-      hanldeVote={handleVote}
+      downvotes={downvotes}
       individualQuestion={individualQuestion}
       peersInvolved={peersInvolved}
       questionAnswers={questionAnswers}
       questionComments={questionComments}
       questionText={questionText}
       status={status}
-      votingData={votingData}
+      upvotes={upvotes}
     />
   </QuestionCardContainer>;
 

@@ -10,14 +10,14 @@ import QuestionContent from './QuestionContent';
 const QuestionCardBody = ({
   conversations,
   discussions,
-  handleVote,
+  downvotes,
   individualQuestion,
   peersInvolved,
   questionAnswers,
   questionComments,
   questionText,
   status,
-  votingData
+  upvotes
 }) =>
   <Container>
     <QuestionCardsContainer individualQuestion={individualQuestion}>
@@ -30,9 +30,9 @@ const QuestionCardBody = ({
       <MainCard>
         {individualQuestion
           ? <QuestionContent
-              handleVote={handleVote}
-              votingData={votingData}
+              downvotes={downvotes}
               questionText={questionText}
+              upvotes={upvotes}
             />
           : <ActivityCards
               questionComments={questionComments}

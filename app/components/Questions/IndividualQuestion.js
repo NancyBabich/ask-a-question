@@ -20,31 +20,11 @@ import ResponseCard from './ResponseCard';
 export default class IndividualQuestion extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      upvotes: questions.find(
-        question => question.questionId == this.props.match.params.questionId
-      ).upvotes,
-      downvotes: questions.find(
-        question => question.questionId == this.props.match.params.questionId
-      ).upvotes,
-      haveUpvoted: false,
-      haveVoted: false,
-      haveDownvoted: false
-    };
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-
-  handleVote = stateKey => {
-    this.setState({
-      [stateKey]: this.state[stateKey] + 1,
-      haveVoted: true,
-      haveDownvoted: stateKey === 'downvotes' ? true : false
-    });
-  };
 
   render() {
     const currentQuestion = questions.find(
@@ -125,12 +105,12 @@ export default class IndividualQuestion extends Component {
           <ContentContainer singleQuestion>
             <QuestionCard
               authorId={questionAuthor.userId}
+              downvotes={currentQuestion.downvotes}
               individualQuestion
               mainImgSrc={questionAuthor.imgUrl}
               name={questionAuthor.firstName}
-              handleVote={this.handleVote}
               question={currentQuestion.question}
-              votingData={this.state}
+              upvotes={currentQuestion.upvotes}
               questionText={currentQuestion.questionText}
               isOnShelf={loggedUser.questionsFollowed.includes(
                 currentQuestion.questionId
