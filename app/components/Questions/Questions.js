@@ -56,6 +56,10 @@ export default class QuestionsContainer extends Component {
 
     const getUser = question => {
       const currentUser = users.find(user => user.userId === question.authorId);
+      const votingData = {
+        downvotes: question.downvotes,
+        upvotes: question.upvotes
+      };
 
       return (
         <QuestionCard
@@ -72,6 +76,7 @@ export default class QuestionsContainer extends Component {
           questionId={question.questionId}
           mainImgSrc={currentUser.imgUrl}
           status={question.status}
+          votingData={votingData}
         />
       );
     };
