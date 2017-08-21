@@ -3,7 +3,7 @@ __IMPORTANT:__ The most recent, cleaner version of the app is available on branc
 ***
 
 # ask-a-question
-Ask-a-question is a piece of a user interface for a question-and-answer app. Built with React.js, it was an exercise in writing SPAs. So far, there is no back end for the app. The app will be improved and expanded with time. See the "Issues" tab to find out more about what will be fixed in the first place.</br></br>
+Ask-a-question is a piece of a user interface for a question-and-answer app. Built with React.js, it was an exercise in writing SPAs. So far, there is no back end for the app. The app will be improved and expanded with time. See the "Issues" tab to find out more about what will be fixed in the first place. Moreover, a simple Node.js server is being created for the app. The server will be available here: https://github.com/NancyBabich/ask-a-question-server. Once it's ready, the Using section will be adjusted to explain how to use the app to get the data from the server. Check for updates soon!</br></br>
 
 ## Using
 Run </br></br>
