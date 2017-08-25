@@ -17,7 +17,7 @@ export default class IndividualQuestion extends Component {
     this.state = {
       answers: [],
       comments: [],
-      questions: [],
+      question: [],
       users: []
     };
   }
@@ -25,34 +25,44 @@ export default class IndividualQuestion extends Component {
   componentDidMount() {
     const APIUrl = 'https://aqueous-lowlands-16989.herokuapp.com';
 
-    const APICalls = ['answers', 'comments', 'questions', 'users'];
+    const APICalls = [
+      { endpoint: 'answers', dataType: 'answers' },
+      { endpoint: 'comments', dataType: 'comments' },
+      {
+        endpoint: `questions/${this.props.match.params.questionId}`,
+        dataType: 'question'
+      },
+      { endpoint: 'users', dataType: 'users' }
+    ];
 
     APICalls.forEach(callData => {
-      fetch(`${APIUrl}/${callData}`).then(res => res.json()).then(obj => {
-        const data = obj[callData];
-        this.setState({ [callData]: data });
-      });
+      fetch(`${APIUrl}/${callData.endpoint}`)
+        .then(res => res.json())
+        .then(obj => {
+          const data = obj[callData.dataType];
+          this.setState({ [callData.dataType]: data });
+        });
     });
 
     window.scrollTo(0, 0);
   }
 
   render() {
-    const { answers, comments, questions, users } = this.state;
+    const { answers, comments, question, users } = this.state;
 
-    const currentQuestion =
-      questions.length &&
-      questions.find(
-        question => question.questionId == this.props.match.params.questionId
-      );
+    // const currentQuestion =
+    //   questions.length &&
+    //   questions.find(
+    //     question => question.questionId == this.props.match.params.questionId
+    //   );
 
     const questionAuthor =
-      users.length &&
-      users.find(user => user.userId === currentQuestion.authorId);
+      users.length && users.find(user => user.userId === question.authorId);
 
     const responses =
-      currentQuestion &&
-      currentQuestion.answers.map((questionAnswer, i) => {
+      question &&
+      question.answers &&
+      question.answers.map((questionAnswer, i) => {
         const currentAnswer =
           answers.length &&
           answers.find(answer => answer.answerId === questionAnswer);
@@ -122,7 +132,7 @@ export default class IndividualQuestion extends Component {
             <QuestionStatusContainer>
               <span>Last time discussed </span>
               <Time>
-                {' '}{moment(currentQuestion.dateLastCommented).fromNow()}
+                {' '}{moment(question.dateLastCommented).fromNow()}
               </Time>
             </QuestionStatusContainer>
           }
@@ -131,31 +141,31 @@ export default class IndividualQuestion extends Component {
         <BodyContainer>
           <ContentContainer singleQuestion>
             {questionAuthor &&
-              currentQuestion &&
+              question &&
               <QuestionCard
                 authorId={questionAuthor.userId}
-                downvotes={currentQuestion.downvotes}
+                downvotes={question.downvotes}
                 individualQuestion
                 mainImgSrc={questionAuthor.imgUrl}
                 name={questionAuthor.firstName}
-                question={currentQuestion.question}
-                upvotes={currentQuestion.upvotes}
-                questionText={currentQuestion.questionText}
+                question={question.question}
+                upvotes={question.upvotes}
+                questionText={question.questionText}
                 isOnShelf={loggedUser.questionsFollowed.includes(
-                  currentQuestion.questionId
+                  question.questionId
                 )}
               />}
             <ResponseSection>
               <ResponseSectionHeader>
                 <Number>
-                  {currentQuestion && currentQuestion.answers.length
-                    ? currentQuestion.answers.length
+                  {question && question.answers && question.answers.length
+                    ? question.answers.length
                     : 'No'}
                 </Number>{' '}
-                {currentQuestion && currentQuestion.answers.length !== 1
+                {question && question.answers && question.answers.length !== 1
                   ? 'peers'
                   : 'peer'}{' '}
-                {currentQuestion && !currentQuestion.answers.length
+                {question && question.answers && !question.answers.length
                   ? ''
                   : 'already'}{' '}
                 answered {questionAuthor && questionAuthor.firstName}
