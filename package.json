@@ -11,6 +11,7 @@
     "flow": "flow",
     "lint": "eslint **/*.js"
   },
+  "proxy": "http://localhost:3000",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NancyBabich/ask-a-question.git"

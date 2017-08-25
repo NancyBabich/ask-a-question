@@ -8,85 +8,112 @@ import Colors from '../../consts/colors';
 import ContentContainer from './ContentContainer';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
-import {
-  answers,
-  comments,
-  loggedUser,
-  questions,
-  users
-} from '../../data/data';
+import { loggedUser } from '../../data/data';
 import ResponseCard from './ResponseCard';
 
 export default class IndividualQuestion extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      answers: [],
+      comments: [],
+      questions: [],
+      users: []
+    };
   }
 
   componentDidMount() {
+    const APIUrl = 'https://aqueous-lowlands-16989.herokuapp.com';
+
+    const APICalls = ['answers', 'comments', 'questions', 'users'];
+
+    APICalls.forEach(callData => {
+      fetch(`${APIUrl}/${callData}`).then(res => res.json()).then(obj => {
+        const data = obj[callData];
+        this.setState({ [callData]: data });
+      });
+    });
+
     window.scrollTo(0, 0);
   }
 
   render() {
-    const currentQuestion = questions.find(
-      question => question.questionId == this.props.match.params.questionId
-    );
-    const questionAuthor = users.find(
-      user => user.userId === currentQuestion.authorId
-    );
+    const { answers, comments, questions, users } = this.state;
 
-    const responses = currentQuestion.answers.map((questionAnswer, i) => {
-      const currentAnswer = answers.find(
-        answer => answer.answerId === questionAnswer
+    const currentQuestion =
+      questions.length &&
+      questions.find(
+        question => question.questionId == this.props.match.params.questionId
       );
-      const currentAnswerAuthor = users.find(
-        user => user.userId === currentAnswer.authorId
-      );
-      const currentAnswerComments = currentAnswer.comments.length
-        ? currentAnswer.comments.map((currentAnswerComment, i) => {
-            const currentComment = comments.find(
-              comment => comment.commentId === currentAnswerComment
-            );
-            const currentCommentAuthor = users.find(
-              user => user.userId === currentComment.authorId
-            );
-            return (
-              <ResponseCard
-                secondary
-                key={i}
-                authorPicUrl={currentCommentAuthor.imgUrl}
-                authorFirstName={currentCommentAuthor.firstName}
-                authorId={currentCommentAuthor.userId}
-                text={currentComment.comment}
-                dateAdded={currentComment.dateAdded}
-                downvotes={currentComment.downvotes}
-                upvotes={currentComment.upvotes}
-              />
-            );
-          })
-        : null;
 
-      return (
-        <ResponseContainer key={i}>
-          <ResponseCard
-            authorId={currentAnswerAuthor.userId}
-            authorPicUrl={currentAnswerAuthor.imgUrl}
-            authorFirstName={currentAnswerAuthor.firstName}
-            text={currentAnswer.answer}
-            dateAdded={currentAnswer.dateAdded}
-            downvotes={currentAnswer.downvotes}
-            upvotes={currentAnswer.upvotes}
-          />
-          {currentAnswerComments}
-          <StyledButton>
-            {currentAnswerComments
-              ? <span>
-                  <Activity>continue</Activity> discussion
-                </span>
-              : <Activity>comment</Activity>}
-          </StyledButton>
-        </ResponseContainer>
-      );
-    });
+    const questionAuthor =
+      users.length &&
+      users.find(user => user.userId === currentQuestion.authorId);
+
+    const responses =
+      currentQuestion &&
+      currentQuestion.answers.map((questionAnswer, i) => {
+        const currentAnswer =
+          answers.length &&
+          answers.find(answer => answer.answerId === questionAnswer);
+
+        const currentAnswerAuthor =
+          users.length &&
+          users.find(user => user.userId === currentAnswer.authorId);
+
+        const currentAnswerComments = currentAnswer.comments.length
+          ? currentAnswer.comments.map((currentAnswerComment, i) => {
+              const currentComment =
+                comments.length &&
+                comments.find(
+                  comment => comment.commentId === currentAnswerComment
+                );
+              const currentCommentAuthor =
+                users.length &&
+                users.find(user => user.userId === currentComment.authorId);
+
+              return (
+                currentComment &&
+                currentCommentAuthor &&
+                <ResponseCard
+                  secondary
+                  key={i}
+                  authorPicUrl={currentCommentAuthor.imgUrl}
+                  authorFirstName={currentCommentAuthor.firstName}
+                  authorId={currentCommentAuthor.userId}
+                  text={currentComment.comment}
+                  dateAdded={currentComment.dateAdded}
+                  downvotes={currentComment.downvotes}
+                  upvotes={currentComment.upvotes}
+                />
+              );
+            })
+          : null;
+
+        return (
+          currentAnswer &&
+          currentAnswerAuthor &&
+          <ResponseContainer key={i}>
+            <ResponseCard
+              authorId={currentAnswerAuthor.userId}
+              authorPicUrl={currentAnswerAuthor.imgUrl}
+              authorFirstName={currentAnswerAuthor.firstName}
+              text={currentAnswer.answer}
+              dateAdded={currentAnswer.dateAdded}
+              downvotes={currentAnswer.downvotes}
+              upvotes={currentAnswer.upvotes}
+            />
+            {currentAnswerComments}
+            <StyledButton>
+              {currentAnswerComments
+                ? <span>
+                    <Activity>continue</Activity> discussion
+                  </span>
+                : <Activity>comment</Activity>}
+            </StyledButton>
+          </ResponseContainer>
+        );
+      });
 
     return (
       <AppContainer>
@@ -103,29 +130,35 @@ export default class IndividualQuestion extends Component {
         />
         <BodyContainer>
           <ContentContainer singleQuestion>
-            <QuestionCard
-              authorId={questionAuthor.userId}
-              downvotes={currentQuestion.downvotes}
-              individualQuestion
-              mainImgSrc={questionAuthor.imgUrl}
-              name={questionAuthor.firstName}
-              question={currentQuestion.question}
-              upvotes={currentQuestion.upvotes}
-              questionText={currentQuestion.questionText}
-              isOnShelf={loggedUser.questionsFollowed.includes(
-                currentQuestion.questionId
-              )}
-            />
+            {questionAuthor &&
+              currentQuestion &&
+              <QuestionCard
+                authorId={questionAuthor.userId}
+                downvotes={currentQuestion.downvotes}
+                individualQuestion
+                mainImgSrc={questionAuthor.imgUrl}
+                name={questionAuthor.firstName}
+                question={currentQuestion.question}
+                upvotes={currentQuestion.upvotes}
+                questionText={currentQuestion.questionText}
+                isOnShelf={loggedUser.questionsFollowed.includes(
+                  currentQuestion.questionId
+                )}
+              />}
             <ResponseSection>
               <ResponseSectionHeader>
                 <Number>
-                  {currentQuestion.answers.length
+                  {currentQuestion && currentQuestion.answers.length
                     ? currentQuestion.answers.length
                     : 'No'}
                 </Number>{' '}
-                {currentQuestion.answers.length !== 1 ? 'peers' : 'peer'}{' '}
-                {!currentQuestion.answers.length ? '' : 'already'} answered{' '}
-                {questionAuthor.firstName}
+                {currentQuestion && currentQuestion.answers.length !== 1
+                  ? 'peers'
+                  : 'peer'}{' '}
+                {currentQuestion && !currentQuestion.answers.length
+                  ? ''
+                  : 'already'}{' '}
+                answered {questionAuthor && questionAuthor.firstName}
               </ResponseSectionHeader>
 
               {responses}

@@ -8,6 +8,8 @@ import Colors from '../../consts/colors';
 import QuestionContent from './QuestionContent';
 
 const QuestionCardBody = ({
+  answers,
+  comments,
   conversations,
   discussions,
   downvotes,
@@ -17,7 +19,8 @@ const QuestionCardBody = ({
   questionComments,
   questionText,
   status,
-  upvotes
+  upvotes,
+  users
 }) =>
   <Container>
     <QuestionCardsContainer individualQuestion={individualQuestion}>
@@ -35,8 +38,11 @@ const QuestionCardBody = ({
               upvotes={upvotes}
             />
           : <ActivityCards
+              answers={answers}
+              comments={comments}
               questionComments={questionComments}
               questionAnswers={questionAnswers}
+              users={users}
             />}
       </MainCard>
     </QuestionCardsContainer>

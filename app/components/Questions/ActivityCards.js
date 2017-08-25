@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import ActivityCard from './ActivityCard';
 import Breakpoints from '../../consts/breakpoints';
 import Colors from '../../consts/colors';
-import { answers, comments, users } from '../../data/data';
 
 export default class ActivityCards extends Component {
   constructor(props) {
@@ -36,7 +35,13 @@ export default class ActivityCards extends Component {
 
   render() {
     const { cardsNumber } = this.state;
-    const { questionAnswers, questionComments } = this.props;
+    const {
+      answers,
+      comments,
+      questionAnswers,
+      questionComments,
+      users
+    } = this.props;
     const allActivitiesNumber =
       questionAnswers.length + questionComments.length;
     const commentsToDisplayIds = questionComments.slice(

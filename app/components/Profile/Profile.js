@@ -8,21 +8,74 @@ import HowItAllStarted from './HowItAllStarted';
 import HotDiscussion from './HotDiscussion';
 import OtherUsers from './OtherUsers';
 import ProfileHeader from './ProfileHeader';
-import { users } from '../../data/data';
 import UserHistoryStats from './UserHistoryStats';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activityLevel: '',
+      dateJoined: '',
+      discussions: [],
+      findings: [],
+      imgUrl: '',
+      lastLogged: '',
+      lastName: '',
+      peers: [],
+      questionsAsked: [],
+      userId: '',
+      title: '',
+      users: []
+    };
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+
+    fetch('https://aqueous-lowlands-16989.herokuapp.com/users')
+      .then(res => res.json())
+      .then(usersObj => {
+        const users = usersObj['users'];
+
+        const profileOwner = users.find(
+          user => user.userId == this.props.match.params.userId
+        );
+
+        const {
+          activityLevel,
+          dateJoined,
+          discussions,
+          findings,
+          imgUrl,
+          lastLogged,
+          lastName,
+          peers,
+          questionsAsked,
+          userId,
+          title
+        } = profileOwner;
+
+        this.setState({
+          activityLevel,
+          dateJoined,
+          discussions,
+          findings,
+          imgUrl,
+          lastLogged,
+          lastName,
+          peers,
+          questionsAsked,
+          userId,
+          title,
+          users
+        });
+      });
   }
 
   render() {
-    const { history, match } = this.props;
-    const profileOwner = users.find(user => user.userId == match.params.userId);
+    const { history } = this.props;
+
     const {
       activityLevel,
       dateJoined,
@@ -35,7 +88,7 @@ class Profile extends Component {
       questionsAsked,
       userId,
       title
-    } = profileOwner;
+    } = this.state;
 
     return (
       <Modal>
@@ -61,7 +114,7 @@ class Profile extends Component {
             <OtherUsers
               dateJoined={dateJoined}
               profileOwnerId={userId}
-              users={users}
+              users={this.state.users}
             />
           </UserHistory>
           <HotDiscussion />

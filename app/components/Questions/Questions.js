@@ -5,7 +5,7 @@ import AppContainer from '../styled-components/AppContainer';
 import BodyContainer from '../styled-components/BodyContainer';
 import Colors from '../../consts/colors';
 import ContentContainer from './ContentContainer';
-import { loggedUser, questions, users } from '../../data/data';
+import { loggedUser } from '../../data/data';
 import FilterSort from './FilterSort';
 import Header from './Header';
 import QuestionCard from './QuestionCard';
@@ -15,11 +15,56 @@ export default class QuestionsContainer extends Component {
     super(props);
 
     this.state = {
+      answers: [],
+      comments: [],
       displayAllQuestions: false,
+      questions: [],
       questionsDisplayed: 3,
       searchWord: '',
-      sortByHot: false
+      sortByHot: false,
+      users: []
     };
+  }
+
+  componentDidMount() {
+    const APIUrl = 'https://aqueous-lowlands-16989.herokuapp.com';
+
+    const APICalls = ['answers', 'comments', 'questions', 'users'];
+
+    APICalls.forEach(callData => {
+      fetch(`${APIUrl}/${callData}`).then(res => res.json()).then(obj => {
+        const data = obj[callData];
+        this.setState({ [callData]: data });
+      });
+    });
+
+    // fetch(`${APIUrl}/users`)
+    //   .then(res => res.json())
+    //   .then(usersObj => {
+    //     const users = usersObj.users;
+    //     this.setState({ users });
+    //   });
+
+    // fetch(`${APIUrl}/questions`)
+    //   .then(res => res.json())
+    //   .then(questionsObj => {
+    //     const questions = questionsObj.questions;
+    //     this.setState({ questions });
+    //   });
+
+    // fetch(`${APIUrl}/questions`)
+    //   .then(res => res.json())
+    //   .then(questionsObj => {
+    //     const questions = questionsObj.questions;
+    //     this.setState({ questions });
+    //   });
+
+    // fetch(`${APIUrl}/questions`)
+    //   .then(res => res.json())
+    //   .then(questionsObj => {
+    //     const questions = questionsObj.questions;
+    //     this.setState({ questions });
+    //   });
   }
 
   handleSearch = searchInput => {
@@ -48,37 +93,48 @@ export default class QuestionsContainer extends Component {
 
   render() {
     const {
+      answers,
+      comments,
       displayAllQuestions,
+      questions,
       questionsDisplayed,
       searchWord,
-      sortByHot
+      sortByHot,
+      users
     } = this.state;
 
     const getUser = question => {
-      const currentUser = users.find(user => user.userId === question.authorId);
-      const votingData = {
-        downvotes: question.downvotes,
-        upvotes: question.upvotes
-      };
+      if (users.length) {
+        const currentUser = users.find(
+          user => user.userId === question.authorId
+        );
+        const votingData = {
+          downvotes: question.downvotes,
+          upvotes: question.upvotes
+        };
 
-      return (
-        <QuestionCard
-          authorId={question.authorId}
-          conversations={question.conversations}
-          questionAnswers={question.answers}
-          questionComments={question.comments}
-          questionText={question.questionText}
-          discussions={question.discussions}
-          key={question.questionId}
-          name={currentUser.firstName}
-          peersInvolved={question.peersInvolved}
-          question={question.question}
-          questionId={question.questionId}
-          mainImgSrc={currentUser.imgUrl}
-          status={question.status}
-          votingData={votingData}
-        />
-      );
+        return (
+          <QuestionCard
+            answers={answers}
+            authorId={question.authorId}
+            comments={comments}
+            conversations={question.conversations}
+            questionAnswers={question.answers}
+            questionComments={question.comments}
+            questionText={question.questionText}
+            discussions={question.discussions}
+            key={question.questionId}
+            name={currentUser.firstName}
+            peersInvolved={question.peersInvolved}
+            question={question.question}
+            questionId={question.questionId}
+            mainImgSrc={currentUser.imgUrl}
+            status={question.status}
+            users={users}
+            votingData={votingData}
+          />
+        );
+      }
     };
 
     const selectedQuestions = questions.filter(question =>

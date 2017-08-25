@@ -7,7 +7,9 @@ import QuestionCardBody from './QuestionCardBody';
 import QuestionCardHeader from './QuestionCardHeader';
 
 const QuestionCard = ({
+  answers,
   authorId,
+  comments,
   conversations,
   discussions,
   downvotes,
@@ -22,7 +24,8 @@ const QuestionCard = ({
   questionId,
   questionText,
   status,
-  upvotes
+  upvotes,
+  users
 }) =>
   <QuestionCardContainer individualQuestion={individualQuestion}>
     <QuestionCardHeader
@@ -36,6 +39,8 @@ const QuestionCard = ({
     />
 
     <QuestionCardBody
+      answers={answers}
+      comments={comments}
       conversations={conversations}
       discussions={discussions}
       downvotes={downvotes}
@@ -46,6 +51,7 @@ const QuestionCard = ({
       questionText={questionText}
       status={status}
       upvotes={upvotes}
+      users={users}
     />
     {individualQuestion &&
       <StyledButton>
